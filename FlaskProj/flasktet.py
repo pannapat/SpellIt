@@ -1,6 +1,5 @@
 # -*- coding: utf-8 -*-
 import os
-import requests
 from flask import Flask, jsonify, request, json
 from flask_restful import Resource, Api, reqparse
 from flask_cors import CORS
@@ -52,8 +51,17 @@ class RetrieveLangNames(Resource):
         engine = globals()['engineOBJ']
         return engine.retrieve_lang_names()
 
+class RetrieveLangData(Resource):
+
+    def post(self):
+
+        request_data = json.loads(request.data.decode())
+        engine = globals()['engineOBJ']
+        return engine.retrieve_lang_data(request_data)
 
 
+
+api.add_resource(RetrieveLangData, '/retrieve_data')
 api.add_resource(RetrieveLangNames,'/retrieve_langs')
 api.add_resource(AuthenticateUser,'/auth')
 api.add_resource(SaveData,'/save_data')

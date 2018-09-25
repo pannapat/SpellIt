@@ -39,6 +39,13 @@ textarea.empty{
     height: 0px;
     padding: 2px;
 }
+
+.collapsible{
+ 	border-top: none !important;
+ 	border-right: none !important; 
+    border-left: none !important;
+    box-shadow :0px 0px 0px 0px !important;
+ }
 /* .btn-floating.waves-effect.waves-light { border: 2px solid #fff; } */
 </style>
 
@@ -51,7 +58,7 @@ textarea.empty{
 
                 <li><a href="academic.html" class="white-text">Tutorials</a></li>
                 <li><a href="tutors.html" class="white-text">About</a></li>
-                
+
             </div>
         </ul>
     </aside>
@@ -93,22 +100,28 @@ textarea.empty{
                 </div>
             </li>
         </ul>
-        
-        <div class="row">
-            <a class="btn-floating waves-effect red hoverable btn-large tooltipped" data-position="bottom" data-tooltip="Save Dictionary" 
-            style="left:10px;white-space:normal;font-weight: bold;" id="drawGraph">
-            <i class="material-icons right">save</i>Save</a>    
-            <a class="btn-floating waves-effect red hoverable btn-large tooltipped" data-position="bottom" data-tooltip="Generate Affix File" style="left:10px;white-space:normal;font-weight: bold;"><i class="material-icons right">assessment</i> Generate</a>    
-            
 
-            <div class="col s6 offset-s12" style="top:100px;"  id="btn_add">
-                
-                <a class="btn-floating btn-large waves-effect waves-light red  tooltipped" data-position="bottom" data-tooltip="Add More Rows">
+        <div class="row">
+            <div class="col">
+                <a class="btn-floating waves-effect red hoverable btn-large tooltipped" data-position="bottom"
+                    data-tooltip="Save Dictionary" style="left:10px;white-space:normal;font-weight: bold;" id="drawGraph">
+                    <i class="material-icons right">save</i>Save</a>
+            </div>
+            <div class="col">
+                <a class="btn-floating waves-effect red hoverable btn-large tooltipped" data-position="bottom"
+                    data-tooltip="Generate Affix File" style="left:10px;white-space:normal;font-weight: bold;"><i class="material-icons right">assessment</i>
+                    Generate</a>
+            </div>
+
+            <div class="col right" style="top:100px;" id="btn_add">
+
+                <a class="btn-floating btn-large waves-effect waves-light red  tooltipped" data-position="bottom"
+                    data-tooltip="Add More Rows">
                     <i class="material-icons">add</i></a>
 
-                    
+
             </div>
-            
+
         </div>
 
         <!-- FIXED ACTION BUTTON -->
@@ -116,12 +129,12 @@ textarea.empty{
             <a href="#" class="btn-floating red btn-large"><i class="large material-icons">mode_edit</i></a>
             <ul>
                 <li>
-                        <div class="file-field input-field">
-                            <div class="btn-floating green btn-large ">
-                                <i class="material-icons">attach_file</i><input type="file">
-                            </div>
-                            
+                    <div class="file-field input-field">
+                        <div class="btn-floating green btn-large ">
+                            <i class="material-icons">attach_file</i><input type="file">
                         </div>
+
+                    </div>
                 </li>
             </ul>
         </div>

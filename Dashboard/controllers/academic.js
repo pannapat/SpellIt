@@ -1,14 +1,14 @@
 $(document).ready(function () {
     $('.tooltipped').tooltip();
 
-    window.onload = function(){
+    // window.onload = function(){
 
-        ajaxCallsFunc('POST', "http://127.0.0.1:5000/get_user", 'application/json', null, function (branches) {
+    //     ajaxCallsFunc('POST', "http://127.0.0.1:5000/get_user", 'application/json', null, function (branches) {
             
-            localStorage.setItem("user",branches);
-        });
+    //         localStorage.setItem("user",branches);
+    //     });
 
-    };
+    // };
 
     function ajaxCallsFunc(type, url, contentType, data, callback) {
         $.ajax({
@@ -90,16 +90,11 @@ $(document).ready(function () {
         dummyData = JSON.stringify(data2);
         
         ajaxCallsFunc('POST', "http://127.0.0.1:5000/save_data", 'application/json', dummyData, function (branches) {
+
+            window.location.reload();
             
-            
-            // console.log(typeof(branches));
-            // if(Object.size(branches) > 0){
-            //     console.log("i m here");
-            //     document.getElementById("header").innerHTML = "Error";
-            //     document.getElementById("err_id").innerHTML = branches["Error"];
-            //     $("#modal1").openModal();
-            // }
         });
+
 
     });
     
