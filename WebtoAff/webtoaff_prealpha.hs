@@ -1,7 +1,7 @@
 {-=Spellit=-}
 {-=webtoaff: A .aff File Creator.=-}
 {-=Author: Matthew Mosior=-}
-{-=Version: Alpha=-}
+{-=Version: Pre-Alpha=-}
 {-=Synopsis:  This Haskell Script will query a database,=-}
 {-=tuple by tuple, and eventually create a .aff for each unique=-}
 {-=session (each time "submit" is clicked on webpage).=-}
