@@ -13,7 +13,6 @@ import qualified Data.List.Extra as E
 import Data.Maybe as M
 import Database.CouchDB
 import Database.HDBC
-import Database.HDBC.Sqlite3
 import System.Environment
 import Text.PrettyPrint.Boxes
 
