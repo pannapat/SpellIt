@@ -1,0 +1,1 @@
+web: gunicorn FlaskProj:flasket --log-file=- --error-logfile=-
