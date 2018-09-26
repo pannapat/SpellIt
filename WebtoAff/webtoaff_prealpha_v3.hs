@@ -20,9 +20,15 @@ import Text.PrettyPrint.Boxes
 
 {-Custom Data Type.-}
 
+data RuleHeader =
+    PfxHead String Char Char Int
+  | SfxHead String Char Char Int
+    deriving (Show)
+
 data Rule = 
-    Pfx Int Char Int String String 
-  | Sfx Int Char Int String String deriving (Show)
+    Pfx String Char Int String Char 
+  | Sfx String Char Int String Char 
+    deriving (Show)
 
 {-------------------}
 
@@ -47,6 +53,18 @@ tripletsnd (a,b,c) = b
 --tripletthrd
 tripletthrd :: (a,b,c) -> c
 tripletthrd (a,b,c) = c
+
+--mtripletfst
+mtripletfst :: Maybe (a,b,c) -> a
+mtripletfst (Just (a,b,c)) = a
+
+--mtripletsnd
+mtripletsnd :: Maybe (a,b,c) -> b
+mtripletsnd (Just (a,b,c)) = b
+
+--mtripletthrd 
+mtripletthrd :: Maybe (a,b,c) -> c
+mtripletthrd (Just (a,b,c)) = c
 
 {----------------------------}
 
@@ -100,6 +118,27 @@ simplifypfxsfx (x:xs) = (fst x , ((snd x) ++ (snd (simplifypfxsfx xs))))
 
 {------------------------------------------}
 
+{-Functions to pull result of simplifypfxsfx into list based on datatypes above.-}
+
+--torule -> This function will pull data from simplifypfxsfx
+--into a list based on RuleHeader and Rule datatype defined above.
+torule :: (String , [(Maybe String , Maybe (String,String,Int))]) -> [(RuleHeader,Rule)]
+torule ([],[])     = []
+torule ((_:_), []) = []
+torule (x,(y:ys))  = 
+    if fst y == Just "PFX"
+        then (singlenest $ ((PfxHead "PFX" 'A' 'Y' (L.length (y:ys))) , (Pfx "PFX" 'A' (mtripletthrd $ (snd y)) (mtripletfst $ (snd y)) '.'))) ++ (torule (x,ys))   
+        else if fst y == Just "SFX"
+            then (singlenest $ ((SfxHead "SFX" 'B' 'Y' (L.length (y:ys))) , (Sfx "SFX" 'B' (mtripletthrd $ (snd y)) (mtripletsnd $ (snd y)) '.'))) ++ (torule (x,ys))
+            else if fst y == Just "PFX/SFX"
+                then (singlenest $ ((PfxHead "PFX" 'A' 'Y' (L.length (y:ys))) , (Pfx "PFX" 'A' (mtripletthrd $ (snd y)) (mtripletfst $ (snd y)) '.'))) ++ (singlenest $ ((SfxHead "SFX" 'B' 'Y' (L.length (y:ys))) , (Sfx "SFX" 'B' (mtripletthrd $ (snd y)) (mtripletsnd $ (snd y)) '.'))) ++ (torule (x,ys))
+                else torule (x,ys)
+
+
+
+{------------------------------------------------------------------------------}
+
+
 {-Functions related to Database.-}
 
 
@@ -117,15 +156,15 @@ main = do
 
     let root1 = "jump"
     let rootforms1 = ["jumps","jumping","jumper","jumped"]
-    let answer1 = simplifypfxsfx $ (pfxsfx $ (simplifypresufcheck $ (presufcheck root1 rootforms1)))
+    let answer1 = torule $ (simplifypfxsfx $ (pfxsfx $ (simplifypresufcheck $ (presufcheck root1 rootforms1))))
 
     let root2 = "build"
     let rootforms2 = ["builds","building","built","buildable","unbuildable"] 
-    let answer2 = simplifypfxsfx $ (pfxsfx $ (simplifypresufcheck $ (presufcheck root2 rootforms2)))
+    let answer2 = torule $ (simplifypfxsfx $ (pfxsfx $ (simplifypresufcheck $ (presufcheck root2 rootforms2))))
    
     let root4 = "fly"
     let rootforms4 = ["flies","flying","flew","flown"]
-    let answer4 = simplifypfxsfx $ (pfxsfx $ (simplifypresufcheck $ (presufcheck root4 rootforms4)))
+    let answer4 = torule $ (simplifypfxsfx $ (pfxsfx $ (simplifypresufcheck $ (presufcheck root4 rootforms4))))
 
     print answer1
     print answer2 
