@@ -79,7 +79,7 @@ simplifypresufcheck [] = ([],[])
 simplifypresufcheck (x:xs) = (fst x , ((snd x) ++ (snd (simplifypresufcheck xs))))
 
 --pfxsfx -> This function will run through the result
---of rootpresuf, and add PFX or SFX to each tuple.
+--of simplifypresufcheck, and add PFX or SFX to each tuple.
 pfxsfx :: (String , [Maybe (String,String,Int)]) -> [(String , [(Maybe String , Maybe (String,String,Int))])]
 pfxsfx ([],[]) = [] 
 pfxsfx ((_:_), []) = []
@@ -92,7 +92,7 @@ pfxsfx (x,(y:ys)) =
                 then (singlenest $ (x,(singlenest $ (Just "PFX/SFX",y)))) ++ (pfxsfx (x,ys))
                 else (singlenest $ (x,(singlenest $ (Nothing,y)))) ++ (pfxsfx (x,ys)) 
 
---simplifypfxsfx -> This function will aggregate the results of sfxpfx
+--simplifypfxsfx -> This function will aggregate the results of pfxsfx
 --into a single tuple.
 simplifypfxsfx :: [(String , [(Maybe String , Maybe (String,String,Int))])] -> (String , [(Maybe String , Maybe (String,String,Int))])
 simplifypfxsfx [] = ([],[])
