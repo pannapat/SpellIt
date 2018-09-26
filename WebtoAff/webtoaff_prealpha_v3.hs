@@ -34,10 +34,6 @@ data Rule =
 
 {-General Utility Functions.-}
 
---singlenest 
-singlenest :: a -> [a]
-singlenest xs = [xs] 
-
 --singleunnest
 singleunnest :: [a] -> a
 singleunnest [xs] = xs
@@ -77,16 +73,16 @@ presufcheck []    []     = []
 presufcheck (_:_) []     = []
 presufcheck x     (y:ys) = 
     if null (x L.\\ y) 
-        then (singlenest $ (x , (singlenest $ (maybetriplet $ (E.stripInfix x y , 0))))) ++ (presufcheck x ys)
+        then [(x , [(maybetriplet $ (E.stripInfix x y , 0))])] ++ (presufcheck x ys)
         else if L.length x == L.length y 
-            then (singlenest $ (x , singlenest $ (maybetriplet $ ((singleunnest $ (zipcheck zipped)) , L.length (zipcheck zipped))))) ++ (presufcheck x ys)
-            else (singlenest $ (x , (map (Just) (L.zip3 (singlenest $ []) (singlenest $ (y L.\\ x)) (singlenest $ (L.length (zipcheck zipped))))))) ++ (presufcheck x ys) 
+            then [(x , [(maybetriplet $ ((singleunnest $ (zipcheck zipped)) , L.length (zipcheck zipped)))])] ++ (presufcheck x ys)
+            else [(x , (map (Just) (L.zip3 [[]] [(y L.\\ x)] [(L.length (zipcheck zipped))])))] ++ (presufcheck x ys) 
                 where 
                     maybetriplet (Just (a,b),c) = Just (a,b,c)
                     zipcheck [] = []
                     zipcheck (x:xs) = 
                         if (fst x) /= (snd x)
-                            then (singlenest $ (Just ([],(singlenest $ (snd x))))) ++ (zipcheck xs)
+                            then [(Just ([],([(snd x)])))] ++ (zipcheck xs)
                             else zipcheck xs 
                     zipped = L.zip x y 
 
@@ -103,12 +99,12 @@ pfxsfx ([],[]) = []
 pfxsfx ((_:_), []) = []
 pfxsfx (x,(y:ys)) = 
     if (null (M.fromJust (fmap (tripletsnd) y))) && (not (null (M.fromJust (fmap (tripletfst) y))))
-        then (singlenest $ (x,(singlenest $ (Just "PFX",y)))) ++ (pfxsfx (x,ys))
+        then [(x,[(Just "PFX",y)])] ++ (pfxsfx (x,ys))
         else if (null (M.fromJust (fmap (tripletfst) y))) && (not (null (M.fromJust (fmap (tripletsnd) y))))
-            then (singlenest $ (x,(singlenest $ (Just "SFX",y)))) ++ (pfxsfx (x,ys))
+            then [(x,[(Just "SFX",y)])] ++ (pfxsfx (x,ys))
             else if (not (null (M.fromJust (fmap (tripletfst) y)))) && (not (null (M.fromJust (fmap (tripletsnd) y))))
-                then (singlenest $ (x,(singlenest $ (Just "PFX/SFX",y)))) ++ (pfxsfx (x,ys))
-                else (singlenest $ (x,(singlenest $ (Nothing,y)))) ++ (pfxsfx (x,ys)) 
+                then [(x,[(Just "PFX/SFX",y)])] ++ (pfxsfx (x,ys))
+                else [(x,[(Nothing,y)])] ++ (pfxsfx (x,ys)) 
 
 --simplifypfxsfx -> This function will aggregate the results of pfxsfx
 --into a single tuple.
@@ -127,11 +123,11 @@ torule ([],[])     = []
 torule ((_:_), []) = []
 torule (x,(y:ys))  = 
     if fst y == Just "PFX"
-        then (singlenest $ ((PfxHead "PFX" 'A' 'Y' (L.length (y:ys))) , (Pfx "PFX" 'A' (mtripletthrd $ (snd y)) (mtripletfst $ (snd y)) '.'))) ++ (torule (x,ys))   
+        then [((PfxHead "PFX" 'A' 'Y' (L.length (y:ys))) , (Pfx "PFX" 'A' (mtripletthrd $ (snd y)) (mtripletfst $ (snd y)) '.'))] ++ (torule (x,ys))   
         else if fst y == Just "SFX"
-            then (singlenest $ ((SfxHead "SFX" 'B' 'Y' (L.length (y:ys))) , (Sfx "SFX" 'B' (mtripletthrd $ (snd y)) (mtripletsnd $ (snd y)) '.'))) ++ (torule (x,ys))
+            then [((SfxHead "SFX" 'B' 'Y' (L.length (y:ys))) , (Sfx "SFX" 'B' (mtripletthrd $ (snd y)) (mtripletsnd $ (snd y)) '.'))] ++ (torule (x,ys))
             else if fst y == Just "PFX/SFX"
-                then (singlenest $ ((PfxHead "PFX" 'A' 'Y' (L.length (y:ys))) , (Pfx "PFX" 'A' (mtripletthrd $ (snd y)) (mtripletfst $ (snd y)) '.'))) ++ (singlenest $ ((SfxHead "SFX" 'B' 'Y' (L.length (y:ys))) , (Sfx "SFX" 'B' (mtripletthrd $ (snd y)) (mtripletsnd $ (snd y)) '.'))) ++ (torule (x,ys))
+                then [((PfxHead "PFX" 'A' 'Y' (L.length (y:ys))) , (Pfx "PFX" 'A' (mtripletthrd $ (snd y)) (mtripletfst $ (snd y)) '.'))] ++ [((SfxHead "SFX" 'B' 'Y' (L.length (y:ys))) , (Sfx "SFX" 'B' (mtripletthrd $ (snd y)) (mtripletsnd $ (snd y)) '.'))] ++ (torule (x,ys))
                 else torule (x,ys)
 
 
@@ -161,7 +157,7 @@ main = do
     let root2 = "build"
     let rootforms2 = ["builds","building","built","buildable","unbuildable"] 
     let answer2 = torule $ (simplifypfxsfx $ (pfxsfx $ (simplifypresufcheck $ (presufcheck root2 rootforms2))))
-   
+  
     let root4 = "fly"
     let rootforms4 = ["flies","flying","flew","flown"]
     let answer4 = torule $ (simplifypfxsfx $ (pfxsfx $ (simplifypresufcheck $ (presufcheck root4 rootforms4))))
