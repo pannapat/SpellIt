@@ -18,17 +18,17 @@ import Text.PrettyPrint.Boxes
 
 {---------}
 
-{-Custom Data Type.-}
+{-Custom Data Declarations.-}
 
 data RuleHeader =
     PfxHead String Char Char Int
   | SfxHead String Char Char Int
-    deriving (Show)
+    deriving (Eq, Ord, Show)
 
 data Rule = 
     Pfx String Char Int String Char 
   | Sfx String Char Int String Char 
-    deriving (Show)
+    deriving (Eq, Ord, Show)
 
 {-------------------}
 
@@ -61,6 +61,12 @@ mtripletsnd (Just (a,b,c)) = b
 --mtripletthrd 
 mtripletthrd :: Maybe (a,b,c) -> c
 mtripletthrd (Just (a,b,c)) = c
+
+--ownlength
+ownLength :: [a] -> Int
+ownLength = ownLength' 0
+    where ownLength' a [] = a
+          ownLength' a (_:xs) = ownLength' (a+1) xs
 
 {----------------------------}
 
@@ -117,7 +123,7 @@ simplifypfxsfx (x:xs) = (fst x , ((snd x) ++ (snd (simplifypfxsfx xs))))
 {-Functions to pull result of simplifypfxsfx into list based on datatypes above.-}
 
 --torule -> This function will pull data from simplifypfxsfx
---into a list based on RuleHeader and Rule datatype defined above.
+--into a list based on RuleHeader and Rule datatypes defined above.
 torule :: (String , [(Maybe String , Maybe (String,String,Int))]) -> [(RuleHeader,Rule)]
 torule ([],[])     = []
 torule ((_:_), []) = []
@@ -130,7 +136,20 @@ torule (x,(y:ys))  =
                 then [((PfxHead "PFX" 'A' 'Y' (L.length (y:ys))) , (Pfx "PFX" 'A' (mtripletthrd $ (snd y)) (mtripletfst $ (snd y)) '.'))] ++ [((SfxHead "SFX" 'B' 'Y' (L.length (y:ys))) , (Sfx "SFX" 'B' (mtripletthrd $ (snd y)) (mtripletsnd $ (snd y)) '.'))] ++ (torule (x,ys))
                 else torule (x,ys)
 
+--groupsorttorule -> This function will sort and then group
+--tuples based on PfxHead or SfxHead.
+groupsorttorule :: [(RuleHeader,Rule)] -> [[(RuleHeader,Rule)]]
+groupsorttorule [] = []
+groupsorttorule xs = L.groupBy (predicate) (sort xs)
+    where predicate = (\a b -> check a == check b)
+          check ((PfxHead  prefix _ _ _) , _) = prefix
+          check _ = []
 
+--simplifytorule -> This function will aggregate the results of
+--groupsorttorule into a single tuple.
+simplifygroupsorttorule :: [[(RuleHeader,Rule)]] -> [(RuleHeader,[Rule])]
+simplifygroupsorttorule [] = []
+simplifygroupsorttorule (x:xs) = [((fst (head x)) , [(snd (head x))] ++ (map (snd) (tail x)))] ++ (simplifygroupsorttorule xs)              
 
 {------------------------------------------------------------------------------}
 
@@ -152,15 +171,15 @@ main = do
 
     let root1 = "jump"
     let rootforms1 = ["jumps","jumping","jumper","jumped"]
-    let answer1 = torule $ (simplifypfxsfx $ (pfxsfx $ (simplifypresufcheck $ (presufcheck root1 rootforms1))))
+    let answer1 = simplifygroupsorttorule $ (groupsorttorule $ (torule $ (simplifypfxsfx $ (pfxsfx $ (simplifypresufcheck $ (presufcheck root1 rootforms1))))))
 
     let root2 = "build"
     let rootforms2 = ["builds","building","built","buildable","unbuildable"] 
-    let answer2 = torule $ (simplifypfxsfx $ (pfxsfx $ (simplifypresufcheck $ (presufcheck root2 rootforms2))))
+    let answer2 = simplifygroupsorttorule $ (groupsorttorule $ (torule $ (simplifypfxsfx $ (pfxsfx $ (simplifypresufcheck $ (presufcheck root2 rootforms2))))))
   
     let root4 = "fly"
     let rootforms4 = ["flies","flying","flew","flown"]
-    let answer4 = torule $ (simplifypfxsfx $ (pfxsfx $ (simplifypresufcheck $ (presufcheck root4 rootforms4))))
+    let answer4 = simplifygroupsorttorule $ (groupsorttorule $ (torule $ (simplifypfxsfx $ (pfxsfx $ (simplifypresufcheck $ (presufcheck root4 rootforms4))))))
 
     print answer1
     print answer2 
