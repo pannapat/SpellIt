@@ -74,7 +74,7 @@ ownLength = ownLength' 0
 
 --presufcheck -> This function will check for prefixes and 
 --suffixes for each root form to its corresponding root.
-presufcheck :: String -> [String] -> [(String , [Maybe (String,String,Int)])]
+presufcheck :: String -> [String] -> [(String,[Maybe (String,String,Int)])]
 presufcheck []    []     = []
 presufcheck (_:_) []     = []
 presufcheck x     (y:ys) = 
@@ -94,13 +94,13 @@ presufcheck x     (y:ys) =
 
 --simplifypresufcheck -> This function will aggregate the results of presufcheck
 --into a single tuple.
-simplifypresufcheck :: [(String , [Maybe (String,String,Int)])] -> (String , [Maybe (String,String,Int)])
+simplifypresufcheck :: [(String,[Maybe (String,String,Int)])] -> (String,[Maybe (String,String,Int)])
 simplifypresufcheck [] = ([],[])
 simplifypresufcheck (x:xs) = (fst x , ((snd x) ++ (snd (simplifypresufcheck xs))))
 
 --pfxsfx -> This function will run through the result
 --of simplifypresufcheck, and add PFX or SFX to each tuple.
-pfxsfx :: (String , [Maybe (String,String,Int)]) -> [(String , [(Maybe String , Maybe (String,String,Int))])]
+pfxsfx :: (String,[Maybe (String,String,Int)]) -> [(String,[(Maybe String,Maybe (String,String,Int))])]
 pfxsfx ([],[]) = [] 
 pfxsfx ((_:_), []) = []
 pfxsfx (x,(y:ys)) = 
@@ -114,7 +114,7 @@ pfxsfx (x,(y:ys)) =
 
 --simplifypfxsfx -> This function will aggregate the results of pfxsfx
 --into a single tuple.
-simplifypfxsfx :: [(String , [(Maybe String , Maybe (String,String,Int))])] -> (String , [(Maybe String , Maybe (String,String,Int))])
+simplifypfxsfx :: [(String,[(Maybe String,Maybe (String,String,Int))])] -> (String,[(Maybe String,Maybe (String,String,Int))])
 simplifypfxsfx [] = ([],[])
 simplifypfxsfx (x:xs) = (fst x , ((snd x) ++ (snd (simplifypfxsfx xs))))
 
@@ -124,7 +124,7 @@ simplifypfxsfx (x:xs) = (fst x , ((snd x) ++ (snd (simplifypfxsfx xs))))
 
 --torule -> This function will pull data from simplifypfxsfx
 --into a list based on RuleHeader and Rule datatypes defined above.
-torule :: (String , [(Maybe String , Maybe (String,String,Int))]) -> [(RuleHeader,Rule)]
+torule :: (String,[(Maybe String,Maybe (String,String,Int))]) -> [(RuleHeader,Rule)]
 torule ([],[])     = []
 torule ((_:_), []) = []
 torule (x,(y:ys))  = 
