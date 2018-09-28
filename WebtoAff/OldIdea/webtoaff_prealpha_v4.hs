@@ -149,7 +149,13 @@ groupsorttorule xs = L.groupBy (predicate) (sort xs)
 --groupsorttorule into a single tuple.
 simplifygroupsorttorule :: [[(RuleHeader,Rule)]] -> [(RuleHeader,[Rule])]
 simplifygroupsorttorule [] = []
-simplifygroupsorttorule (x:xs) = [((fst (head x)) , [(snd (head x))] ++ (map (snd) (tail x)))] ++ (simplifygroupsorttorule xs)              
+simplifygroupsorttorule (x:xs) = [((fst (head x)) , [(snd (head x))] ++ (map (snd) (tail x)))] ++ (simplifygroupsorttorule xs)
+
+--correctrulecount -> This function will correct the 
+--rule count for each rule.
+--correctrulecount :: [(RuleHeader,[Rule])] -> [(RuleHeader,[Rule])]
+--correctrulecount (x:xs) = 
+              
 
 {------------------------------------------------------------------------------}
 
@@ -169,21 +175,43 @@ main = do
     print ("Starting Unit Testing:")
 
 
+    let rootnew = "teach"
+    let rootformsnew = ["teaches","teaching","taught"]
+    let answerrootnew = presufcheck rootnew rootformsnew
+    print answerrootnew
+
     let root1 = "jump"
     let rootforms1 = ["jumps","jumping","jumper","jumped"]
-    let answer1 = simplifygroupsorttorule $ (groupsorttorule $ (torule $ (simplifypfxsfx $ (pfxsfx $ (simplifypresufcheck $ (presufcheck root1 rootforms1))))))
-
-    let root2 = "build"
-    let rootforms2 = ["builds","building","built","buildable","unbuildable"] 
-    let answer2 = simplifygroupsorttorule $ (groupsorttorule $ (torule $ (simplifypfxsfx $ (pfxsfx $ (simplifypresufcheck $ (presufcheck root2 rootforms2))))))
+    let answer1_1 = presufcheck root1 rootforms1
+    let answer1_2 = simplifypresufcheck $ (presufcheck root1 rootforms1)
+    let answer1_3 = pfxsfx $ (simplifypresufcheck $ (presufcheck root1 rootforms1))
+    let answer1_4 = simplifypfxsfx $ (pfxsfx $ (simplifypresufcheck $ (presufcheck root1 rootforms1))) 
+    let answer1_5 = torule $ (simplifypfxsfx $ (pfxsfx $ (simplifypresufcheck $ (presufcheck root1 rootforms1))))
+    let answer1_6 = groupsorttorule $ (torule $ (simplifypfxsfx $ (pfxsfx $ (simplifypresufcheck $ (presufcheck root1 rootforms1)))))
+    let answer1_7 = simplifygroupsorttorule $ (groupsorttorule $ (torule $ (simplifypfxsfx $ (pfxsfx $ (simplifypresufcheck $ (presufcheck root1 rootforms1))))))
+    
+    print ("Example root word:")
+    print root1 
+    print ("Example root forms:")
+    print rootforms1
+    print answer1_1
+    print answer1_2
+    print answer1_3
+    print answer1_4
+    print answer1_5
+    print answer1_6
+    print answer1_7
+    --let root2 = "build"
+    --let rootforms2 = ["builds","building","built","buildable","unbuildable"] 
+    --let answer2 = simplifygroupsorttorule $ (groupsorttorule $ (torule $ (simplifypfxsfx $ (pfxsfx $ (simplifypresufcheck $ (presufcheck root2 rootforms2))))))
   
-    let root4 = "fly"
-    let rootforms4 = ["flies","flying","flew","flown"]
-    let answer4 = simplifygroupsorttorule $ (groupsorttorule $ (torule $ (simplifypfxsfx $ (pfxsfx $ (simplifypresufcheck $ (presufcheck root4 rootforms4))))))
+    --let root4 = "fly"
+    --let rootforms4 = ["flies","flying","flew","flown"]
+    --let answer4 = simplifygroupsorttorule $ (groupsorttorule $ (torule $ (simplifypfxsfx $ (pfxsfx $ (simplifypresufcheck $ (presufcheck root4 rootforms4))))))
 
-    print answer1
-    print answer2 
-    print answer4    
+    --print answer1
+    --print answer2 
+    --print answer4    
 
 
     print "Unit Testing completed." 
