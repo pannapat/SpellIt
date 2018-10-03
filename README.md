@@ -38,6 +38,22 @@ Install docker via following command.
 
 -- `sudo apt-get install docker-ce`
 
+In case you are having issues with docker installation using the above command, I have successfully installed docker on Ubuntu 16.0.4 LTS using the steps 1 - 6 below:
+
+--1 `sudo apt-get install apt-transport-https ca-certificates curl software-properties-common`
+--2 `curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -`
+--3 `sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu bionic stable"`
+--4 `sudo apt-get update`
+
+--5 `apt-cache search docker-ce`
+
+You should see an output similar to this:
+-- `docker-ce - Docker: the open-source application container engine`
+
+Then finally install docker-ce:
+--6 `sudo apt-get install docker-ce`
+
+
 After docker is installed run following command.
 
 -- `docker run -t --name db -p 8091-8094:8091-8094 -p 11210:11210 couchbase/server-sandbox:5.5.0`
@@ -73,7 +89,9 @@ After doing that we will need [couchbase python dependency](https://docs.couchba
 
 Link to the [documentation](http://docs.couchbase.com/sdk-api/couchbase-python-client-2.1.1/) of couchbase client
 
-## NOTE: If you are creating the `Buckets` yourself, then run the following code to add username and password to the database for the first time.
+## NOTE: If you are creating the `Buckets` yourself, then run the following code on python interactive shell to add username and password to the database for the first time. 
+
+-- `python` -- this takes you into the interactive shell on your terminal.
 
 -- `from couchbase.cluster import Cluster, PasswordAuthenticator`
 
