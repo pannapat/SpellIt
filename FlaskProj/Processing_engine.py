@@ -46,9 +46,13 @@ class Processing_engine():
 
             # Creating Key, Value pairs of the data
             for x in data:
+                if not x['root_data']:
+                    continue
                 root_words = filter(None, x['root_data'].split('\n'))
                 words_data[x['root_word']] = root_words
 
+            if len(words_data) <= 0:
+                return
                 # (Key)Language Name : Value ->(Tuple) (Language Dictionary, Language Symbol)
             final_data = {meta['lang_name']: (words_data, meta['lang_symbol'])}
 
@@ -91,9 +95,10 @@ class Processing_engine():
 
             username = globals()['user']
             self.couch.open_bucket('data')
+            lang_name = lang_name['lang']
             user_data = self.couch.retrieve_data(username).value
             lang_data = user_data[lang_name]
-
+            return lang_data
 
         except:
             raise
@@ -104,14 +109,5 @@ couchOBJ = CouchAPI('Administrator', 'password', 'localhost')
 # user = 'admin'
 # e = Processing_engine()
 # lang_name = e.retrieve_lang_names()
-# e.retrieve_lang_data(lang_name[0])
-
-
-
-
-
-
-
-
-
-
+# print lang_name
+# print e.retrieve_lang_data(lang_name[0])[0]

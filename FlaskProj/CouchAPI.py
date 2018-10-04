@@ -29,7 +29,6 @@ class CouchAPI():
             raise
 
 
-
     def store_data(self, user, data):
 
         try:
