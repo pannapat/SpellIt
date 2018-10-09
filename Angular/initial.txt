@@ -1,1 +1,0 @@
-Just a document to initialize the angular folder
