@@ -10,6 +10,13 @@ import { LanguageAddComponent } from './language-add/language-add.component';
 import { ParadigmEditComponent } from './paradigm-edit/paradigm-edit.component';
 import { ParadigmAddComponent } from './paradigm-add/paradigm-add.component';
 import { HttpClientModule } from '@angular/common/http';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+import { Component } from '@angular/core';
+import { FormControl } from '@angular/forms';
+import {CommonModule} from '@angular/common';
+import { MatCardModule, MatFormFieldModule, MatInputModule, MatButtonModule } from '@angular/material';
+
 
 @NgModule({
   declarations: [
@@ -24,9 +31,19 @@ import { HttpClientModule } from '@angular/common/http';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    BrowserAnimationsModule,
+
+    CommonModule,
+    //Component,
+    //FormControl,
+    MatCardModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatButtonModule
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+
