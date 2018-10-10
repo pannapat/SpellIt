@@ -14,7 +14,7 @@ export class ParadigmAddComponent implements OnInit {
   ]
 
   ngOnInit() {
-    alert(this.language_id);    
+    //alert(this.language_id);    
   }
 
   addNewSlot() {
