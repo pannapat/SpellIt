@@ -25,7 +25,7 @@ app.use(function (req, res, next) {
     next();
 });
 
-app.get('/language-list', function (req, res, next) {
+app.all('/language-list', function (req, res, next) {
     let response = [{
             language_id: 'en_US',
             language_name: 'English'
@@ -44,10 +44,27 @@ app.get('/language-list', function (req, res, next) {
         }
     ];
     res.send(response);
-    // res.send(JSON.stringify("hello world"));
-    // res.json({
-    //     msg: "hello"
-    // });
 });
+
+app.all('/paradigm-list', function (req, res, next) {
+    res.send([
+        {
+            paradigm_id: 'verb',
+            paradigm_name: 'Verb'
+        },
+        {
+            paradigm_id: 'noun',
+            paradigm_name: 'Noun'
+        },
+        {
+            paradigm_id: 'verb-ar',
+            paradigm_name: 'Verb ar'
+        },
+        {
+            paradigm_id: 'verb-xy',
+            paradigm_name: 'Verb xy'
+        }
+    ]);
+})
 
 app.listen(PORT, () => console.log('RESTful API Stub app listening on port ' + PORT + '!'));
