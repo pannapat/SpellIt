@@ -28,7 +28,7 @@ const routes: Routes = [
     component: LanguageAddComponent
   },
   {
-    path: 'paradigm-add',
+    path: 'language/:language_id/paradigm-add',
     component: ParadigmAddComponent
   },
 ];
