@@ -1,7 +1,7 @@
 <h1>Language List</h1>
 
 <ul>
-  <li *ngFor="let language of languages$">
+  <li *ngFor="let language of languages$ ">
     <a routerLink="/language/{{language.language_id}}">{{ language.language_name }}</a>
 
     <!-- <ul>
@@ -13,3 +13,19 @@
     <a routerLink="/language-add"><i class="material-icons">add_circle_outline</i> Add a New Language</a>
   </li>
 </ul>
+
+<div class="example-container">
+  <mat-form-field>
+    <input matInput placeholder="Input">
+  </mat-form-field>
+
+  <mat-form-field>
+    <textarea matInput placeholder="Textarea"></textarea>
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-select placeholder="Select">
+      <mat-option value="option">Option</mat-option>
+    </mat-select>
+  </mat-form-field>
+</div>
