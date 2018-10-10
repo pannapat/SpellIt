@@ -5,12 +5,20 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { LanguageListComponent } from './language-list/language-list.component';
+import { ParadigmListComponent } from './paradigm-list/paradigm-list.component';
+import { LanguageAddComponent } from './language-add/language-add.component';
+import { ParadigmEditComponent } from './paradigm-edit/paradigm-edit.component';
+import { ParadigmAddComponent } from './paradigm-add/paradigm-add.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     SidebarComponent,
-    LanguageListComponent
+    LanguageListComponent,
+    ParadigmListComponent,
+    LanguageAddComponent,
+    ParadigmEditComponent,
+    ParadigmAddComponent
   ],
   imports: [
     BrowserModule,
