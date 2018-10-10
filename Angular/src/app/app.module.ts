@@ -9,6 +9,7 @@ import { ParadigmListComponent } from './paradigm-list/paradigm-list.component';
 import { LanguageAddComponent } from './language-add/language-add.component';
 import { ParadigmEditComponent } from './paradigm-edit/paradigm-edit.component';
 import { ParadigmAddComponent } from './paradigm-add/paradigm-add.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { ParadigmAddComponent } from './paradigm-add/paradigm-add.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

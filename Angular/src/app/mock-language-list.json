@@ -1,0 +1,1738 @@
+[
+    {
+        "language_id": "af_NA",
+        "language_name": "Afrikaans (Namibia)"
+    },
+    {
+        "language_id": "af_ZA",
+        "language_name": "Afrikaans (South Africa)"
+    },
+    {
+        "language_id": "af",
+        "language_name": "Afrikaans"
+    },
+    {
+        "language_id": "ak_GH",
+        "language_name": "Akan (Ghana)"
+    },
+    {
+        "language_id": "ak",
+        "language_name": "Akan"
+    },
+    {
+        "language_id": "sq_AL",
+        "language_name": "Albanian (Albania)"
+    },
+    {
+        "language_id": "sq",
+        "language_name": "Albanian"
+    },
+    {
+        "language_id": "am_ET",
+        "language_name": "Amharic (Ethiopia)"
+    },
+    {
+        "language_id": "am",
+        "language_name": "Amharic"
+    },
+    {
+        "language_id": "ar_DZ",
+        "language_name": "Arabic (Algeria)"
+    },
+    {
+        "language_id": "ar_BH",
+        "language_name": "Arabic (Bahrain)"
+    },
+    {
+        "language_id": "ar_EG",
+        "language_name": "Arabic (Egypt)"
+    },
+    {
+        "language_id": "ar_IQ",
+        "language_name": "Arabic (Iraq)"
+    },
+    {
+        "language_id": "ar_JO",
+        "language_name": "Arabic (Jordan)"
+    },
+    {
+        "language_id": "ar_KW",
+        "language_name": "Arabic (Kuwait)"
+    },
+    {
+        "language_id": "ar_LB",
+        "language_name": "Arabic (Lebanon)"
+    },
+    {
+        "language_id": "ar_LY",
+        "language_name": "Arabic (Libya)"
+    },
+    {
+        "language_id": "ar_MA",
+        "language_name": "Arabic (Morocco)"
+    },
+    {
+        "language_id": "ar_OM",
+        "language_name": "Arabic (Oman)"
+    },
+    {
+        "language_id": "ar_QA",
+        "language_name": "Arabic (Qatar)"
+    },
+    {
+        "language_id": "ar_SA",
+        "language_name": "Arabic (Saudi Arabia)"
+    },
+    {
+        "language_id": "ar_SD",
+        "language_name": "Arabic (Sudan)"
+    },
+    {
+        "language_id": "ar_SY",
+        "language_name": "Arabic (Syria)"
+    },
+    {
+        "language_id": "ar_TN",
+        "language_name": "Arabic (Tunisia)"
+    },
+    {
+        "language_id": "ar_AE",
+        "language_name": "Arabic (United Arab Emirates)"
+    },
+    {
+        "language_id": "ar_YE",
+        "language_name": "Arabic (Yemen)"
+    },
+    {
+        "language_id": "ar",
+        "language_name": "Arabic"
+    },
+    {
+        "language_id": "hy_AM",
+        "language_name": "Armenian (Armenia)"
+    },
+    {
+        "language_id": "hy",
+        "language_name": "Armenian"
+    },
+    {
+        "language_id": "as_IN",
+        "language_name": "Assamese (India)"
+    },
+    {
+        "language_id": "as",
+        "language_name": "Assamese"
+    },
+    {
+        "language_id": "asa_TZ",
+        "language_name": "Asu (Tanzania)"
+    },
+    {
+        "language_id": "asa",
+        "language_name": "Asu"
+    },
+    {
+        "language_id": "az_Cyrl",
+        "language_name": "Azerbaijani (Cyrillic)"
+    },
+    {
+        "language_id": "az_Cyrl_AZ",
+        "language_name": "Azerbaijani (Cyrillic, Azerbaijan)"
+    },
+    {
+        "language_id": "az_Latn",
+        "language_name": "Azerbaijani (Latin)"
+    },
+    {
+        "language_id": "az_Latn_AZ",
+        "language_name": "Azerbaijani (Latin, Azerbaijan)"
+    },
+    {
+        "language_id": "az",
+        "language_name": "Azerbaijani"
+    },
+    {
+        "language_id": "bm_ML",
+        "language_name": "Bambara (Mali)"
+    },
+    {
+        "language_id": "bm",
+        "language_name": "Bambara"
+    },
+    {
+        "language_id": "eu_ES",
+        "language_name": "Basque (Spain)"
+    },
+    {
+        "language_id": "eu",
+        "language_name": "Basque"
+    },
+    {
+        "language_id": "be_BY",
+        "language_name": "Belarusian (Belarus)"
+    },
+    {
+        "language_id": "be",
+        "language_name": "Belarusian"
+    },
+    {
+        "language_id": "bem_ZM",
+        "language_name": "Bemba (Zambia)"
+    },
+    {
+        "language_id": "bem",
+        "language_name": "Bemba"
+    },
+    {
+        "language_id": "bez_TZ",
+        "language_name": "Bena (Tanzania)"
+    },
+    {
+        "language_id": "bez",
+        "language_name": "Bena"
+    },
+    {
+        "language_id": "bn_BD",
+        "language_name": "Bengali (Bangladesh)"
+    },
+    {
+        "language_id": "bn_IN",
+        "language_name": "Bengali (India)"
+    },
+    {
+        "language_id": "bn",
+        "language_name": "Bengali"
+    },
+    {
+        "language_id": "bs_BA",
+        "language_name": "Bosnian (Bosnia and Herzegovina)"
+    },
+    {
+        "language_id": "bs",
+        "language_name": "Bosnian"
+    },
+    {
+        "language_id": "bg_BG",
+        "language_name": "Bulgarian (Bulgaria)"
+    },
+    {
+        "language_id": "bg",
+        "language_name": "Bulgarian"
+    },
+    {
+        "language_id": "my_MM",
+        "language_name": "Burmese (Myanmar [Burma])"
+    },
+    {
+        "language_id": "my",
+        "language_name": "Burmese"
+    },
+    {
+        "language_id": "ca_ES",
+        "language_name": "Catalan (Spain)"
+    },
+    {
+        "language_id": "ca",
+        "language_name": "Catalan"
+    },
+    {
+        "language_id": "tzm_Latn",
+        "language_name": "Central Morocco Tamazight (Latin)"
+    },
+    {
+        "language_id": "tzm_Latn_MA",
+        "language_name": "Central Morocco Tamazight (Latin, Morocco)"
+    },
+    {
+        "language_id": "tzm",
+        "language_name": "Central Morocco Tamazight"
+    },
+    {
+        "language_id": "chr_US",
+        "language_name": "Cherokee (United States)"
+    },
+    {
+        "language_id": "chr",
+        "language_name": "Cherokee"
+    },
+    {
+        "language_id": "cgg_UG",
+        "language_name": "Chiga (Uganda)"
+    },
+    {
+        "language_id": "cgg",
+        "language_name": "Chiga"
+    },
+    {
+        "language_id": "zh_Hans",
+        "language_name": "Chinese (Simplified Han)"
+    },
+    {
+        "language_id": "zh_Hans_CN",
+        "language_name": "Chinese (Simplified Han, China)"
+    },
+    {
+        "language_id": "zh_Hans_HK",
+        "language_name": "Chinese (Simplified Han, Hong Kong SAR China)"
+    },
+    {
+        "language_id": "zh_Hans_MO",
+        "language_name": "Chinese (Simplified Han, Macau SAR China)"
+    },
+    {
+        "language_id": "zh_Hans_SG",
+        "language_name": "Chinese (Simplified Han, Singapore)"
+    },
+    {
+        "language_id": "zh_Hant",
+        "language_name": "Chinese (Traditional Han)"
+    },
+    {
+        "language_id": "zh_Hant_HK",
+        "language_name": "Chinese (Traditional Han, Hong Kong SAR China)"
+    },
+    {
+        "language_id": "zh_Hant_MO",
+        "language_name": "Chinese (Traditional Han, Macau SAR China)"
+    },
+    {
+        "language_id": "zh_Hant_TW",
+        "language_name": "Chinese (Traditional Han, Taiwan)"
+    },
+    {
+        "language_id": "zh",
+        "language_name": "Chinese"
+    },
+    {
+        "language_id": "kw_GB",
+        "language_name": "Cornish (United Kingdom)"
+    },
+    {
+        "language_id": "kw",
+        "language_name": "Cornish"
+    },
+    {
+        "language_id": "hr_HR",
+        "language_name": "Croatian (Croatia)"
+    },
+    {
+        "language_id": "hr",
+        "language_name": "Croatian"
+    },
+    {
+        "language_id": "cs_CZ",
+        "language_name": "Czech (Czech Republic)"
+    },
+    {
+        "language_id": "cs",
+        "language_name": "Czech"
+    },
+    {
+        "language_id": "da_DK",
+        "language_name": "Danish (Denmark)"
+    },
+    {
+        "language_id": "da",
+        "language_name": "Danish"
+    },
+    {
+        "language_id": "nl_BE",
+        "language_name": "Dutch (Belgium)"
+    },
+    {
+        "language_id": "nl_NL",
+        "language_name": "Dutch (Netherlands)"
+    },
+    {
+        "language_id": "nl",
+        "language_name": "Dutch"
+    },
+    {
+        "language_id": "ebu_KE",
+        "language_name": "Embu (Kenya)"
+    },
+    {
+        "language_id": "ebu",
+        "language_name": "Embu"
+    },
+    {
+        "language_id": "en_AS",
+        "language_name": "English (American Samoa)"
+    },
+    {
+        "language_id": "en_AU",
+        "language_name": "English (Australia)"
+    },
+    {
+        "language_id": "en_BE",
+        "language_name": "English (Belgium)"
+    },
+    {
+        "language_id": "en_BZ",
+        "language_name": "English (Belize)"
+    },
+    {
+        "language_id": "en_BW",
+        "language_name": "English (Botswana)"
+    },
+    {
+        "language_id": "en_CA",
+        "language_name": "English (Canada)"
+    },
+    {
+        "language_id": "en_GU",
+        "language_name": "English (Guam)"
+    },
+    {
+        "language_id": "en_HK",
+        "language_name": "English (Hong Kong SAR China)"
+    },
+    {
+        "language_id": "en_IN",
+        "language_name": "English (India)"
+    },
+    {
+        "language_id": "en_IE",
+        "language_name": "English (Ireland)"
+    },
+    {
+        "language_id": "en_JM",
+        "language_name": "English (Jamaica)"
+    },
+    {
+        "language_id": "en_MT",
+        "language_name": "English (Malta)"
+    },
+    {
+        "language_id": "en_MH",
+        "language_name": "English (Marshall Islands)"
+    },
+    {
+        "language_id": "en_MU",
+        "language_name": "English (Mauritius)"
+    },
+    {
+        "language_id": "en_NA",
+        "language_name": "English (Namibia)"
+    },
+    {
+        "language_id": "en_NZ",
+        "language_name": "English (New Zealand)"
+    },
+    {
+        "language_id": "en_MP",
+        "language_name": "English (Northern Mariana Islands)"
+    },
+    {
+        "language_id": "en_PK",
+        "language_name": "English (Pakistan)"
+    },
+    {
+        "language_id": "en_PH",
+        "language_name": "English (Philippines)"
+    },
+    {
+        "language_id": "en_SG",
+        "language_name": "English (Singapore)"
+    },
+    {
+        "language_id": "en_ZA",
+        "language_name": "English (South Africa)"
+    },
+    {
+        "language_id": "en_TT",
+        "language_name": "English (Trinidad and Tobago)"
+    },
+    {
+        "language_id": "en_UM",
+        "language_name": "English (U.S. Minor Outlying Islands)"
+    },
+    {
+        "language_id": "en_VI",
+        "language_name": "English (U.S. Virgin Islands)"
+    },
+    {
+        "language_id": "en_GB",
+        "language_name": "English (United Kingdom)"
+    },
+    {
+        "language_id": "en_US",
+        "language_name": "English (United States)"
+    },
+    {
+        "language_id": "en_ZW",
+        "language_name": "English (Zimbabwe)"
+    },
+    {
+        "language_id": "en",
+        "language_name": "English"
+    },
+    {
+        "language_id": "eo",
+        "language_name": "Esperanto"
+    },
+    {
+        "language_id": "et_EE",
+        "language_name": "Estonian (Estonia)"
+    },
+    {
+        "language_id": "et",
+        "language_name": "Estonian"
+    },
+    {
+        "language_id": "ee_GH",
+        "language_name": "Ewe (Ghana)"
+    },
+    {
+        "language_id": "ee_TG",
+        "language_name": "Ewe (Togo)"
+    },
+    {
+        "language_id": "ee",
+        "language_name": "Ewe"
+    },
+    {
+        "language_id": "fo_FO",
+        "language_name": "Faroese (Faroe Islands)"
+    },
+    {
+        "language_id": "fo",
+        "language_name": "Faroese"
+    },
+    {
+        "language_id": "fil_PH",
+        "language_name": "Filipino (Philippines)"
+    },
+    {
+        "language_id": "fil",
+        "language_name": "Filipino"
+    },
+    {
+        "language_id": "fi_FI",
+        "language_name": "Finnish (Finland)"
+    },
+    {
+        "language_id": "fi",
+        "language_name": "Finnish"
+    },
+    {
+        "language_id": "fr_BE",
+        "language_name": "French (Belgium)"
+    },
+    {
+        "language_id": "fr_BJ",
+        "language_name": "French (Benin)"
+    },
+    {
+        "language_id": "fr_BF",
+        "language_name": "French (Burkina Faso)"
+    },
+    {
+        "language_id": "fr_BI",
+        "language_name": "French (Burundi)"
+    },
+    {
+        "language_id": "fr_CM",
+        "language_name": "French (Cameroon)"
+    },
+    {
+        "language_id": "fr_CA",
+        "language_name": "French (Canada)"
+    },
+    {
+        "language_id": "fr_CF",
+        "language_name": "French (Central African Republic)"
+    },
+    {
+        "language_id": "fr_TD",
+        "language_name": "French (Chad)"
+    },
+    {
+        "language_id": "fr_KM",
+        "language_name": "French (Comoros)"
+    },
+    {
+        "language_id": "fr_CG",
+        "language_name": "French (Congo - Brazzaville)"
+    },
+    {
+        "language_id": "fr_CD",
+        "language_name": "French (Congo - Kinshasa)"
+    },
+    {
+        "language_id": "fr_CI",
+        "language_name": "French (Côte d’Ivoire)"
+    },
+    {
+        "language_id": "fr_DJ",
+        "language_name": "French (Djibouti)"
+    },
+    {
+        "language_id": "fr_GQ",
+        "language_name": "French (Equatorial Guinea)"
+    },
+    {
+        "language_id": "fr_FR",
+        "language_name": "French (France)"
+    },
+    {
+        "language_id": "fr_GA",
+        "language_name": "French (Gabon)"
+    },
+    {
+        "language_id": "fr_GP",
+        "language_name": "French (Guadeloupe)"
+    },
+    {
+        "language_id": "fr_GN",
+        "language_name": "French (Guinea)"
+    },
+    {
+        "language_id": "fr_LU",
+        "language_name": "French (Luxembourg)"
+    },
+    {
+        "language_id": "fr_MG",
+        "language_name": "French (Madagascar)"
+    },
+    {
+        "language_id": "fr_ML",
+        "language_name": "French (Mali)"
+    },
+    {
+        "language_id": "fr_MQ",
+        "language_name": "French (Martinique)"
+    },
+    {
+        "language_id": "fr_MC",
+        "language_name": "French (Monaco)"
+    },
+    {
+        "language_id": "fr_NE",
+        "language_name": "French (Niger)"
+    },
+    {
+        "language_id": "fr_RW",
+        "language_name": "French (Rwanda)"
+    },
+    {
+        "language_id": "fr_RE",
+        "language_name": "French (Réunion)"
+    },
+    {
+        "language_id": "fr_BL",
+        "language_name": "French (Saint Barthélemy)"
+    },
+    {
+        "language_id": "fr_MF",
+        "language_name": "French (Saint Martin)"
+    },
+    {
+        "language_id": "fr_SN",
+        "language_name": "French (Senegal)"
+    },
+    {
+        "language_id": "fr_CH",
+        "language_name": "French (Switzerland)"
+    },
+    {
+        "language_id": "fr_TG",
+        "language_name": "French (Togo)"
+    },
+    {
+        "language_id": "fr",
+        "language_name": "French"
+    },
+    {
+        "language_id": "ff_SN",
+        "language_name": "Fulah (Senegal)"
+    },
+    {
+        "language_id": "ff",
+        "language_name": "Fulah"
+    },
+    {
+        "language_id": "gl_ES",
+        "language_name": "Galician (Spain)"
+    },
+    {
+        "language_id": "gl",
+        "language_name": "Galician"
+    },
+    {
+        "language_id": "lg_UG",
+        "language_name": "Ganda (Uganda)"
+    },
+    {
+        "language_id": "lg",
+        "language_name": "Ganda"
+    },
+    {
+        "language_id": "ka_GE",
+        "language_name": "Georgian (Georgia)"
+    },
+    {
+        "language_id": "ka",
+        "language_name": "Georgian"
+    },
+    {
+        "language_id": "de_AT",
+        "language_name": "German (Austria)"
+    },
+    {
+        "language_id": "de_BE",
+        "language_name": "German (Belgium)"
+    },
+    {
+        "language_id": "de_DE",
+        "language_name": "German (Germany)"
+    },
+    {
+        "language_id": "de_LI",
+        "language_name": "German (Liechtenstein)"
+    },
+    {
+        "language_id": "de_LU",
+        "language_name": "German (Luxembourg)"
+    },
+    {
+        "language_id": "de_CH",
+        "language_name": "German (Switzerland)"
+    },
+    {
+        "language_id": "de",
+        "language_name": "German"
+    },
+    {
+        "language_id": "el_CY",
+        "language_name": "Greek (Cyprus)"
+    },
+    {
+        "language_id": "el_GR",
+        "language_name": "Greek (Greece)"
+    },
+    {
+        "language_id": "el",
+        "language_name": "Greek"
+    },
+    {
+        "language_id": "gu_IN",
+        "language_name": "Gujarati (India)"
+    },
+    {
+        "language_id": "gu",
+        "language_name": "Gujarati"
+    },
+    {
+        "language_id": "guz_KE",
+        "language_name": "Gusii (Kenya)"
+    },
+    {
+        "language_id": "guz",
+        "language_name": "Gusii"
+    },
+    {
+        "language_id": "ha_Latn",
+        "language_name": "Hausa (Latin)"
+    },
+    {
+        "language_id": "ha_Latn_GH",
+        "language_name": "Hausa (Latin, Ghana)"
+    },
+    {
+        "language_id": "ha_Latn_NE",
+        "language_name": "Hausa (Latin, Niger)"
+    },
+    {
+        "language_id": "ha_Latn_NG",
+        "language_name": "Hausa (Latin, Nigeria)"
+    },
+    {
+        "language_id": "ha",
+        "language_name": "Hausa"
+    },
+    {
+        "language_id": "haw_US",
+        "language_name": "Hawaiian (United States)"
+    },
+    {
+        "language_id": "haw",
+        "language_name": "Hawaiian"
+    },
+    {
+        "language_id": "he_IL",
+        "language_name": "Hebrew (Israel)"
+    },
+    {
+        "language_id": "he",
+        "language_name": "Hebrew"
+    },
+    {
+        "language_id": "hi_IN",
+        "language_name": "Hindi (India)"
+    },
+    {
+        "language_id": "hi",
+        "language_name": "Hindi"
+    },
+    {
+        "language_id": "hu_HU",
+        "language_name": "Hungarian (Hungary)"
+    },
+    {
+        "language_id": "hu",
+        "language_name": "Hungarian"
+    },
+    {
+        "language_id": "is_IS",
+        "language_name": "Icelandic (Iceland)"
+    },
+    {
+        "language_id": "is",
+        "language_name": "Icelandic"
+    },
+    {
+        "language_id": "ig_NG",
+        "language_name": "Igbo (Nigeria)"
+    },
+    {
+        "language_id": "ig",
+        "language_name": "Igbo"
+    },
+    {
+        "language_id": "id_ID",
+        "language_name": "Indonesian (Indonesia)"
+    },
+    {
+        "language_id": "id",
+        "language_name": "Indonesian"
+    },
+    {
+        "language_id": "ga_IE",
+        "language_name": "Irish (Ireland)"
+    },
+    {
+        "language_id": "ga",
+        "language_name": "Irish"
+    },
+    {
+        "language_id": "it_IT",
+        "language_name": "Italian (Italy)"
+    },
+    {
+        "language_id": "it_CH",
+        "language_name": "Italian (Switzerland)"
+    },
+    {
+        "language_id": "it",
+        "language_name": "Italian"
+    },
+    {
+        "language_id": "ja_JP",
+        "language_name": "Japanese (Japan)"
+    },
+    {
+        "language_id": "ja",
+        "language_name": "Japanese"
+    },
+    {
+        "language_id": "kea_CV",
+        "language_name": "Kabuverdianu (Cape Verde)"
+    },
+    {
+        "language_id": "kea",
+        "language_name": "Kabuverdianu"
+    },
+    {
+        "language_id": "kab_DZ",
+        "language_name": "Kabyle (Algeria)"
+    },
+    {
+        "language_id": "kab",
+        "language_name": "Kabyle"
+    },
+    {
+        "language_id": "kl_GL",
+        "language_name": "Kalaallisut (Greenland)"
+    },
+    {
+        "language_id": "kl",
+        "language_name": "Kalaallisut"
+    },
+    {
+        "language_id": "kln_KE",
+        "language_name": "Kalenjin (Kenya)"
+    },
+    {
+        "language_id": "kln",
+        "language_name": "Kalenjin"
+    },
+    {
+        "language_id": "kam_KE",
+        "language_name": "Kamba (Kenya)"
+    },
+    {
+        "language_id": "kam",
+        "language_name": "Kamba"
+    },
+    {
+        "language_id": "kn_IN",
+        "language_name": "Kannada (India)"
+    },
+    {
+        "language_id": "kn",
+        "language_name": "Kannada"
+    },
+    {
+        "language_id": "kk_Cyrl",
+        "language_name": "Kazakh (Cyrillic)"
+    },
+    {
+        "language_id": "kk_Cyrl_KZ",
+        "language_name": "Kazakh (Cyrillic, Kazakhstan)"
+    },
+    {
+        "language_id": "kk",
+        "language_name": "Kazakh"
+    },
+    {
+        "language_id": "km_KH",
+        "language_name": "Khmer (Cambodia)"
+    },
+    {
+        "language_id": "km",
+        "language_name": "Khmer"
+    },
+    {
+        "language_id": "ki_KE",
+        "language_name": "Kikuyu (Kenya)"
+    },
+    {
+        "language_id": "ki",
+        "language_name": "Kikuyu"
+    },
+    {
+        "language_id": "rw_RW",
+        "language_name": "Kinyarwanda (Rwanda)"
+    },
+    {
+        "language_id": "rw",
+        "language_name": "Kinyarwanda"
+    },
+    {
+        "language_id": "kok_IN",
+        "language_name": "Konkani (India)"
+    },
+    {
+        "language_id": "kok",
+        "language_name": "Konkani"
+    },
+    {
+        "language_id": "ko_KR",
+        "language_name": "Korean (South Korea)"
+    },
+    {
+        "language_id": "ko",
+        "language_name": "Korean"
+    },
+    {
+        "language_id": "khq_ML",
+        "language_name": "Koyra Chiini (Mali)"
+    },
+    {
+        "language_id": "khq",
+        "language_name": "Koyra Chiini"
+    },
+    {
+        "language_id": "ses_ML",
+        "language_name": "Koyraboro Senni (Mali)"
+    },
+    {
+        "language_id": "ses",
+        "language_name": "Koyraboro Senni"
+    },
+    {
+        "language_id": "lag_TZ",
+        "language_name": "Langi (Tanzania)"
+    },
+    {
+        "language_id": "lag",
+        "language_name": "Langi"
+    },
+    {
+        "language_id": "lv_LV",
+        "language_name": "Latvian (Latvia)"
+    },
+    {
+        "language_id": "lv",
+        "language_name": "Latvian"
+    },
+    {
+        "language_id": "lt_LT",
+        "language_name": "Lithuanian (Lithuania)"
+    },
+    {
+        "language_id": "lt",
+        "language_name": "Lithuanian"
+    },
+    {
+        "language_id": "luo_KE",
+        "language_name": "Luo (Kenya)"
+    },
+    {
+        "language_id": "luo",
+        "language_name": "Luo"
+    },
+    {
+        "language_id": "luy_KE",
+        "language_name": "Luyia (Kenya)"
+    },
+    {
+        "language_id": "luy",
+        "language_name": "Luyia"
+    },
+    {
+        "language_id": "mk_MK",
+        "language_name": "Macedonian (Macedonia)"
+    },
+    {
+        "language_id": "mk",
+        "language_name": "Macedonian"
+    },
+    {
+        "language_id": "jmc_TZ",
+        "language_name": "Machame (Tanzania)"
+    },
+    {
+        "language_id": "jmc",
+        "language_name": "Machame"
+    },
+    {
+        "language_id": "kde_TZ",
+        "language_name": "Makonde (Tanzania)"
+    },
+    {
+        "language_id": "kde",
+        "language_name": "Makonde"
+    },
+    {
+        "language_id": "mg_MG",
+        "language_name": "Malagasy (Madagascar)"
+    },
+    {
+        "language_id": "mg",
+        "language_name": "Malagasy"
+    },
+    {
+        "language_id": "ms_BN",
+        "language_name": "Malay (Brunei)"
+    },
+    {
+        "language_id": "ms_MY",
+        "language_name": "Malay (Malaysia)"
+    },
+    {
+        "language_id": "ms",
+        "language_name": "Malay"
+    },
+    {
+        "language_id": "ml_IN",
+        "language_name": "Malayalam (India)"
+    },
+    {
+        "language_id": "ml",
+        "language_name": "Malayalam"
+    },
+    {
+        "language_id": "mt_MT",
+        "language_name": "Maltese (Malta)"
+    },
+    {
+        "language_id": "mt",
+        "language_name": "Maltese"
+    },
+    {
+        "language_id": "gv_GB",
+        "language_name": "Manx (United Kingdom)"
+    },
+    {
+        "language_id": "gv",
+        "language_name": "Manx"
+    },
+    {
+        "language_id": "mr_IN",
+        "language_name": "Marathi (India)"
+    },
+    {
+        "language_id": "mr",
+        "language_name": "Marathi"
+    },
+    {
+        "language_id": "mas_KE",
+        "language_name": "Masai (Kenya)"
+    },
+    {
+        "language_id": "mas_TZ",
+        "language_name": "Masai (Tanzania)"
+    },
+    {
+        "language_id": "mas",
+        "language_name": "Masai"
+    },
+    {
+        "language_id": "mer_KE",
+        "language_name": "Meru (Kenya)"
+    },
+    {
+        "language_id": "mer",
+        "language_name": "Meru"
+    },
+    {
+        "language_id": "mfe_MU",
+        "language_name": "Morisyen (Mauritius)"
+    },
+    {
+        "language_id": "mfe",
+        "language_name": "Morisyen"
+    },
+    {
+        "language_id": "naq_NA",
+        "language_name": "Nama (Namibia)"
+    },
+    {
+        "language_id": "naq",
+        "language_name": "Nama"
+    },
+    {
+        "language_id": "ne_IN",
+        "language_name": "Nepali (India)"
+    },
+    {
+        "language_id": "ne_NP",
+        "language_name": "Nepali (Nepal)"
+    },
+    {
+        "language_id": "ne",
+        "language_name": "Nepali"
+    },
+    {
+        "language_id": "nd_ZW",
+        "language_name": "North Ndebele (Zimbabwe)"
+    },
+    {
+        "language_id": "nd",
+        "language_name": "North Ndebele"
+    },
+    {
+        "language_id": "nb_NO",
+        "language_name": "Norwegian Bokmål (Norway)"
+    },
+    {
+        "language_id": "nb",
+        "language_name": "Norwegian Bokmål"
+    },
+    {
+        "language_id": "nn_NO",
+        "language_name": "Norwegian Nynorsk (Norway)"
+    },
+    {
+        "language_id": "nn",
+        "language_name": "Norwegian Nynorsk"
+    },
+    {
+        "language_id": "nyn_UG",
+        "language_name": "Nyankole (Uganda)"
+    },
+    {
+        "language_id": "nyn",
+        "language_name": "Nyankole"
+    },
+    {
+        "language_id": "or_IN",
+        "language_name": "Oriya (India)"
+    },
+    {
+        "language_id": "or",
+        "language_name": "Oriya"
+    },
+    {
+        "language_id": "om_ET",
+        "language_name": "Oromo (Ethiopia)"
+    },
+    {
+        "language_id": "om_KE",
+        "language_name": "Oromo (Kenya)"
+    },
+    {
+        "language_id": "om",
+        "language_name": "Oromo"
+    },
+    {
+        "language_id": "ps_AF",
+        "language_name": "Pashto (Afghanistan)"
+    },
+    {
+        "language_id": "ps",
+        "language_name": "Pashto"
+    },
+    {
+        "language_id": "fa_AF",
+        "language_name": "Persian (Afghanistan)"
+    },
+    {
+        "language_id": "fa_IR",
+        "language_name": "Persian (Iran)"
+    },
+    {
+        "language_id": "fa",
+        "language_name": "Persian"
+    },
+    {
+        "language_id": "pl_PL",
+        "language_name": "Polish (Poland)"
+    },
+    {
+        "language_id": "pl",
+        "language_name": "Polish"
+    },
+    {
+        "language_id": "pt_BR",
+        "language_name": "Portuguese (Brazil)"
+    },
+    {
+        "language_id": "pt_GW",
+        "language_name": "Portuguese (Guinea-Bissau)"
+    },
+    {
+        "language_id": "pt_MZ",
+        "language_name": "Portuguese (Mozambique)"
+    },
+    {
+        "language_id": "pt_PT",
+        "language_name": "Portuguese (Portugal)"
+    },
+    {
+        "language_id": "pt",
+        "language_name": "Portuguese"
+    },
+    {
+        "language_id": "pa_Arab",
+        "language_name": "Punjabi (Arabic)"
+    },
+    {
+        "language_id": "pa_Arab_PK",
+        "language_name": "Punjabi (Arabic, Pakistan)"
+    },
+    {
+        "language_id": "pa_Guru",
+        "language_name": "Punjabi (Gurmukhi)"
+    },
+    {
+        "language_id": "pa_Guru_IN",
+        "language_name": "Punjabi (Gurmukhi, India)"
+    },
+    {
+        "language_id": "pa",
+        "language_name": "Punjabi"
+    },
+    {
+        "language_id": "ro_MD",
+        "language_name": "Romanian (Moldova)"
+    },
+    {
+        "language_id": "ro_RO",
+        "language_name": "Romanian (Romania)"
+    },
+    {
+        "language_id": "ro",
+        "language_name": "Romanian"
+    },
+    {
+        "language_id": "rm_CH",
+        "language_name": "Romansh (Switzerland)"
+    },
+    {
+        "language_id": "rm",
+        "language_name": "Romansh"
+    },
+    {
+        "language_id": "rof_TZ",
+        "language_name": "Rombo (Tanzania)"
+    },
+    {
+        "language_id": "rof",
+        "language_name": "Rombo"
+    },
+    {
+        "language_id": "ru_MD",
+        "language_name": "Russian (Moldova)"
+    },
+    {
+        "language_id": "ru_RU",
+        "language_name": "Russian (Russia)"
+    },
+    {
+        "language_id": "ru_UA",
+        "language_name": "Russian (Ukraine)"
+    },
+    {
+        "language_id": "ru",
+        "language_name": "Russian"
+    },
+    {
+        "language_id": "rwk_TZ",
+        "language_name": "Rwa (Tanzania)"
+    },
+    {
+        "language_id": "rwk",
+        "language_name": "Rwa"
+    },
+    {
+        "language_id": "saq_KE",
+        "language_name": "Samburu (Kenya)"
+    },
+    {
+        "language_id": "saq",
+        "language_name": "Samburu"
+    },
+    {
+        "language_id": "sg_CF",
+        "language_name": "Sango (Central African Republic)"
+    },
+    {
+        "language_id": "sg",
+        "language_name": "Sango"
+    },
+    {
+        "language_id": "seh_MZ",
+        "language_name": "Sena (Mozambique)"
+    },
+    {
+        "language_id": "seh",
+        "language_name": "Sena"
+    },
+    {
+        "language_id": "sr_Cyrl",
+        "language_name": "Serbian (Cyrillic)"
+    },
+    {
+        "language_id": "sr_Cyrl_BA",
+        "language_name": "Serbian (Cyrillic, Bosnia and Herzegovina)"
+    },
+    {
+        "language_id": "sr_Cyrl_ME",
+        "language_name": "Serbian (Cyrillic, Montenegro)"
+    },
+    {
+        "language_id": "sr_Cyrl_RS",
+        "language_name": "Serbian (Cyrillic, Serbia)"
+    },
+    {
+        "language_id": "sr_Latn",
+        "language_name": "Serbian (Latin)"
+    },
+    {
+        "language_id": "sr_Latn_BA",
+        "language_name": "Serbian (Latin, Bosnia and Herzegovina)"
+    },
+    {
+        "language_id": "sr_Latn_ME",
+        "language_name": "Serbian (Latin, Montenegro)"
+    },
+    {
+        "language_id": "sr_Latn_RS",
+        "language_name": "Serbian (Latin, Serbia)"
+    },
+    {
+        "language_id": "sr",
+        "language_name": "Serbian"
+    },
+    {
+        "language_id": "sn_ZW",
+        "language_name": "Shona (Zimbabwe)"
+    },
+    {
+        "language_id": "sn",
+        "language_name": "Shona"
+    },
+    {
+        "language_id": "ii_CN",
+        "language_name": "Sichuan Yi (China)"
+    },
+    {
+        "language_id": "ii",
+        "language_name": "Sichuan Yi"
+    },
+    {
+        "language_id": "si_LK",
+        "language_name": "Sinhala (Sri Lanka)"
+    },
+    {
+        "language_id": "si",
+        "language_name": "Sinhala"
+    },
+    {
+        "language_id": "sk_SK",
+        "language_name": "Slovak (Slovakia)"
+    },
+    {
+        "language_id": "sk",
+        "language_name": "Slovak"
+    },
+    {
+        "language_id": "sl_SI",
+        "language_name": "Slovenian (Slovenia)"
+    },
+    {
+        "language_id": "sl",
+        "language_name": "Slovenian"
+    },
+    {
+        "language_id": "xog_UG",
+        "language_name": "Soga (Uganda)"
+    },
+    {
+        "language_id": "xog",
+        "language_name": "Soga"
+    },
+    {
+        "language_id": "so_DJ",
+        "language_name": "Somali (Djibouti)"
+    },
+    {
+        "language_id": "so_ET",
+        "language_name": "Somali (Ethiopia)"
+    },
+    {
+        "language_id": "so_KE",
+        "language_name": "Somali (Kenya)"
+    },
+    {
+        "language_id": "so_SO",
+        "language_name": "Somali (Somalia)"
+    },
+    {
+        "language_id": "so",
+        "language_name": "Somali"
+    },
+    {
+        "language_id": "es_AR",
+        "language_name": "Spanish (Argentina)"
+    },
+    {
+        "language_id": "es_BO",
+        "language_name": "Spanish (Bolivia)"
+    },
+    {
+        "language_id": "es_CL",
+        "language_name": "Spanish (Chile)"
+    },
+    {
+        "language_id": "es_CO",
+        "language_name": "Spanish (Colombia)"
+    },
+    {
+        "language_id": "es_CR",
+        "language_name": "Spanish (Costa Rica)"
+    },
+    {
+        "language_id": "es_DO",
+        "language_name": "Spanish (Dominican Republic)"
+    },
+    {
+        "language_id": "es_EC",
+        "language_name": "Spanish (Ecuador)"
+    },
+    {
+        "language_id": "es_SV",
+        "language_name": "Spanish (El Salvador)"
+    },
+    {
+        "language_id": "es_GQ",
+        "language_name": "Spanish (Equatorial Guinea)"
+    },
+    {
+        "language_id": "es_GT",
+        "language_name": "Spanish (Guatemala)"
+    },
+    {
+        "language_id": "es_HN",
+        "language_name": "Spanish (Honduras)"
+    },
+    {
+        "language_id": "es_419",
+        "language_name": "Spanish (Latin America)"
+    },
+    {
+        "language_id": "es_MX",
+        "language_name": "Spanish (Mexico)"
+    },
+    {
+        "language_id": "es_NI",
+        "language_name": "Spanish (Nicaragua)"
+    },
+    {
+        "language_id": "es_PA",
+        "language_name": "Spanish (Panama)"
+    },
+    {
+        "language_id": "es_PY",
+        "language_name": "Spanish (Paraguay)"
+    },
+    {
+        "language_id": "es_PE",
+        "language_name": "Spanish (Peru)"
+    },
+    {
+        "language_id": "es_PR",
+        "language_name": "Spanish (Puerto Rico)"
+    },
+    {
+        "language_id": "es_ES",
+        "language_name": "Spanish (Spain)"
+    },
+    {
+        "language_id": "es_US",
+        "language_name": "Spanish (United States)"
+    },
+    {
+        "language_id": "es_UY",
+        "language_name": "Spanish (Uruguay)"
+    },
+    {
+        "language_id": "es_VE",
+        "language_name": "Spanish (Venezuela)"
+    },
+    {
+        "language_id": "es",
+        "language_name": "Spanish"
+    },
+    {
+        "language_id": "sw_KE",
+        "language_name": "Swahili (Kenya)"
+    },
+    {
+        "language_id": "sw_TZ",
+        "language_name": "Swahili (Tanzania)"
+    },
+    {
+        "language_id": "sw",
+        "language_name": "Swahili"
+    },
+    {
+        "language_id": "sv_FI",
+        "language_name": "Swedish (Finland)"
+    },
+    {
+        "language_id": "sv_SE",
+        "language_name": "Swedish (Sweden)"
+    },
+    {
+        "language_id": "sv",
+        "language_name": "Swedish"
+    },
+    {
+        "language_id": "gsw_CH",
+        "language_name": "Swiss German (Switzerland)"
+    },
+    {
+        "language_id": "gsw",
+        "language_name": "Swiss German"
+    },
+    {
+        "language_id": "shi_Latn",
+        "language_name": "Tachelhit (Latin)"
+    },
+    {
+        "language_id": "shi_Latn_MA",
+        "language_name": "Tachelhit (Latin, Morocco)"
+    },
+    {
+        "language_id": "shi_Tfng",
+        "language_name": "Tachelhit (Tifinagh)"
+    },
+    {
+        "language_id": "shi_Tfng_MA",
+        "language_name": "Tachelhit (Tifinagh, Morocco)"
+    },
+    {
+        "language_id": "shi",
+        "language_name": "Tachelhit"
+    },
+    {
+        "language_id": "dav_KE",
+        "language_name": "Taita (Kenya)"
+    },
+    {
+        "language_id": "dav",
+        "language_name": "Taita"
+    },
+    {
+        "language_id": "ta_IN",
+        "language_name": "Tamil (India)"
+    },
+    {
+        "language_id": "ta_LK",
+        "language_name": "Tamil (Sri Lanka)"
+    },
+    {
+        "language_id": "ta",
+        "language_name": "Tamil"
+    },
+    {
+        "language_id": "te_IN",
+        "language_name": "Telugu (India)"
+    },
+    {
+        "language_id": "te",
+        "language_name": "Telugu"
+    },
+    {
+        "language_id": "teo_KE",
+        "language_name": "Teso (Kenya)"
+    },
+    {
+        "language_id": "teo_UG",
+        "language_name": "Teso (Uganda)"
+    },
+    {
+        "language_id": "teo",
+        "language_name": "Teso"
+    },
+    {
+        "language_id": "th_TH",
+        "language_name": "Thai (Thailand)"
+    },
+    {
+        "language_id": "th",
+        "language_name": "Thai"
+    },
+    {
+        "language_id": "bo_CN",
+        "language_name": "Tibetan (China)"
+    },
+    {
+        "language_id": "bo_IN",
+        "language_name": "Tibetan (India)"
+    },
+    {
+        "language_id": "bo",
+        "language_name": "Tibetan"
+    },
+    {
+        "language_id": "ti_ER",
+        "language_name": "Tigrinya (Eritrea)"
+    },
+    {
+        "language_id": "ti_ET",
+        "language_name": "Tigrinya (Ethiopia)"
+    },
+    {
+        "language_id": "ti",
+        "language_name": "Tigrinya"
+    },
+    {
+        "language_id": "to_TO",
+        "language_name": "Tonga (Tonga)"
+    },
+    {
+        "language_id": "to",
+        "language_name": "Tonga"
+    },
+    {
+        "language_id": "tr_TR",
+        "language_name": "Turkish (Turkey)"
+    },
+    {
+        "language_id": "tr",
+        "language_name": "Turkish"
+    },
+    {
+        "language_id": "uk_UA",
+        "language_name": "Ukrainian (Ukraine)"
+    },
+    {
+        "language_id": "uk",
+        "language_name": "Ukrainian"
+    },
+    {
+        "language_id": "ur_IN",
+        "language_name": "Urdu (India)"
+    },
+    {
+        "language_id": "ur_PK",
+        "language_name": "Urdu (Pakistan)"
+    },
+    {
+        "language_id": "ur",
+        "language_name": "Urdu"
+    },
+    {
+        "language_id": "uz_Arab",
+        "language_name": "Uzbek (Arabic)"
+    },
+    {
+        "language_id": "uz_Arab_AF",
+        "language_name": "Uzbek (Arabic, Afghanistan)"
+    },
+    {
+        "language_id": "uz_Cyrl",
+        "language_name": "Uzbek (Cyrillic)"
+    },
+    {
+        "language_id": "uz_Cyrl_UZ",
+        "language_name": "Uzbek (Cyrillic, Uzbekistan)"
+    },
+    {
+        "language_id": "uz_Latn",
+        "language_name": "Uzbek (Latin)"
+    },
+    {
+        "language_id": "uz_Latn_UZ",
+        "language_name": "Uzbek (Latin, Uzbekistan)"
+    },
+    {
+        "language_id": "uz",
+        "language_name": "Uzbek"
+    },
+    {
+        "language_id": "vi_VN",
+        "language_name": "Vietnamese (Vietnam)"
+    },
+    {
+        "language_id": "vi",
+        "language_name": "Vietnamese"
+    },
+    {
+        "language_id": "vun_TZ",
+        "language_name": "Vunjo (Tanzania)"
+    },
+    {
+        "language_id": "vun",
+        "language_name": "Vunjo"
+    },
+    {
+        "language_id": "cy_GB",
+        "language_name": "Welsh (United Kingdom)"
+    },
+    {
+        "language_id": "cy",
+        "language_name": "Welsh"
+    },
+    {
+        "language_id": "yo_NG",
+        "language_name": "Yoruba (Nigeria)"
+    },
+    {
+        "language_id": "yo",
+        "language_name": "Yoruba"
+    },
+    {
+        "language_id": "zu_ZA",
+        "language_name": "Zulu (South Africa)"
+    },
+    {
+        "language_id": "zu",
+        "language_name": "Zulu"
+    }
+]
