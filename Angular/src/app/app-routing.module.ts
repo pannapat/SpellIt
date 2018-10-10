@@ -12,7 +12,7 @@ const routes: Routes = [
     component: LanguageListComponent
   },
   {
-    path: 'language',
+    path: 'language-list',
     component: LanguageListComponent
   },
   {
