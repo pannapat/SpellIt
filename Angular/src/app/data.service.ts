@@ -12,4 +12,8 @@ export class DataService {
     return this.http.get('https://jsonplaceholder.typicode.com/users');
     // return this.http.get('./app/mock-language-list.json');
   }
+
+  getParadigmList() {
+  	return this.http.get('https://jsonplaceholder.typicode.com/users');
+  }
 }

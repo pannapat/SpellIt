@@ -1,3 +1,10 @@
-<p>
-  paradigm-list works!
-</p>
+<h1> Paradigm List </h1>
+
+<ul>
+  <li *ngFor="let paradigm of paradigms$">
+    <a routerLink="./paradigm-edit/{{paradigm.paradigm_id}}">{{ paradigm.paradigm_name }}</a>
+  </li>
+  <li>
+    <a routerLink="./paradigm-add"><i class="material-icons">add_circle_outline</i> Add a New Paradigm</a>
+  </li>
+</ul>
