@@ -8,7 +8,7 @@ import { Observable } from 'rxjs';
   styleUrls: ['./language-list.component.scss']
 })
 export class LanguageListComponent implements OnInit {
-  languages: Object;
+  languages$: Object;
 
   constructor(private data: DataService) {}
 
@@ -16,7 +16,7 @@ export class LanguageListComponent implements OnInit {
     // Actually, we won't override the data from API but now we just need some mock data to display
     this.data.getLanguageList().subscribe(
       data =>
-        (this.languages = [
+        (this.languages$ = [
           {
             language_id: 'en_US',
             language_name: 'English'
