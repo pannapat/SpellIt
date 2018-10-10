@@ -20,7 +20,7 @@ const routes: Routes = [
     component: ParadigmListComponent
   },
   {
-    path: 'language/:language_id/:paradigm_id',
+    path: 'language/:language_id/paradigm-edit/:paradigm_id',
     component: ParadigmEditComponent
   },
   {
