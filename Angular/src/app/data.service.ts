@@ -8,8 +8,8 @@ export class DataService {
   constructor(private http: HttpClient) {}
 
   getLanguageList() {
-    // return this.http.post('https://localhost:9000/language-list', {});
-    return this.http.get('https://jsonplaceholder.typicode.com/users');
+    return this.http.get('http://localhost:8080/language-list');
+    // return this.http.get('https://jsonplaceholder.typicode.com/users');
     // return this.http.get('./app/mock-language-list.json');
   }
 

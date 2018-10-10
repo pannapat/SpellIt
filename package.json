@@ -1,0 +1,19 @@
+{
+  "name": "rest-api-stub",
+  "version": "1.0.0",
+  "description": "[Visual Studio Code](https://code.visualstudio.com/download)",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pannapat/SpellIt.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/pannapat/SpellIt/issues"
+  },
+  "homepage": "https://github.com/pannapat/SpellIt#readme"
+}
