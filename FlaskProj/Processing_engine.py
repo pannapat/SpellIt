@@ -7,8 +7,6 @@ class Processing_engine():
         self.lang_name = None
         self.user = None
 
-
-
     def verify_user(self, request_data):
 
         username = request_data['user']
@@ -28,6 +26,17 @@ class Processing_engine():
 
         return result
 
+    def store_user(self, request_data):
+
+        username = request_data['user']
+        password = request_data['pass']
+
+        bucket = self.couch.open_bucket('auth')
+
+        try:
+            bucket.upsert(username, password)
+        except:
+            raise
 
     def save_data(self, request_data):
 
@@ -79,7 +88,6 @@ class Processing_engine():
         except:
             raise
 
-
     def retrieve_lang_data(self, para_name):
 
         try:
@@ -100,7 +108,6 @@ class Processing_engine():
     def retrieve_word_data(self, word):
         return self.paradigm_data[word]
 
-
     def retrieve_paradigm_names(self, lang_name):
 
         try:
@@ -116,7 +123,6 @@ class Processing_engine():
 
         except:
             raise
-
 
 
 couchOBJ = CouchAPI('Administrator', 'password', 'localhost')
