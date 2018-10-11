@@ -1,16 +1,16 @@
 <h1>
-  {{paradigm$[0].paradigm_name | titlecase}}
+  {{paradigm$.paradigm_name | titlecase}}
 </h1>
 
 <div class="column-container">
 	<div class="root-column"> 
 		<h2> Root Words </h2> 
 		<ul>
-		  <li *ngFor="let word of paradigm$[0].words">
+		  <li *ngFor="let word of paradigm$.words; let index = index" (click)="onSelect(index)">
 		    <a>{{ word.root }}</a>
 		  </li>
 		  <li>
-		  	<a><i class="material-icons">add_circle_outline</i> Add a New Root </a>
+		  	<a (click)="onSelectNew()"><i class="material-icons">add_circle_outline</i> Add a New Root </a>
 		  </li>
 		</ul>
 	</div>
@@ -19,15 +19,15 @@
 			<div class="two-column">
 				<h2> Word Forms </h2>
 				<ul>
-		  		  <li *ngFor="let form of paradigm$[0].slots">
-		    		<a>{{ paradigm$[0].words[0][form] }}</a>
+		  		  <li *ngFor="let form of objectKeys(paradigm$.words[selectedWord])">
+		    		<input class ="input-text" [(ngModel)]="paradigm$.words[selectedWord][form]" placeholder="{{paradigm$.words[selectedWord][form]}}">
 				  </li>
 				</ul>
 			</div>
 			<div class="two-column">
 				<h2> Paradigm Forms </h2>
 				<ul>
-		  		  <li *ngFor="let form of paradigm$[0].slots">
+		  		  <li *ngFor="let form of paradigm$.slots">
 		    		<a>{{ form }}</a>
 				  </li>
 				</ul>
