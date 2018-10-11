@@ -16,4 +16,8 @@ export class DataService {
   getParadigmList() {
     return this.http.post('http://localhost:8080/paradigm-list', {});
   }
+
+  getParadigm(){
+  	return this.http.post('http://localhost:8080/paradigm', {});
+  }
 }
