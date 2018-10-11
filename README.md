@@ -41,16 +41,21 @@ Install docker via following command.
 In case you are having issues with docker installation using the above command, I have successfully installed docker on Ubuntu 16.0.4 LTS using the steps 1 - 6 below:
 
 --1 `sudo apt-get install apt-transport-https ca-certificates curl software-properties-common`
+
 --2 `curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -`
+
 --3 `sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu bionic stable"`
+
 --4 `sudo apt-get update`
 
 --5 `apt-cache search docker-ce`
 
 You should see an output similar to this:
+
 -- `docker-ce - Docker: the open-source application container engine`
 
 Then finally install docker-ce:
+
 --6 `sudo apt-get install docker-ce`
 
 
