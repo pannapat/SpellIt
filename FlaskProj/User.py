@@ -1,4 +1,6 @@
 from CouchAPI import CouchAPI
+import json
+
 class User():
 
     def __init__(self):
@@ -7,8 +9,8 @@ class User():
         self.lang_name = None
         self.user_data = None
         self.lang_data = None
-
-        self.word = 'Word'
+        self.paradigm_data = None
+        self.word = 'Words'
         self.skeleton = 'Skeleton'
         self.couch = CouchAPI('Administrator', 'password', 'localhost')
         pass
@@ -22,8 +24,7 @@ class User():
     #                                   [runner, running, runs]
     #                           }
 
-    #                           Skeleton: {Noun:
-    #                               [root, singular, plural]
+    #                           Skeleton:[root, singular, plural]
     #                           }
     #                       },
     #          }
@@ -57,10 +58,19 @@ class User():
         self.paradigm_data = self.lang_data[paradigm_name]
         pass
 
-    def get_user_paradigm_words_data(self):
+    def get_user_paradigm_words_data(self,word_name):
+        word_forms = self.paradigm_data[self.word][word_name]
+        paradigm_skeleton = self.paradigm_data[self.skeleton]
+        word_data = mapper(self, word_name,word_forms,paradigm_skeleton)
+        return word_data
         pass
 
-    def mapper(self):
+    def mapper(self, root, forms, skeleton):
+        for x in range (1, len(skeleton)):
+            resp['root'] = root
+            resp[skeleton[x]] = forms[x]
+
+        return resp
         pass
 
 
