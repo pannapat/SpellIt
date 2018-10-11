@@ -61,7 +61,7 @@ class User():
     def get_user_paradigm_words_data(self,word_name):
         word_forms = self.paradigm_data[self.word][word_name]
         paradigm_skeleton = self.paradigm_data[self.skeleton]
-        word_data = mapper(self, word_name,word_forms,paradigm_skeleton)
+        word_data = self.mapper(self, word_name,word_forms,paradigm_skeleton)
         return word_data
         pass
 
