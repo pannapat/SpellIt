@@ -12,9 +12,7 @@ import { ParadigmAddComponent } from "./paradigm-add/paradigm-add.component";
 import { HttpClientModule } from "@angular/common/http";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 
-import { Component } from "@angular/core";
-import { FormControl } from "@angular/forms";
-import { CommonModule } from "@angular/common";
+import { FormControl, FormsModule } from "@angular/forms";
 import {
   MatButtonModule,
   MatCheckboxModule,
@@ -45,7 +43,8 @@ import {
     MatFormFieldModule,
     MatOptionModule,
     MatSelectModule,
-    MatInputModule
+    MatInputModule,
+    FormsModule
   ],
   exports: [MatButtonModule, MatCheckboxModule],
   providers: [],

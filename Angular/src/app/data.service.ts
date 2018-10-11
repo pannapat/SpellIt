@@ -19,9 +19,9 @@ export class DataService {
     });
   }
 
-  getParadigm(paradigm_id: string) {
+  getParadigm(paradigm_name: string) {
     return this.http.post('http://localhost:8080/paradigm', {
-      paradigm_id: paradigm_id
+      paradigm_name: paradigm_name
     });
   }
 
