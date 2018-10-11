@@ -48,7 +48,7 @@ app.all('/paradigm', function (req, res, next) {
         paradigm = PARADIGM_HASH['noun'];
     }
 
-    res.send(pradigm);
+    res.send(paradigm);
 })
 
 app.all('/add-paradigm', function (req, res, next) {
