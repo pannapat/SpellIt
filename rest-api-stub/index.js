@@ -49,22 +49,43 @@ app.all('/language-list', function (req, res, next) {
 app.all('/paradigm-list', function (req, res, next) {
     res.send([
         {
-            paradigm_id: 'verb',
             paradigm_name: 'Verb'
         },
         {
-            paradigm_id: 'noun',
             paradigm_name: 'Noun'
         },
         {
-            paradigm_id: 'verb-ar',
             paradigm_name: 'Verb ar'
         },
         {
-            paradigm_id: 'verb-xy',
             paradigm_name: 'Verb xy'
         }
     ]);
-})
+});
+
+app.all('/paradigm', function (req, res, next) {
+    let response =
+        {
+            paradigm_name: 'Verb',
+            slots: [
+               "root",
+               "Present",
+               "Past",
+               "Participle"
+            ],
+            words: [{
+              "root": "walk",
+              "Present": "walks",
+              "Past": "walked",
+              "Participle": "walked"
+            }, {
+              "root": "jump",
+              "Present": "jumps",
+              "Past": "jumped",
+              "Participle": "jumped"
+            }]
+        }
+    res.send(response);
+});
 
 app.listen(PORT, () => console.log('RESTful API Stub app listening on port ' + PORT + '!'));

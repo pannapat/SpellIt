@@ -2,7 +2,7 @@
 
 <ul>
   <li *ngFor="let paradigm of paradigms$">
-    <a routerLink="./paradigm-edit/{{paradigm.paradigm_id}}">{{ paradigm.paradigm_name }}</a>
+    <a routerLink="./paradigm-edit/{{paradigm.paradigm_name}}">{{ paradigm.paradigm_name }}</a>
   </li>
   <li>
     <a routerLink="./paradigm-add"><i class="material-icons">add_circle_outline</i> Add a New Paradigm</a>

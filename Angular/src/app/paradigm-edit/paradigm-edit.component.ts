@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { Location } from '@angular/common';
+import { DataService } from '../data.service';
+
 
 @Component({
   selector: 'app-paradigm-edit',
@@ -7,9 +11,30 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ParadigmEditComponent implements OnInit {
 
-  constructor() { }
+  paradigm_name: string;
+  paradigm$: Object;
+
+  constructor(
+  	private data: DataService,
+  	private route: ActivatedRoute,
+  	private location: Location
+  	) { }
 
   ngOnInit() {
+  	this.getParadigm();
   }
+
+  getParadigm(): void{
+  	const name = this.route.snapshot.paramMap.get('paradigm_name');
+  	this.paradigm_name = name;
+  	this.data.getParadigm().subscribe(
+      data => this.paradigm$ = data
+    );
+
+  }
+
+  goBack(): void {
+  this.location.back();
+}
 
 }
