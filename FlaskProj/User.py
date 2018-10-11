@@ -67,8 +67,9 @@ class User():
 
     def mapper(self, root, forms, skeleton):
         for x in range (1, len(skeleton)):
-            resp['root'] = root
             resp[skeleton[x]] = forms[x]
+            
+        resp['root'] = root
 
         return resp
         pass
