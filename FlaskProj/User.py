@@ -36,8 +36,8 @@ class User():
         result = self.couch.authenticate(username, password)
         if result == True:
             self.username = username
-            self.user_data = self.couch.retrieve_data(self.username).value
             self.couch.open_bucket('data')
+            self.user_data = self.couch.retrieve_data(self.username).value
         else:
             return {'Error': 'User not found'}
 
