@@ -111,7 +111,7 @@ var PARADIGM_LIST = [
     'Irregular Verb',
     'Noun',
     'Verb ar',
-    'Verb xy,'
+    'Verb xy'
 ];
 var PARADIGM_HASH = {
     'verb': {
