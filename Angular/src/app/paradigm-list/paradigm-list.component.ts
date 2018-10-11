@@ -8,12 +8,13 @@ import { Observable } from 'rxjs';
   styleUrls: ['./paradigm-list.component.scss']
 })
 export class ParadigmListComponent implements OnInit {
+  language_id: string;
   paradigms$: Object;
 
   constructor(private data: DataService) { }
 
   ngOnInit() {
-    this.data.getParadigmList().subscribe(
+    this.data.getParadigmList(this.language_id).subscribe(
       data =>
         (this.paradigms$ = data)
     );
