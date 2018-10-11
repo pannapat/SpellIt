@@ -30,6 +30,11 @@ app.all('/language-list', function (req, res, next) {
     res.send(response);
 });
 
+app.all('/add-language', function (req, res, next) {
+    LANGUGAE_LIST.push(req.body);
+    res.send('ok');
+})
+
 app.all('/paradigm-list', function (req, res, next) {
     res.send(PARADIGM_LIST);
 })
