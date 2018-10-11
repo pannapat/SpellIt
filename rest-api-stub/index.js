@@ -12,10 +12,10 @@ app.use(cors({
     credentials: true,
     origin: true
 }));
-// app.use(bodyParser.json()); // support json encoded bodies
-// app.use(bodyParser.urlencoded({
-// extended: true
-// }));
+app.use(bodyParser.json()); // support json encoded bodies
+app.use(bodyParser.urlencoded({
+    extended: true
+}));
 // support encoded bodies
 app.use(function (req, res, next) {
     res.header('Access-Control-Allow-Origin', 'http://localhost:4200');
@@ -35,7 +35,8 @@ app.all('/paradigm-list', function (req, res, next) {
 })
 
 app.all('/paradigm', function (req, res, next) {
-    const paradigm_id = req.get('paradigm_id');
+    let paradigm_id = req.body.paradigm_name.toLocaleLowerCase().replace(" ", "-");
+    // console.log(paradigm_id);
     let paradigm = {};
 
     if (paradigm_id === 'verb' ||
@@ -52,6 +53,11 @@ app.all('/paradigm', function (req, res, next) {
 })
 
 app.all('/add-paradigm', function (req, res, next) {
+    console.log(req.body);
+    let paradigm_id = req.body.paradigm_name.toLowerCase().replace(" ", "-");
+    PARADIGM_HASH[paradigm_id] = req.body;
+
+    PARADIGM_LIST.push(req.body.paradigm_name);
     res.send('ok');
 })
 
