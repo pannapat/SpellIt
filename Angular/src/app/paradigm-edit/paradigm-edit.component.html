@@ -1,3 +1,40 @@
-<p>
-  Paradigm Name: 
-</p>
+<h1>
+  {{paradigm$[0].paradigm_name | titlecase}}
+</h1>
+
+<div class="column-container">
+	<div class="root-column"> 
+		<h2> Root Words </h2> 
+		<ul>
+		  <li *ngFor="let word of paradigm$[0].words">
+		    <a>{{ word.root }}</a>
+		  </li>
+		  <li>
+		  	<a><i class="material-icons">add_circle_outline</i> Add a New Root </a>
+		  </li>
+		</ul>
+	</div>
+	<div class="forms-column"> 
+		<div class="column-container">
+			<div class="two-column">
+				<h2> Word Forms </h2>
+				<ul>
+		  		  <li *ngFor="let form of paradigm$[0].slots">
+		    		<a>{{ paradigm$[0].words[0][form] }}</a>
+				  </li>
+				</ul>
+			</div>
+			<div class="two-column">
+				<h2> Paradigm Forms </h2>
+				<ul>
+		  		  <li *ngFor="let form of paradigm$[0].slots">
+		    		<a>{{ form }}</a>
+				  </li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</div>
+
+<button (click)="goBack()">Back To Paradigm Select</button>
+
