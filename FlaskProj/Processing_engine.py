@@ -1,17 +1,11 @@
 from CouchAPI import CouchAPI
 
-global couchOBJ
-global user
-
-
-
-
-
 class Processing_engine():
 
     def __init__(self):
-        self.couch = globals()['couchOBJ']
-
+        self.couch = CouchAPI('Administrator', 'password', 'localhost')
+        self.lang_name = None
+        self.user = None
 
     def verify_user(self, request_data):
 
@@ -24,8 +18,7 @@ class Processing_engine():
         result = self.couch.authenticate(username, password)
 
         if result == True:
-            global user
-            user = username
+            self.user = username
 
         else:
             print('invalid user')
@@ -33,6 +26,17 @@ class Processing_engine():
 
         return result
 
+    def store_user(self, request_data):
+
+        username = request_data['user']
+        password = request_data['pass']
+
+        bucket = self.couch.open_bucket('auth')
+
+        try:
+            bucket.upsert(username, password)
+        except:
+            raise
 
     def save_data(self, request_data):
 
@@ -41,8 +45,7 @@ class Processing_engine():
             words_data = {}
             meta = request_data['meta']
             data = request_data['data']
-            print(globals()['user'])
-            username = globals()['user']
+            username = self.user
 
             # Creating Key, Value pairs of the data
             for x in data:
@@ -56,18 +59,15 @@ class Processing_engine():
                 # (Key)Language Name : Value ->(Tuple) (Language Dictionary, Language Symbol)
             final_data = {meta['lang_name']: (words_data, meta['lang_symbol'])}
 
-            # Get the global couch db object
-            couch = globals()['couchOBJ']
-
             # Open data bucket and store data
-            couch.open_bucket('data')
+            self.couch.open_bucket('data')
 
             try:
-                user_data = couch.retrieve_data(username).value
+                user_data = self.couch.retrieve_data(username).value
                 user_data[meta['lang_name']] = (words_data, meta['lang_symbol'])
-                couch.replace_data(username, user_data)
+                self.couch.replace_data(username, user_data)
             except:
-                couch.store_data(username, final_data)
+                self.couch.store_data(username, final_data)
 
             return True
 
@@ -78,7 +78,7 @@ class Processing_engine():
 
         try:
 
-            username = globals()['user']
+            username = self.user
             print username
             self.couch.open_bucket('data')
             user_data = self.couch.retrieve_data(username).value
@@ -88,21 +88,41 @@ class Processing_engine():
         except:
             raise
 
+    def retrieve_lang_data(self, para_name):
 
-    def retrieve_lang_data(self, lang_name):
+        try:
+
+
+            username = self.user
+            self.couch.open_bucket('data')
+            self.paradigm_name = para_name['para_name']
+            user_data = self.couch.retrieve_data(username).value
+            lang_data = user_data[self.lang_name]
+            self.paradigm_data = lang_data[self.paradigm_name]
+            paradigm_words = list(self.paradigm_data.keys())
+            return paradigm_words
+
+        except:
+            raise
+
+    def retrieve_word_data(self, word):
+        return self.paradigm_data[word]
+
+    def retrieve_paradigm_names(self, lang_name):
 
         try:
 
             username = globals()['user']
             self.couch.open_bucket('data')
             lang_name = lang_name['lang']
+            self.lang_name = lang_name
             user_data = self.couch.retrieve_data(username).value
-            lang_data = user_data[lang_name]
-            return lang_data
+            paradigm_data = user_data[lang_name]
+            paradigm_names = list(paradigm_data.keys())
+            return paradigm_names
 
         except:
             raise
-
 
 
 couchOBJ = CouchAPI('Administrator', 'password', 'localhost')
