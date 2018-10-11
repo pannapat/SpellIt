@@ -1,16 +1,19 @@
+from CouchAPI import CouchAPI
 class User():
 
     def __init__(self):
         self.username = None
         self.paradigm_name = None
         self.lang_name = None
-        self.word_data = None
+        self.user_data = None
         self.word = 'Word'
         self.skeleton = 'Skeleton'
+        self.couch = CouchAPI('Administrator', 'password', 'localhost')
+        self.couch.open_bucket('data')
         pass
 
 
-##      admin:{English:
+    #      admin:{English:
     #                   {Noun:
     #                           Words:{walk:
     #                                   [walks, walking, walked],
@@ -27,14 +30,18 @@ class User():
 
 
 
-    def validate_user(self):
-        pass
+    def validate_user(self, username, password):
+        self.couch.open_bucket('auth')
+        result = self.couch.authenticate(username, password)
+        if result == True:
+            self.username = username
+            self.user_data = self.couch.retrieve_data(self.username).value
+        else:
+            return {'Error': 'User not found'}
 
     ################################################################    GETTERS     ############################################################
     def get_user_languages(self):
-
-        #       data[user].keys()
-        pass
+        return  self.user_data.keys()
 
     def get_user_paradigms(self, lang_name):
         self.lang_name = lang_name
@@ -52,6 +59,7 @@ class User():
 
     ################################################################    SETTERS     ############################################################
     def set_user_language(self):
+
         pass
 
     def set_user_paradigm(self):
