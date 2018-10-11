@@ -13,11 +13,15 @@ export class DataService {
     // return this.http.get('./app/mock-language-list.json');
   }
 
-  getParadigmList() {
-    return this.http.post('http://localhost:8080/paradigm-list', {});
+  getParadigmList(language_id: string) {
+    return this.http.post('http://localhost:8080/paradigm-list', {
+      'language_id': language_id
+    });
   }
 
-  getParadigm(){
-  	return this.http.post('http://localhost:8080/paradigm', {});
+  getParadigm(paradigm_id: string) {
+    return this.http.post('http://localhost:8080/paradigm', {
+      'paradigm_id': paradigm_id
+    });
   }
 }

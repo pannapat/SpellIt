@@ -27,7 +27,7 @@ export class ParadigmEditComponent implements OnInit {
   getParadigm(): void{
   	const name = this.route.snapshot.paramMap.get('paradigm_name');
   	this.paradigm_name = name;
-  	this.data.getParadigm().subscribe(
+  	this.data.getParadigm(this.paradigm_name).subscribe(
       data => this.paradigm$ = data
     );
 
@@ -35,6 +35,6 @@ export class ParadigmEditComponent implements OnInit {
 
   goBack(): void {
   this.location.back();
-}
+  }
 
 }
