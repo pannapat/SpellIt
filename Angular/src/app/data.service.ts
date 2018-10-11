@@ -15,13 +15,27 @@ export class DataService {
 
   getParadigmList(language_id: string) {
     return this.http.post('http://localhost:8080/paradigm-list', {
-      'language_id': language_id
+      language_id: language_id
     });
   }
 
   getParadigm(paradigm_id: string) {
     return this.http.post('http://localhost:8080/paradigm', {
-      'paradigm_id': paradigm_id
+      paradigm_id: paradigm_id
+    });
+  }
+
+  addLanguage(language_id: string, language_name: string) {
+    return this.http.post('http://localhost:8080/add-language', {
+      language_id,
+      language_name
+    });
+  }
+
+  addParadigm(paradigm_name: string, slots: string[]) {
+    return this.http.post('http://localhost:8080/add-paradigm', {
+      paradigm_name,
+      slots
     });
   }
 }
