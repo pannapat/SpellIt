@@ -50,30 +50,29 @@ class User():
 
     def get_user_paradigms(self, lang_name):
         self.lang_name = lang_name
-        self.lang_data = self.user_data[lang_name]
-        pass
-
+        self.lang_data = self.user_data[self.lang_name]
+        return list(self.lang_data.keys())
+        
     def get_user_paradigm_words(self, paradigm_name):
         self.paradigm_name = paradigm_name
-        self.paradigm_data = self.lang_data[paradigm_name]
-        pass
+        self.paradigm_data = self.lang_data[paradigm_name][self.word]
+        return list(self.paradigm_data.keys())
 
     def get_user_paradigm_words_data(self,word_name):
         word_forms = self.paradigm_data[self.word][word_name]
         paradigm_skeleton = self.paradigm_data[self.skeleton]
-        word_data = self.mapper(self, word_name,word_forms,paradigm_skeleton)
+        word_data = self.mapper(word_name,word_forms,paradigm_skeleton)
         return word_data
-        pass
-
+        
     def mapper(self, root, forms, skeleton):
+        resp = {}
         for x in range (1, len(skeleton)):
             resp[skeleton[x]] = forms[x]
             
         resp['root'] = root
 
         return resp
-        pass
-
+        
 
     ################################################################    SETTERS     ############################################################
 
@@ -108,17 +107,3 @@ class User():
 
     def save_data(self):
         self.couch.store_data(self.username, self.user_data)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
