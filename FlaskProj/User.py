@@ -63,16 +63,13 @@ class User():
         paradigm_skeleton = self.paradigm_data[self.skeleton]
         word_data = self.mapper(word_name,word_forms,paradigm_skeleton)
         return word_data
-        
     def mapper(self, root, forms, skeleton):
         resp = {}
         for x in range (1, len(skeleton)):
             resp[skeleton[x]] = forms[x]
-            
         resp['root'] = root
 
         return resp
-        
 
     ################################################################    SETTERS     ############################################################
 
