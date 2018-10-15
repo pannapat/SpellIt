@@ -41,12 +41,12 @@ class User():
             self.user_data = self.couch.retrieve_data(self.username).value
         else:
             return {'Error': 'User not found'}
-
+    
     ################################################################    GETTERS     ############################################################
 
 
     def get_user_languages(self):
-        return  self.user_data.keys()
+        return list(self.user_data.keys())
 
     def get_user_paradigms(self, lang_name):
         self.lang_name = lang_name
@@ -81,6 +81,7 @@ class User():
 
         self.user_data[lang_name] = {}
         self.save_data()
+        return True
 
 
     #Input Params   paradigm_name -> string:Noun       ,   paradigm_skeleton -> list:[root, singular, plural]  |    DB Structure -> admin:{English: {Noun: {Word: {}, Skeleton: [root, singular, plural]}}}
@@ -91,6 +92,7 @@ class User():
 
         self.user_data[self.lang_name][paradigm_name] = {'Words': {}, 'Skeleton': paradigm_skeleton}
         self.save_data()
+        return True
 
     # Input Params   paradigm_name -> string:Noun       ,   paradigm_skeleton -> list:[root, singular, plural]  |    DB Structure -> admin:{English: {Noun: {Word: {run: [runner, running, runs]},
     #                                                                                                                                       Skeleton: [root, singular, plural]}}}
@@ -101,6 +103,7 @@ class User():
 
         self.user_data[self.lang_name][self.paradigm_name][self.word][root_word] = word_forms
         self.save_data()
+        return True
 
     def save_data(self):
         self.couch.store_data(self.username, self.user_data)

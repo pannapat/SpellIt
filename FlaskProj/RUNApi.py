@@ -1,0 +1,116 @@
+# -*- coding: utf-8 -*-
+import os
+from flask import Flask, request, json
+from flask_restful import Resource, Api
+from flask_cors import CORS
+from User import User
+
+app = Flask(__name__)
+
+CORS(app)
+
+api = Api(app)
+
+
+
+user = User()
+user.validate_user('admin', 'admin')
+
+
+#   Expected request object -> {lang_name: English}
+#   Possible result -> True if request is successful or {Error: Request failed due to (reason)}
+class SaveLanguage(Resource):
+
+    def post(self):
+
+        request_data = json.loads(request.data.decode())
+        lang_name = request_data['lang_name']
+
+        user.set_user_language(lang_name)
+
+#   Expected request object -> {paradigm_name: Noun1, paradigm_skeleton: [root, present form, past form, future form]}
+#   Possible result -> True if request is successful or {Error: Request failed due to (reason)}
+class SaveParadigm(Resource):
+
+    def post(self):
+
+        request_data = json.loads(request.data.decode())
+        paradigm_name = request_data['paradigm_name']
+        paradigm_skeleton = request_data['paradigm_skeleton']
+
+        user.set_user_paradigm(paradigm_name, paradigm_skeleton)
+
+#   Expected request object -> {root_word: run, paradigm_skeleton: [ran, running, runs]}
+#   Possible result -> True if request is successful or {Error: Request failed due to (reason)}
+class SaveParadigmWords(Resource):
+
+    def post(self):
+
+        request_data = json.loads(request.data.decode())
+        root_word = request_data['root_word']
+        word_forms = request_data['word_forms']
+
+        user.set_user_paradigm_words(root_word, word_forms)
+
+#   Expected request object -> Null
+#   Possible result -> List of all the languages user have, if request is successful or if it fails -> {Error: Request failed due to (reason)}
+#   Response Object -> {languages: [English, French, German, Italian]}
+class GetLanguages(Resource):
+
+    def post(self):
+
+        user_languages = user.get_user_languages()
+        resp_obj = {'languages': user_languages}
+
+        return resp_obj
+
+#   Expected request object -> {lang_name: English}
+#   Possible result -> List of all the paradigms user have, if request is successful or if it fails -> {Error: Request failed due to (reason)}
+#   Response Object -> {paradigms: [Noun1, Verb1, Noun2, Verb2, Adjective3]}
+class GetParadigms(Resource):
+
+    def post(self):
+        request_data = json.loads(request.data.decode())
+        selected_language = request_data['lang_name']
+        user_paradigms = user.get_user_paradigms(selected_language)
+        resp_obj = {'paradigms': user_paradigms}
+
+        return resp_obj
+
+#   Expected request object -> {paradigm_name: Noun1}
+#   Possible result -> List of all the words in a paradigm, if request is successful or if it fails -> {Error: Request failed due to (reason)}
+#   Response Object -> {paradigm_words: [run, jump, build, kill, fly, eat]}
+class GetParadigmWords(Resource):
+
+    def post(self):
+        request_data = json.loads(request.data.decode())
+        selected_paradigm = request_data['paradigm_name']
+        user_paradigm_words = user.get_user_paradigm_words(selected_paradigm)
+        resp_obj = {'paradigm_words': user_paradigm_words}
+
+        return resp_obj
+
+#   Expected request object -> {word: run}
+#   Possible result -> List of all the words forms mapped onto a selected paradigm, if request is successful or if it fails -> {Error: Request failed due to (reason)}
+#   Response Object -> {word_data: {root: run, plural: runs, continous: running}} PS: The skeleton of selected paradigm will map out onto all the words
+class GetParadigmWordData(Resource):
+
+    def post(self):
+        request_data = json.loads(request.data.decode())
+        selected_word = request_data['word']
+        user_word_data = user.get_user_paradigm_words_data(selected_word)
+        resp_obj = {'word_data': user_word_data}
+
+        return resp_obj
+
+api.add_resource(GetParadigmWordData, '/retrieve_words_data')
+api.add_resource(GetParadigmWords,'/retrieve_words')
+api.add_resource(GetParadigms,'/retrieve_paradigms')
+api.add_resource(GetLanguages,'/retrieve_languages')
+
+api.add_resource(SaveParadigmWords,'/save_paradigm_words')
+api.add_resource(SaveParadigm,'/save_paradigm')
+api.add_resource(SaveLanguage,'/save_language')
+
+if __name__ == '__main__':
+    app.run(debug=True, host='127.0.0.1',threaded = True)
