@@ -53,7 +53,7 @@ export class ParadigmEditComponent implements OnInit {
   	newWord[this.paradigm$.slots[x]]=" ";
   }
   this.paradigm$.words.push(
-    newWord;
+    newWord);
     );
   this.selectedWord=(this.paradigm$.words).length-1;
   }
