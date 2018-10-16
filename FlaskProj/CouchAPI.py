@@ -17,8 +17,6 @@ class CouchAPI():
 
     def authenticate(self, username, password):
         try:
-            print username
-            print password
             pwd = self.bucket.get(username).value
 
             if pwd == password:

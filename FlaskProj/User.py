@@ -4,12 +4,12 @@ import json
 class User():
 
     def __init__(self):
-        self.username = None
-        self.paradigm_name = None
-        self.lang_name = None
-        self.user_data = None
-        self.lang_data = None
-        self.paradigm_data = None
+        self.username = ''
+        self.paradigm_name = ''
+        self.lang_name = ''
+        self.user_data = {}
+        self.lang_data = {}
+        self.paradigm_data = {}
         self.word = 'Words'
         self.skeleton = 'Skeleton'
         self.couch = CouchAPI('Administrator', 'password', 'localhost')
@@ -38,7 +38,10 @@ class User():
         if result == True:
             self.username = username
             self.couch.open_bucket('data')
-            self.user_data = self.couch.retrieve_data(self.username).value
+            try:
+                self.user_data = self.couch.retrieve_data(self.username).value
+            except:
+                self.set_user(username)
         else:
             return {'Error': 'User not found'}
     
@@ -55,8 +58,8 @@ class User():
         
     def get_user_paradigm_words(self, paradigm_name):
         self.paradigm_name = paradigm_name
-        self.paradigm_data = self.lang_data[paradigm_name][self.word]
-        return list(self.paradigm_data.keys())
+        self.paradigm_data = self.lang_data[paradigm_name]
+        return list(self.paradigm_data[self.word].keys())
 
     def get_user_paradigm_words_data(self,word_name):
         word_forms = self.paradigm_data[self.word][word_name]
@@ -65,15 +68,19 @@ class User():
         return word_data
     def mapper(self, root, forms, skeleton):
         resp = {}
-        for x in range (1, len(skeleton)):
-            resp[skeleton[x]] = forms[x]
+        for x in range(1, len(skeleton)):
+            resp[skeleton[x]] = forms[x-1]
+
         resp['root'] = root
 
         return resp
 
     ################################################################    SETTERS     ############################################################
 
-    #Input Params lang_name -> string:English   |    DB Structure -> admin:{English: {}}
+    def set_user(self, username):
+        self.couch.store_data(username, {})
+
+    # Input Params lang_name -> string:English   |    DB Structure -> admin:{English: {}}
     def set_user_language(self, lang_name):
 
         if lang_name in self.user_data:
@@ -107,3 +114,16 @@ class User():
 
     def save_data(self):
         self.couch.store_data(self.username, self.user_data)
+
+
+# user = User()
+# user.validate_user('admin', 'admin')
+
+# print(user.set_user_language('English'))
+# print(user.get_user_languages())
+# print(user.get_user_paradigms('English'))
+# print(user.set_user_paradigm('Verb', ['root', 'adjective', 'past', 'present']))
+
+# print(user.get_user_paradigm_words('Verb'))
+# print(user.set_user_paradigm_words('jump', ['jumping','jumps', 'jumper']))
+# print(user.get_user_paradigm_words_data('jump'))
