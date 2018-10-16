@@ -72,6 +72,7 @@ class GetParadigms(Resource):
     def post(self):
         request_data = json.loads(request.data.decode())
         selected_language = request_data['language_name']
+
         user_paradigms = user.get_user_paradigms(selected_language)
         resp_obj = {'paradigms': user_paradigms}
 
@@ -104,6 +105,18 @@ class GetParadigmWordData(Resource):
 
         return resp_obj
 
+class GetParadigmSlots(Resource):
+
+    def post(self):
+        request_data = json.loads(request.data.decode())
+        selected_paradigm = request_data['paradigm_name']
+        paradigm_slots = user.get_user_paradigm_slots(selected_paradigm)
+
+        resp_obj = {'paradigm_slots': paradigm_slots}
+
+        return resp_obj
+
+api.add_resource(GetParadigmSlots, '/paradigm-slots')
 api.add_resource(GetParadigmWordData, '/word-form-list')
 api.add_resource(GetParadigmWords,'/root-word-list')
 api.add_resource(GetParadigms,'/paradigm-list')
@@ -114,4 +127,4 @@ api.add_resource(SaveParadigm,'/add-paradigm')
 api.add_resource(SaveLanguage,'/add-language')
 
 if __name__ == '__main__':
-    app.run(debug=True, host='127.0.0.1',threaded = True)
+    app.run(debug=True, host='0.0.0.0',threaded = True)
