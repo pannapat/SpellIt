@@ -1,6 +1,10 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
+//list of all available routes:
+//api address: 104.248.116.233:5000
+
+
 @Injectable({
   providedIn: 'root'
 })
@@ -8,34 +12,52 @@ export class DataService {
   constructor(private http: HttpClient) {}
 
   getLanguageList() {
-    return this.http.post('http://localhost:8080/language-list', {});
+    return this.http.post('http://104.248.116.233:5000/language-list', {});
     // return this.http.get('https://jsonplaceholder.typicode.com/users');
     // return this.http.get('./app/mock-language-list.json');
   }
 
-  getParadigmList(language_id: string) {
-    return this.http.post('http://localhost:8080/paradigm-list', {
-      language_id: language_id
+  getParadigmList(language_name: string) {
+    return this.http.post('http://104.248.116.233:5000/paradigm-list', {
+      language_name: language_name
     });
   }
 
-  getParadigm(paradigm_name: string){
-    return this.http.post('http://localhost:8080/paradigm', {
+  getParadigmRoots(paradigm_name: string){
+    return this.http.post('http://104.248.116.233:5000/root-word-list', {
       paradigm_name: paradigm_name
     });
   }
 
-  addLanguage(language_id: string, language_name: string) {
-    return this.http.post('http://localhost:8080/add-language', {
-      language_id,
-      language_name
+  getParadigmWords(paradigm_root: string){
+  	return this.http.post('http://104.248.116.233:5000/word-form-list', {
+  		paradigm_root: paradigm_root
+  	});
+  }
+
+  getParadigmSlots(paradigm_name: string){
+  	return this.http.post('http://104.248.116.233:5000/paradigm-slots', {
+      paradigm_name: paradigm_name
+    });
+  }
+
+  addLanguage(language_name: string) {
+    return this.http.post('http://104.248.116.233:5000/add-language', {
+      language_name: language_name
     });
   }
 
   addParadigm(paradigm_name: string, slots: string[]) {
-    return this.http.post('http://localhost:8080/add-paradigm', {
-      paradigm_name,
-      slots
+    return this.http.post('http://104.248.116.233:5000/add-paradigm', {
+      paradigm_name: paradigm_name,
+      slots: slots
+    });
+  }
+
+  addParadigmWords(root_word: string, words: Object) {
+    return this.http.post('http://104.248.116.233:5000/add-paradigm-words', {
+      root_word: root_word,
+      words: words
     });
   }
 }

@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { DataService } from '../data.service';
+import { ActivatedRoute } from '@angular/router';
+import { Location } from '@angular/common';
 import { Observable } from 'rxjs';
 
 @Component({
@@ -8,16 +10,23 @@ import { Observable } from 'rxjs';
   styleUrls: ['./paradigm-list.component.scss']
 })
 export class ParadigmListComponent implements OnInit {
-  language_id: string;
   paradigms$: Object;
 
-  constructor(private data: DataService) { }
+  constructor(
+  	private data: DataService,
+  	private route: ActivatedRoute,
+  	private location: Location) { }
 
   ngOnInit() {
-    this.data.getParadigmList(this.language_id).subscribe(
+  	const name = this.route.snapshot.paramMap.get('language_name');
+    this.data.getParadigmList(name).subscribe(
       data =>
-        (this.paradigms$ = data)
+        (this.paradigms$ = data["paradigms"])
     );
+  }
+
+  goBack(): void {
+    this.location.back();
   }
 
 }
