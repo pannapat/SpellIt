@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { DataService } from '../data.service';
 
 @Component({
   selector: 'app-language-add',
@@ -6,10 +7,19 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./language-add.component.scss']
 })
 export class LanguageAddComponent implements OnInit {
+  languageName: string;
+  status: Object;
 
-  constructor() { }
+  constructor(private data: DataService) { }
 
   ngOnInit() {
   }
+
+  addLanguage(){
+  	this.data.addLanguage(this.languageName).subscribe(
+      data => this.status = data
+    );
+  }
+  
 
 }
