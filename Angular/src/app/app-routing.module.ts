@@ -16,11 +16,11 @@ const routes: Routes = [
     component: LanguageListComponent
   },
   {
-    path: 'language/:language_id',
+    path: 'language/:language_name',
     component: ParadigmListComponent
   },
   {
-    path: 'language/:language_id/paradigm-edit/:paradigm_name',
+    path: 'language/:language_name/paradigm-edit/:paradigm_name',
     component: ParadigmEditComponent
   },
   {
@@ -28,7 +28,7 @@ const routes: Routes = [
     component: LanguageAddComponent
   },
   {
-    path: 'language/:language_id/paradigm-add',
+    path: 'language/:language_name/paradigm-add',
     component: ParadigmAddComponent
   },
 ];

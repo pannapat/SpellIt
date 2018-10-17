@@ -1,6 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { DataService } from "../data.service";
 import { Router } from "@angular/router";
+import { Location } from '@angular/common';
 
 @Component({
   selector: "app-paradigm-add",
@@ -11,7 +12,7 @@ export class ParadigmAddComponent implements OnInit {
   language_id: string;
   paradigmName: string;
   slotRawList: string;
-  constructor(private data: DataService, private router: Router) {}
+  constructor(private data: DataService, private router: Router, private location: Location) {}
 
   slots = [{ slot_id: 0 }];
 
@@ -28,5 +29,9 @@ export class ParadigmAddComponent implements OnInit {
       .addParadigm(this.paradigmName, this.slotRawList.split(","))
       .subscribe();
     // this.router.navigate("..");
+  }
+
+  goBack(): void {
+    this.location.back();
   }
 }

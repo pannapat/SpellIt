@@ -1,13 +1,15 @@
+<button (click)="goBack()">Back</button>
+
 <h1>
-  {{paradigm$.paradigm_name | titlecase}}
+  {{paradigm_name | titlecase}}
 </h1>
 
 <div class="column-container">
 	<div class="root-column"> 
 		<h2> Root Words </h2> 
 		<ul>
-		  <li *ngFor="let word of paradigm$.words; let index = index" (click)="onSelect(index)">
-		    <a>{{ word.root }}</a>
+		  <li *ngFor="let root of roots$; let index = index" (click)="onSelect(index)">
+		    <a>{{ root }}</a>
 		  </li>
 		  <li>
 		  	<a (click)="onSelectNew()"><i class="material-icons">add_circle_outline</i> Add a New Root </a>
@@ -19,16 +21,16 @@
 			<div class="two-column">
 				<h2> Word Forms </h2>
 				<ul>
-		  		  <li *ngFor="let form of objectKeys(paradigm$.words[selectedWord])">
-		    		<input class ="input-text" [(ngModel)]="paradigm$.words[selectedWord][form]" placeholder="{{paradigm$.words[selectedWord][form]}}">
+		  		  <li *ngFor="let slot of slots$; let index = index">
+		    		<input class ="input-text" [(ngModel)]="forms$[slot]" placeholder="{{forms$[slot]}}">
 				  </li>
 				</ul>
 			</div>
 			<div class="two-column">
 				<h2> Paradigm Forms </h2>
 				<ul>
-		  		  <li *ngFor="let form of paradigm$.slots">
-		    		<a>{{ form }}</a>
+		  		  <li *ngFor="let slot of slots$">
+		    		<a>{{ slot }}</a>
 				  </li>
 				</ul>
 			</div>
@@ -36,5 +38,6 @@
 	</div>
 </div>
 
-<button (click)="goBack()">Back To Paradigm Select</button>
+
+<button (click)="onSave()">Save Word</button>
 

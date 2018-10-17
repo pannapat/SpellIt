@@ -14,6 +14,10 @@ export class ParadigmEditComponent implements OnInit {
   paradigm_name: string;
   paradigm$: Object;
   selectedWord: number;
+  slots$: Array<string>;
+  roots$: Object;
+  forms$: Object;
+  words: Array<string>;
 
   constructor(
   	private data: DataService,
@@ -23,39 +27,60 @@ export class ParadigmEditComponent implements OnInit {
 
   ngOnInit() {
   	this.getParadigm();
+  	this.getParadigmSlots();
+  	this.selectedWord=0;
+  	this.forms$ = [];
+  	this.roots$ = [];
+  }
+  
+  getParadigmSlots(): void{
+  	this.data.getParadigmSlots(this.paradigm_name).subscribe(
+  		data => this.slots$ = data["paradigm_slots"]);
   }
 
   getParadigm(): void{
   	const name = this.route.snapshot.paramMap.get('paradigm_name');
   	this.paradigm_name = name;
-  	this.data.getParadigm(this.paradigm_name).subscribe(
-      data => this.paradigm$ = data
+  	this.selectedWord=0;
+  	this.data.getParadigmRoots(this.paradigm_name).subscribe(
+      data => this.roots$ = data["paradigm_roots"]
     );
-    this.selectedWord=0;
-
   }
 
+  getParadigmForms(): void{
+  	this.data.getParadigmWords(this.roots$[this.selectedWord]).subscribe(
+  		data => this.forms$ = data["word_data"]);
+  }
+
+
   goBack(): void {
-  this.location.back();
+    this.location.back();
   }
 
   
   onSelect(word: number): void {
-  this.selectedWord = word;
+  	this.selectedWord = word;
+  	this.getParadigmForms();
   }
 
   onSelectNew(): void {
-  var newWord = {};
-  var x;
-  newWord["root"]="root";
-  for (x in this.paradigm$.slots){
-  	console.log(x);
-  	newWord[this.paradigm$.slots[x]]=" ";
+	  var x;
+	  for (x in this.slots$){
+	  	this.forms$[this.slots$[x]]=this.slots$[x];
+	  }
   }
-  this.paradigm$.words.push(
-    newWord;
-    );
-  this.selectedWord=(this.paradigm$.words).length-1;
+
+  onSave(): void{
+  	var slot;
+  	var words = [];
+  	for(let slot of this.slots$){
+  		if (slot !== "root"){
+  			words.push(this.forms$[slot])
+  		}
+  	}
+  	this.data.addParadigmWords(this.forms$["root"], words).subscribe();
+  	this.data.getParadigmRoots(this.paradigm_name).subscribe(
+      	data => this.roots$ = data["paradigm_roots"]);
   }
 
 }
