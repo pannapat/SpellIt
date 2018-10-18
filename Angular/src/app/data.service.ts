@@ -4,7 +4,6 @@ import { HttpClient } from '@angular/common/http';
 //list of all available routes:
 //api address: 104.248.116.233:5000
 
-
 @Injectable({
   providedIn: 'root'
 })
@@ -13,8 +12,6 @@ export class DataService {
 
   getLanguageList() {
     return this.http.post('http://104.248.116.233:5000/language-list', {});
-    // return this.http.get('https://jsonplaceholder.typicode.com/users');
-    // return this.http.get('./app/mock-language-list.json');
   }
 
   getParadigmList(language_name: string) {

@@ -13,7 +13,6 @@ export class LanguageListComponent implements OnInit {
   constructor(private data: DataService) {}
 
   ngOnInit() {
-    // Actually, we won't override the data from API but now we just need some mock data to display
     this.data.getLanguageList().subscribe(
       data => this.languages$ = data["languages"]
     );

@@ -17,7 +17,6 @@ export class ParadigmAddComponent implements OnInit {
   slots = [{ slot_id: 0 }];
 
   ngOnInit() {
-    //alert(this.language_id);
   }
 
   addNewSlot() {
@@ -28,7 +27,6 @@ export class ParadigmAddComponent implements OnInit {
     this.data
       .addParadigm(this.paradigmName, this.slotRawList.split(","))
       .subscribe();
-    // this.router.navigate("..");
   }
 
   goBack(): void {
