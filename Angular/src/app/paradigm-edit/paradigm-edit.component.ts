@@ -12,7 +12,6 @@ import { DataService } from '../data.service';
 export class ParadigmEditComponent implements OnInit {
   objectKeys = Object.keys;
   paradigm_name: string;
-  paradigm$: Object;
   selectedWord: number;
   slots$: Array<string>;
   roots$: Object;

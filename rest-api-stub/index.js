@@ -85,27 +85,8 @@ var LANGUGAE_LIST = [{
         language_name: 'Thai'
     }
 ];
-// var PARADIGM_LIST = [{
-//         paradigm_id: 'verb',
-//         paradigm_name: 'Verb'
-//     },
-//     {
-//         paradigm_id: 'irregular-verb',
-//         paradigm_name: 'Irregular Verb'
-//     },
-//     {
-//         paradigm_id: 'noun',
-//         paradigm_name: 'Noun'
-//     },
-//     {
-//         paradigm_id: 'verb-ar',
-//         paradigm_name: 'Verb ar'
-//     },
-//     {
-//         paradigm_id: 'verb-xy',
-//         paradigm_name: 'Verb xy'
-//     }
-// ];
+
+
 var PARADIGM_LIST = [
     'Verb',
     'Irregular Verb',
