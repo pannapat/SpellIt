@@ -1,0 +1,21 @@
+{
+  "paradigm_name" : "Verb", 
+  "slots" : [
+  "root",
+  "Present",
+  "Past",
+  "Participle"],
+  "words" : [
+  {
+   "root" : "walk",
+   "Present" : "walks",
+   "Past" : "walked",
+   "Participle" : "walking"
+  },
+  {
+   "root" : "jump",
+   "Present" : "jumps",
+   "Past" : "jumped",
+   "Participle" : "jumping"
+  }]
+}

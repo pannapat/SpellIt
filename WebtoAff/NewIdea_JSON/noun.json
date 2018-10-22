@@ -1,0 +1,18 @@
+{
+  "paradigm_name" : "Noun", 
+  "slots" : [
+  "root",
+  "Singular",
+  "Plural"],
+  "words" : [
+  {
+   "root" : "tree",
+   "Singular" : "tree",
+   "Plural" : "trees"
+  },
+  {
+   "root" : "horse",
+   "Singular" : "horse",
+   "Plural" : "horses"
+   }]
+}
