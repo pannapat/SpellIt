@@ -11,6 +11,7 @@ import { Observable } from 'rxjs';
 })
 export class ParadigmListComponent implements OnInit {
   paradigms$: Object;
+  language_name: string;
 
   constructor(
   	private data: DataService,
@@ -19,6 +20,7 @@ export class ParadigmListComponent implements OnInit {
 
   ngOnInit() {
   	const name = this.route.snapshot.paramMap.get('language_name');
+    this.language_name = name;
     this.data.getParadigmList(name).subscribe(
       data =>
         (this.paradigms$ = data["paradigms"])
@@ -27,6 +29,13 @@ export class ParadigmListComponent implements OnInit {
 
   goBack(): void {
     this.location.back();
+  }
+
+  deleteLanguage(){
+    if (confirm("Are you sure you want to delete language: " + this.language_name + "?")){
+      this.data.deleteLanguage(language_name).subscribe();
+      this.location.back();
+    }
   }
 
 }

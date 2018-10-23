@@ -30,3 +30,23 @@
     color:#00A8FF;
     width: 50%;
     }
+
+.root-item-container{
+    display: flex;
+}
+
+.root-item{
+    flex:50%;
+}
+
+.root-delete{
+    flex:50%;
+    text-align: right;
+
+    i{
+        color: #ff0000;
+    }
+}
+
+
+

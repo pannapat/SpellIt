@@ -27,7 +27,6 @@ export class ParadigmEditComponent implements OnInit {
   ngOnInit() {
   	this.getParadigm();
   	this.getParadigmSlots();
-  	this.selectedWord=0;
   	this.forms$ = [];
   	this.roots$ = [];
   }
@@ -56,7 +55,6 @@ export class ParadigmEditComponent implements OnInit {
     this.location.back();
   }
 
-  
   onSelect(word: number): void {
   	this.selectedWord = word;
   	this.getParadigmForms();
@@ -80,6 +78,21 @@ export class ParadigmEditComponent implements OnInit {
   	this.data.addParadigmWords(this.forms$["root"], words).subscribe();
   	this.data.getParadigmRoots(this.paradigm_name).subscribe(
       	data => this.roots$ = data["paradigm_roots"]);
+  }
+
+  //function to delete a given word
+  deleteWord(word: number): void{
+    if (confirm("Are you sure you want to delete the word: " + this.roots$[word]+ "?")){
+      this.data.deleteWord(this.roots$[word]).subscribe();
+    }
+  }
+
+  //function to delete the current paradigm
+  deleteParadigm(): void{
+    if (confirm("Are you sure you want to delete the paradigm: "
+      + this.paradigm_name +"?")){
+      this.data.deleteParadigm(this.paradigm_name).subscribe();
+    }
   }
 
 }
