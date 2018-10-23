@@ -1,0 +1,15 @@
+<div class="flex-container">
+	<div class="top-item"><button (click)="goBack()" class="button"><i class="material-icons">arrow_back</i></button></div>
+	<div class="top-item"><button (click)="deleteLanguage()" class="button" id="delete"><i class="material-icons">delete</i></button></div>
+</div>
+
+<h1> {{language_name}}: Paradigm List </h1>
+
+<ul>
+  <li *ngFor="let paradigm of paradigms$">
+    <a routerLink="./paradigm-edit/{{paradigm}}">{{ paradigm }}</a>
+  </li>
+  <li>
+    <a routerLink="./paradigm-add"><i class="material-icons">add_circle_outline</i> Add a New Paradigm</a>
+  </li>
+</ul>

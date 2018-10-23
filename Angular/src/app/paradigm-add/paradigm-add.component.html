@@ -1,0 +1,28 @@
+<button (click)="goBack()" class="button"><i class="material-icons">arrow_back</i></button>
+
+<h1>
+  Add New Paradigm
+</h1>
+
+
+<div class="mat-card">
+
+  <div class="mat-card-title">
+    <mat-form-field>
+      <input matInput placeholder="Paradigm Name" [(ngModel)]="paradigmName">
+    </mat-form-field>
+  </div>
+  <div class="mat-card-content">
+      <mat-form-field>
+        <input matInput placeholder="Slot list separated by commas e.g. slot1,slot2,slot3" [(ngModel)]="slotRawList">
+      </mat-form-field>
+  </div>
+
+  <div class="mat-card-actions">
+    <button mat-button routerLink=".." (click)="addNewParadigm()">
+      <i class="material-icons">send</i>
+    </button>
+
+  </div>
+
+</div>

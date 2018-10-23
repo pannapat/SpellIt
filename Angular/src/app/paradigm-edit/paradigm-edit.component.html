@@ -1,0 +1,51 @@
+<div class="flex-container">
+	<div class="top-item"><button (click)="goBack()" class="button"><i class="material-icons">arrow_back</i></button></div>
+	<div class="top-item"><button (click)="deleteParadigm()" class="button" id="delete"><i class="material-icons">delete</i></button></div>
+</div>
+
+<h1>
+  {{paradigm_name | titlecase}}
+</h1>
+
+<div class="column-container">
+	<div class="root-column"> 
+		<h2> Root Words </h2> 
+		<ul>
+		  <li *ngFor="let root of roots$; let index = index" class="root-item-container">
+		    <div (click)="onSelect(index)" class="root-item">
+		    	<a>{{ root }}</a> 
+		    </div> 
+		    <div class="root-delete">
+		    	<a (click)="deleteWord(index)"><i class="material-icons">delete</i></a>
+		    </div>
+		  </li>
+		  <li>
+		  	<a (click)="onSelectNew()"><i class="material-icons">add_circle_outline</i> Add a New Root </a>
+		  </li>
+		</ul>
+	</div>
+	<div class="forms-column"> 
+		<div class="column-container">
+			<div class="two-column">
+				<h2> Word Forms </h2>
+				<ul>
+		  		  <li *ngFor="let slot of slots$; let index = index">
+		    		<input class ="input-text" [(ngModel)]="forms$[slot]" placeholder="{{forms$[slot]}}">
+				  </li>
+				</ul>
+			</div>
+			<div class="two-column">
+				<h2> Paradigm Forms </h2>
+				<ul>
+		  		  <li *ngFor="let slot of slots$">
+		    		<a>{{ slot }}</a>
+				  </li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+<button (click)="onSave()">Save Word</button>
+
