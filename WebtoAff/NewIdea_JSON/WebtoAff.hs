@@ -141,17 +141,17 @@ readwords xs = read xs
 --slotandwordgrabber -> To grab all slotandword fields
 --from the parsed Maybe [Inputs].
 slotandwordgrab :: Maybe [Inputs] -> [[(String,String)]]
-slotandwordgrab (Just []) = []
+slotandwordgrab (Just [])                               = []
 slotandwordgrab (Just ((Inputs {slotandword = sw}):xs)) = [sw] ++ (slotandwordgrab (Just xs))
 
 --rootgrabber -> Used in prefinalreader.
 rootgrabber :: [[(String,String)]] -> [[(String,String,String)]]
-rootgrabber [] = []
+rootgrabber []     = []
 rootgrabber (x:xs) = [(maptupletotriplet (L.concat (L.map (snd) (L.filter ((=="root").fst) x))) x)] ++ (rootgrabber xs)
 
 --rootremover -> Used in truefinalreader.
 rootremover :: [[(String,String,String)]] -> [[(String,String,String)]]
-rootremover [] = []
+rootremover []     = []
 rootremover (x:xs) = [L.filter (not . ((=="root").tripletsnd)) x] ++ (rootremover xs)
 
 --readchunker -> To chunk the input appropriately.
@@ -161,118 +161,118 @@ readchunker xs = S.chunksOf 3 xs
 
 --beginreader -> To transform elements of readchunker back into correct types.
 beginreader :: [[String]] -> [(String,[String],Maybe [Inputs])]
-beginreader [] = [] 
+beginreader []           = [] 
 beginreader ([x,y,z]:xs) = [(x,(readslots y),(readwords z))] ++ (beginreader xs)
 
 --midreader -> To transform elements of beginreader
 --into intermediate format.
 midreader :: [(String,[String],Maybe [Inputs])] -> [(String,[String],[[(String,String)]])]
-midreader [] = []
+midreader []                = []
 midreader ((x,y,Just z):xs) = [(x,y,slotandwordgrab (Just z))] ++ (midreader xs) 
 
 --midfinalreader -> To tranform elements of midreader
 --into a further intermeditate format.
 midfinalreader :: [(String,[String],[[(String,String)]])] -> [(String,[[(String,String)]])]
-midfinalreader [] = [] 
+midfinalreader []           = [] 
 midfinalreader ((x,y,z):xs) = [(x,z)] ++ (midfinalreader xs)
 
 --prefinalreader ->  To transform the elements of midfinalreader
 --into a further intermediate format.
 prefinalreader :: [(String,[[(String,String)]])] -> [(String,[[(String,String,String)]])]
-prefinalreader [] = []
+prefinalreader []         = []
 prefinalreader ((x,y):xs) = [(x,rootgrabber y)] ++ (prefinalreader xs)
 
 --truefinalreader -> To tranform the elements of prefinalreader
 --into the necessary format of presufcheck.
 truefinalreader :: [(String,[[(String,String,String)]])] -> [(String,[[(String,String,String)]])]
-truefinalreader [] = []
+truefinalreader []         = []
 truefinalreader ((x,y):xs) = [(x,rootremover y)] ++ (truefinalreader xs)
 
 {---------------------------------------------------------------------}
 
-{-Functions operating to take each root and corresponding root paradigm-}
-{-and prepare to feed into temporary file for aggregation.-}
+{-Function operating to take each root and corresponding root paradigm-}
+{-and determine differences between them.-}
 
 --presufcheck -> This function will check for prefixes and 
 --suffixes for each root form to its corresponding root.
-presufcheck :: String -> [String] -> Int -> Int -> [(String,[Maybe (String,String,Int)])]
-presufcheck []    []     _          _          = []
-presufcheck (_:_) []     _          _          = []
-presufcheck x     (y:ys) statestart totalstart = 
-    if L.null (x L.\\ y) 
-        then [(x,[(maybetriplet (E.stripInfix x y , 0))])] 
-             ++ (presufcheck x ys statestart totalstart)
-        else [(x,[maybetriplet (zipwithpaddingdiff zipper , 
-              ((L.length x) - (L.length (zipwithpaddingcounter zipper statestart totalstart))))])] 
-             ++ (presufcheck x ys statestart totalstart) 
-                 where
-                     --Local Variable Definition.--
-                     zipper = (zipwithpadding "" "" (nester x) (nester y))
-                     --Nested Function Definitions.--
-                     --nester
-                     nester :: String -> [String] 
-                     nester [] = []
-                     nester (x:xs) = [[x]] ++ (nester xs)
-                     --maybetriplet
-                     maybetriplet :: (Maybe (String,String),Int) -> Maybe (String,String,Int)
-                     maybetriplet (Just (a,b),c) = Just (a,b,c) 
-                     --zipwithpadding
-                     zipwithpadding :: String -> String -> [String] -> [String] -> [(String,String)]
-                     zipwithpadding a b (x:xs) (y:ys) = (x,y) : zipwithpadding a b xs ys
-                     zipwithpadding a _ []     ys     = L.zip (L.repeat a) ys
-                     zipwithpadding _ b xs     []     = L.zip xs (L.repeat b)
-                     --zipwithpaddingdiff
-                     zipwithpaddingdiff :: [(String,String)] -> Maybe (String,String) 
-                     zipwithpaddingdiff [] = Nothing
-                     zipwithpaddingdiff (x:xs) =
-                         if (fst x) /= (snd x)
-                             then Just ("",((snd x) ++ (L.concat (L.map (snd) xs))))
-                             else zipwithpaddingdiff xs
-                     --zipwithpaddingcounter
-                     zipwithpaddingcounter :: [(String,String)] -> Int -> Int -> [(String,String)]
-                     zipwithpaddingcounter [] state total = []
-                     zipwithpaddingcounter ((x,y):xs) state total = 
-                         if x == y && state == total  
-                             then [(x,y)] ++ (zipwithpaddingcounter xs (state+1) (total+1))
-                             else zipwithpaddingcounter xs state (total+1)                
-                     --------------------------------  
-
-
---pretempfile -> Function to prepare to dump result of presufcheck into temporary file.
-pretempfile :: [(String,[Maybe (String,String,Int)])] -> [String]
-pretempfile [] = []
-pretempfile ((a,[Just (b,c,d)]):xs) = [a,b,c,(show d)] ++ pretempfile xs
+presufcheck :: [(String,[[(String,String,String)]])] -> [(String,[[(String,Maybe (String,String,Int))]])]
+presufcheck []          = []
+presufcheck ((a,xs):ys) = [(a,nesteddiff xs)] ++ (presufcheck ys)
+    where
+    --Nested Function Definitions.--
+    --maybetriplet
+    maybetriplet :: (Maybe (String,String),Int) -> Maybe (String,String,Int)
+    maybetriplet (Just (a,b),c) = Just (a,b,c) 
+    --nesteddiff
+    nesteddiff :: [[(String,String,String)]] -> [[(String,Maybe (String,String,Int))]]
+    nesteddiff []     = []
+    nesteddiff (x:xs) = [diff x] ++ (nesteddiff xs)
+    --diff
+    diff :: [(String,String,String)] -> [(String,Maybe (String,String,Int))]
+    diff []           = [] 
+    diff ((x,y,z):xs) = if L.null (x L.\\ z)
+                            then [((x,maybetriplet (E.stripInfix x z , 0)))] ++ (diff xs)
+                            else diff xs
+    --------------------------------  
 
 {----------------------------------------------------------}
 {----------------------------------------------------------------------}
 
-{-Final Transformations.-}
-{-Functions to infer discrete relationships between root words-}
-{-and corresponding paradigms, and group inter-related root words-}
-{-and paradigms into the same affix rule.-}
+{-Functions to pull result of presufcheck into lists-}
+{-based on datatypes above.-}
 
---tempchunker -> To chunk input from temporary file
---back into required format for future transformations.
-tempchunker :: [String] -> [[String]]
-tempchunker [] = []
-tempchunker xs = S.chunksOf 4 xs 
+--simplifypresufcheck -> This function will change
+--the format of the results of presufcheck.
+simplifypresufcheck :: [(String,[[(String,Maybe (String,String,Int))]])] -> [(String,[(String,[Maybe (String,String,Int)])])]
+simplifypresufcheck []          = [] 
+simplifypresufcheck ((a,xs):ys) = [(a,nestedchanger xs)] ++ (simplifypresufcheck ys)
+    where 
+        --Nested Function Definitions.--
+        --nestedchanger
+        nestedchanger :: [[(String,Maybe (String,String,Int))]] -> [(String,[Maybe (String,String,Int)])]
+        nestedchanger []     = [] 
+        nestedchanger (x:xs) = [changer x] ++ (nestedchanger xs)
+        --changer
+        changer :: [(String,Maybe (String,String,Int))] -> (String,[Maybe (String,String,Int)])
+        changer []     = ([],[])
+        changer (x:xs) = (fst x,([snd x] ++ (snd (changer xs))))
+        --------------------------------
 
---reconstitute -> To reform output of tempchunker back into
---presufcheck output format.
-reconstitute :: [[String]] -> [(String,[Maybe (String,String,Int)])]
-reconstitute [] = [] 
-reconstitute ([a,b,c,d]:xs) = [(a,[Just (b,c,(read d))])] ++ reconstitute xs 
+--pfxsfx -> This function will run through the result
+--of presufcheck and add PFX or SFX to each tuple.
+pfxsfx :: [(String,[(String,[Maybe (String,String,Int)])])] -> [(String,[(String,[(Maybe String,Maybe (String,String,Int))])])] 
+pfxsfx []     = []
+pfxsfx ((a,xs):ys) = [(a,nestedadder xs)] ++ (pfxsfx ys)
+    where
+        --Nested Function Definitions.--
+        --nestedadder
+        nestedadder :: [(String,[Maybe (String,String,Int)])] -> [(String,[(Maybe String,Maybe (String,String,Int))])]
+        nestedadder []     = []
+        nestedadder (x:xs) = [adder x] ++ (nestedadder xs)
+        --adder 
+        adder :: (String,[Maybe (String,String,Int)]) -> (String,[(Maybe String,Maybe (String,String,Int))])
+        adder ([],[])     = ([],[])
+        adder ((_:_), []) = ([],[])
+        adder (x,(y:ys))  = 
+            if (L.null (M.fromJust (fmap (tripletsnd) y))) && (not (L.null (M.fromJust (fmap (tripletfst) y))))
+                then (x,[(Just "PFX",y)] ++ (snd (adder (x,ys)))) 
+                else if (L.null (M.fromJust (fmap (tripletfst) y))) && (not (L.null (M.fromJust (fmap (tripletsnd) y))))
+                    then (x,[(Just "SFX",y)] ++ (snd (adder (x,ys)))) 
+                    else if (not (L.null (M.fromJust (fmap (tripletfst) y)))) && (not (L.null (M.fromJust (fmap (tripletsnd) y))))
+                        then (x,[(Just "PFX/SFX",y)] ++ (snd (adder (x,ys))))
+                        else (x,[(Nothing,y)] ++ (snd (adder (x,ys))))
+        --------------------------------
 
---groupandsort
-groupandsort :: [(String,[Maybe (String,String,Int)])] -> [[(String,[Maybe (String,String,Int)])]]
-groupandsort xs = L.groupBy (\(a,[Just (b,c,d)])  (e,[Just (f,g,h)]) -> c == g) (L.sortOn (\(a,[Just (b,c,d)]) -> c) xs)
+--torule -> This function will pull data from presufcheck
+--into a list based on RuleHeader
+
+
  
-{-----------------------------------------}
-{-----------------------------------------------------------------}
-{--------------------------------------------------------------}
-{------------------------} 
+{------------------------}
+{----------------------------------------------------}
+{---------------------------}
 
-{-IO Functions.-}
+{-IO Function.-}
 
 --jsonparse -> This function will parse the JSON input files.
 jsonparse :: [String] -> (FilePath,Handle) -> IO [String]
@@ -290,18 +290,6 @@ jsonparse (x:xs) (tempnamed,temphd) = do
     IO.hPutStrLn temphd (show words)
     --Recurse through rest of list.
     jsonparse xs (tempnamed,temphd)
-
---aggregate -> This function will add output of presufcheck to
---temp file in order to aggregate the entire session of data.
-aggregate :: [String] -> (FilePath,Handle) -> IO [String]
-aggregate [] (tempnamed,temphd) = return []
-aggregate (x:xs) (tempnamed,temphd) = do
-   --Add current root and corrresponding
-   --affix information to the temporary file.
-   IO.hPutStrLn temphd x
-   --Peform the above steps on next list of root
-   --and corresponding affix information. 
-   aggregate xs (tempnamed,temphd)
 
 {--------------}
 
@@ -340,6 +328,12 @@ main = do
                       print prefinalreaderchunkaggregation
                       let truefinalreaderchunkaggregation = truefinalreader prefinalreaderchunkaggregation
                       print truefinalreaderchunkaggregation
+                      let presufchecker = presufcheck truefinalreaderchunkaggregation
+                      print presufchecker
+                      let simppresufchecker = simplifypresufcheck presufchecker
+                      print simppresufchecker
+                      let pfxsfxadder = pfxsfx simppresufchecker
+                      print pfxsfxadder
                       --let postaggregationparadigm = L.head aggregation
                       --let postaggregationwords = readwords (L.last aggregation)
                       --let postaggregationslots = readslots (aggregation L.!! 1)
