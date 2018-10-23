@@ -57,4 +57,24 @@ export class DataService {
       words: words
     });
   }
+
+  //start of delete calls
+  deleteWord(root_word: string) {
+    return this.http.post('http://104.248.116.233:5000/delete-paradigm-word', {
+      root_word: root_word
+    });
+  }
+
+  deleteParadigm(paradigm_name: string){
+    return this.http.post('http://104.248.116.233:5000/delete-paradigm', {
+      paradigm_name: paradigm_name
+    });
+  }
+
+  deleteLanguage(language_name: string){
+    return this.http.post('http://104.248.116.233:5000/delete-language', {
+      language_name: language_name
+    });
+  }
+
 }
