@@ -33,7 +33,7 @@ export class ParadigmListComponent implements OnInit {
 
   deleteLanguage(){
     if (confirm("Are you sure you want to delete language: " + this.language_name + "?")){
-      this.data.deleteLanguage(language_name).subscribe();
+      this.data.deleteLanguage(this.language_name).subscribe();
       this.location.back();
     }
   }
