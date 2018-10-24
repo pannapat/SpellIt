@@ -1,0 +1,25 @@
+{
+    "paradigm_name": "verbs ending in -ere",
+    "slots": [
+        "present singular first person",
+        "present singular second person",
+        "present singular third person",
+        "present plural first person",
+        "present plural second person",
+        "present plural third person",
+
+        "past singular first person",
+        "past singular second person",
+        "past singular third person",
+        "past plural first person",
+        "past plural second person",
+        "past plural third person",
+
+        "future singular first person",
+        "future singular second person",
+        "future singular third person",
+        "future plural first person",
+        "future plural second person",
+        "future plural third person"
+    ]
+}

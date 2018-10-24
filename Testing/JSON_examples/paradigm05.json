@@ -1,0 +1,14 @@
+{
+    "paradigm_name": "adjective",
+    "slots": [
+        "masculine singular",
+        "masculine plural",
+        "feminine singular",
+        "feminine plural",
+
+        "absolute superlative masculine singular",
+        "absolute superlative masculine plural",
+        "absolute superlative feminine singular",
+        "absolute superlative feminine plural"
+    ]
+}
