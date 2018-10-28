@@ -38,4 +38,8 @@ export class ParadigmListComponent implements OnInit {
     }
   }
 
+  exportAffixFile() {
+    this.data.getAffix(this.language_name).subscribe();
+  }
+
 }
