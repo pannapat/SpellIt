@@ -44,6 +44,12 @@ export class DataService {
     });
   }
 
+  getAffix(language_name: string) {
+    return this.http.post('http://104.248.116.233:5000/get-affix', {
+      language_name: language_name
+    });
+  }
+
   addLanguage(language_name: string) {
     return this.http.post('http://104.248.116.233:5000/add-language', {
       language_name: language_name
