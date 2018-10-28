@@ -81,3 +81,8 @@ app-paradigm-add {
     flex: 50%;
 }
 
+button {
+    &.button {
+        cursor: pointer;
+    }
+}
