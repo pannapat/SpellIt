@@ -3,11 +3,6 @@
 <ul>
   <li *ngFor="let language of languages$ ">
     <a routerLink="/language/{{language}}">{{ language }}</a>
-
-    <!-- <ul>
-      <li>{{ language.description }}</li>
-      <li><a href="http://{{ language.website }}">{{ language.website }}</a></li>
-    </ul> -->
   </li>
   <li>
     <a routerLink="/language-add"><i class="material-icons">add_circle_outline</i> Add a New Language</a>

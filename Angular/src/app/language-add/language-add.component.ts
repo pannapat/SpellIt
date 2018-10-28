@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { DataService } from '../data.service';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-language-add',
@@ -10,7 +11,10 @@ export class LanguageAddComponent implements OnInit {
   languageName: string;
   status: Object;
 
-  constructor(private data: DataService) { }
+  constructor(
+    private data: DataService,
+    private location: Location
+    ) { }
 
   ngOnInit() {
   }
@@ -19,6 +23,10 @@ export class LanguageAddComponent implements OnInit {
   	this.data.addLanguage(this.languageName).subscribe(
       data => this.status = data
     );
+  }
+
+  goBack(): void {
+    this.location.back();
   }
   
 

@@ -1,4 +1,7 @@
-<button (click)="goBack()">Back</button>
+<div class="flex-container">
+	<div class="top-item"><button (click)="goBack()" class="button"><i class="material-icons">arrow_back</i></button></div>
+	<div class="top-item"><button (click)="deleteParadigm()" class="button" id="delete"><i class="material-icons">delete</i></button></div>
+</div>
 
 <h1>
   {{paradigm_name | titlecase}}
@@ -8,8 +11,13 @@
 	<div class="root-column"> 
 		<h2> Root Words </h2> 
 		<ul>
-		  <li *ngFor="let root of roots$; let index = index" (click)="onSelect(index)">
-		    <a>{{ root }}</a>
+		  <li *ngFor="let root of roots$; let index = index" class="root-item-container">
+		    <div (click)="onSelect(index)" class="root-item">
+		    	<a>{{ root }}</a> 
+		    </div> 
+		    <div (click)="deleteWord(index)" class="root-delete">
+		    	<a><i class="material-icons">delete</i></a>
+		    </div>
 		  </li>
 		  <li>
 		  	<a (click)="onSelectNew()"><i class="material-icons">add_circle_outline</i> Add a New Root </a>

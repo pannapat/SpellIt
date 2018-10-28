@@ -1,3 +1,7 @@
+<button (click)="goBack()" class="button"><i class="material-icons">arrow_back</i></button>
+
 <h1> Add A Language </h1>
 <input class ="input-text" [(ngModel)]="languageName" placeholder="Language Name">
-<a routerLink=".." (click)="addLanguage()"> <i class="material-icons">add_circle_outline</i> </a>
+<a routerLink=".." (click)="addLanguage()">
+	<i class="material-icons">add_circle_outline</i>
+</a>
