@@ -27,18 +27,10 @@
 	<div class="forms-column"> 
 		<div class="column-container">
 			<div class="two-column">
-				<h2> Word Forms </h2>
+				<h2> Word Forms </h2> <h2> Paradigm Forms </h2>
 				<ul>
 		  		  <li *ngFor="let slot of slots$; let index = index">
-		    		<input class ="input-text" [(ngModel)]="forms$[slot]" placeholder="{{forms$[slot]}}">
-				  </li>
-				</ul>
-			</div>
-			<div class="two-column">
-				<h2> Paradigm Forms </h2>
-				<ul>
-		  		  <li *ngFor="let slot of slots$">
-		    		<a>{{ slot }}</a>
+		    		<input class ="input-text" [(ngModel)]="forms$[slot]" placeholder="{{forms$[slot]}}"> <a>{{ slot }}</a>
 				  </li>
 				</ul>
 			</div>
