@@ -26,18 +26,20 @@
 	</div>
 	<div class="forms-column"> 
 		<div class="column-container">
-			<div class="two-column">
-				<h2> Word Forms </h2> <h2> Paradigm Forms </h2>
-				<ul>
-		  		  <li *ngFor="let slot of slots$; let index = index">
-		    		<input class ="input-text" [(ngModel)]="forms$[slot]" placeholder="{{forms$[slot]}}"> <a>{{ slot }}</a>
-				  </li>
-				</ul>
-			</div>
+				<div class="word-column"><h2> Word Forms </h2></div> 
+				<div class="paradigm-column column-container">
+					<h2 class = "two-column"> Paradigm Forms </h2>
+					<div class="right-align"><button (click)="onSave()" class="button"><i class="material-icons">save</i></button></div>
+				</div>
+		</div>
+		<div>
+			<ul>
+		  		<li *ngFor="let slot of slots$; let index = index" class="column-container">
+		    		<input class ="input-text word-column" [(ngModel)]="forms$[slot]" placeholder="{{forms$[slot]}}"> 
+		    		<a class="paradigm-column">{{ slot }}</a>
+				</li>
+			</ul>
 		</div>
 	</div>
 </div>
-
-
-<button (click)="onSave()">Save Word</button>
 

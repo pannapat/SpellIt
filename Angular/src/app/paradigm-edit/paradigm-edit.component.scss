@@ -3,7 +3,7 @@
 }
 
 .root-column{
-	flex: 33%;
+	flex: 30%;
 	background: #fff;
     border-radius: 8px;
     padding: 20px;
@@ -11,7 +11,7 @@
 }
 
 .forms-column{
-	flex: 66%;
+	flex: 70%;
 	background: #fff;
     border-radius: 8px;
     padding: 20px;
@@ -19,8 +19,19 @@
 }
 
 .two-column{
-	flex: 50%;
-	
+    flex: 50%;
+}
+
+.word-column{
+	flex: 30%;
+    padding: 0% 1% 0% 1%;
+    margin: 0px 5px 0px 5px;
+}
+
+.paradigm-column{
+    flex: 70%;
+    padding: 0% 1% 0% 1%;
+    margin: 0px 5px 0px 5px;
 }
 
 .input-text{
