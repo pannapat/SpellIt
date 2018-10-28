@@ -1,6 +1,7 @@
 <div class="flex-container">
-	<div class="top-item"><button (click)="goBack()" class="button"><i class="material-icons">arrow_back</i></button></div>
-	<div class="top-item"><button (click)="deleteLanguage()" class="button" id="delete"><i class="material-icons">delete</i></button></div>
+	<div class="top-item"><button (click)="goBack()" class="button" title="Go Back"><i class="material-icons">arrow_back</i></button></div>
+	<div class="top-item"><button (click)="deleteLanguage()" class="button" id="delete" title="Delete Language"><i class="material-icons">delete</i></button></div>
+	<div class="top-item"><button (click)="exportAffixFile()" class="button" id="export" title="Export Affix File"><i class="material-icons">arrow_downward</i></button></div>
 </div>
 
 <h1> {{language_name}}: Paradigm List </h1>
