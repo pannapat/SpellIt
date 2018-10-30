@@ -116,6 +116,13 @@ class GetParadigmSlots(Resource):
 
         return resp_obj
 
+# class GetAffixFile(Resource):
+#
+#     def post(self):
+#
+
+
+# api.add_resource(GetAffixFile, '/grab-affix')
 api.add_resource(GetParadigmSlots, '/paradigm-slots')
 api.add_resource(GetParadigmWordData, '/word-form-list')
 api.add_resource(GetParadigmWords,'/root-word-list')
