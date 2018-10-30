@@ -4,6 +4,7 @@ from flask import Flask, request, json
 from flask_restful import Resource, Api
 from flask_cors import CORS
 from User import User
+from subprocess import call
 
 app = Flask(__name__)
 
@@ -116,13 +117,20 @@ class GetParadigmSlots(Resource):
 
         return resp_obj
 
-# class GetAffixFile(Resource):
-#
-#     def post(self):
-#
+class GetAffixFile(Resource):
+
+    def post(self):
+        user.get_user_data_by_language()
+        call(["runghc", "/root/WebtoAff/WebtoAff.hs", "/root/affix-files"])
+        return True
 
 
-# api.add_resource(GetAffixFile, '/grab-affix')
+
+
+
+
+
+api.add_resource(GetAffixFile, '/get-affix')
 api.add_resource(GetParadigmSlots, '/paradigm-slots')
 api.add_resource(GetParadigmWordData, '/word-form-list')
 api.add_resource(GetParadigmWords,'/root-word-list')

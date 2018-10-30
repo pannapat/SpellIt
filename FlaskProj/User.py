@@ -55,22 +55,70 @@ class User():
         self.lang_name = lang_name
         self.lang_data = self.user_data[self.lang_name]
         return list(self.lang_data.keys())
-        
+
+
+
     def get_user_paradigm_words(self, paradigm_name):
         self.paradigm_name = paradigm_name
         self.paradigm_data = self.lang_data[paradigm_name]
         return list(self.paradigm_data[self.word].keys())
 
-    def get_user_paradigm_words_data(self,word_name):
+
+
+    def get_user_paradigm_words_data(self, word_name):
         word_forms = self.paradigm_data[self.word][word_name]
         paradigm_skeleton = self.paradigm_data[self.skeleton]
         word_data = self.mapper(word_name,word_forms,paradigm_skeleton)
         return word_data
 
+
+
     def get_user_paradigm_slots(self, paradigm_name):
         self.paradigm_name = paradigm_name
         self.paradigm_data = self.lang_data[paradigm_name]
         return self.paradigm_data[self.skeleton]
+########################################################################        AFFIX FILE HELPERS      #############################################3
+
+    def get_user_paradigms_aff_helper(self, lang_name):
+        lang_data = self.user_data[lang_name]
+        return list(lang_data.keys())
+
+    def get_user_paradigm_words_aff_helper(self, paradigm_name):
+        paradigm_data = self.lang_data[paradigm_name]
+        return list(paradigm_data[self.word].keys())
+
+    def get_user_paradigm_words_data_aff_helper(self, word_name, paradigm_name):
+        paradigm_data = self.lang_data[paradigm_name]
+        word_forms = paradigm_data[self.word][word_name]
+        paradigm_skeleton = paradigm_data[self.skeleton]
+        word_data = self.mapper(word_name, word_forms, paradigm_skeleton)
+        return word_data
+
+    def get_user_paradigm_slots_aff_helper(self, paradigm_name):
+        paradigm_data = self.lang_data[paradigm_name]
+        return paradigm_data[self.skeleton]
+
+########################################################################        AFFIX FILE HELPERS END      #############################################3
+
+
+    def get_user_data_by_language(self):
+        paradigm_names = self.get_user_paradigms_aff_helper(self.lang_name)
+        for paradigm in paradigm_names:
+            paradigm_data = {}
+            paradigm_data['paradigm_name'] = paradigm
+
+            all_paradigm_words = self.get_user_paradigm_words_aff_helper(paradigm)
+
+            words_data = []
+            for word in all_paradigm_words:
+                words_data.append(self.get_user_paradigm_words_data_aff_helper(word, paradigm))
+
+            paradigm_data['words'] = words_data
+            paradigm_data['slots'] = self.get_user_paradigm_slots_aff_helper(paradigm)
+            # response_obj.append(paradigm_data)
+
+            with open('affix-files/'+paradigm+'.json', 'w') as outfile:
+                json.dump(paradigm_data, outfile)
 
     def mapper(self, root, forms, skeleton):
         resp = {}
@@ -124,7 +172,10 @@ class User():
 
 # user = User()
 # user.validate_user('admin', 'admin')
-
+# user.get_user_paradigms('English')
+# user.get_user_paradigm_words('Verb')
+# print(user.get_user_paradigm_words_data('jump'))
+# print(user.get_user_data_by_language())
 # print(user.set_user_language('English'))
 # print(user.get_user_languages())
 # print(user.get_user_paradigms('English'))
