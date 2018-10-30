@@ -121,12 +121,21 @@ class GetAffixFile(Resource):
 
     def post(self):
         user.get_user_data_by_language()
-        call(["runghc", "/root/WebtoAff/WebtoAff.hs", "/root/affix-files"])
-        return True
 
+        files_list = []
+        root_path = "/root/WebtoAff/affix-files/"
+        for file in os.listdir(root_path):
+            if file.endswith(".json"):
+                files_list.append(os.path.join(root_path, file))
+        call_list = ["runghc", "/root/WebtoAff/WebtoAff.hs"] + files_list
+        call(call_list)
 
+        # call(["runghc", "/root/WebtoAff/WebtoAff.hs", "/root/affix-files"])
 
+        with open('/root/affix-files/out.aff', 'r') as affix_file:
+            st = affix_file.read()
 
+        return st
 
 
 
