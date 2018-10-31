@@ -639,7 +639,7 @@ main = do
     --Get Command line arguments.
     cmdargs <- En.getArgs
     case cmdargs of
-        [] -> error "No files supplied."
+        [] -> error "No argument supplied."
         [allargs] ->  do --Load in all files in allargs.
                          alljson <- D.listDirectory allargs
                          
