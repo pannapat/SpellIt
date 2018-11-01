@@ -50,7 +50,6 @@ export class ParadigmEditComponent implements OnInit {
   		data => this.forms$ = data["word_data"]);
   }
 
-
   goBack(): void {
     this.location.back();
   }
@@ -94,5 +93,4 @@ export class ParadigmEditComponent implements OnInit {
       this.data.deleteParadigm(this.paradigm_name).subscribe();
     }
   }
-
 }

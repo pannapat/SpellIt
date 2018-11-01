@@ -9,7 +9,6 @@ import { DataService } from '../data.service';
 export class LanguageListComponent implements OnInit {
   languages$: Object;
 
-
   constructor(private data: DataService) {}
 
   ngOnInit() {

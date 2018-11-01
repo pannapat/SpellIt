@@ -28,6 +28,4 @@ export class LanguageAddComponent implements OnInit {
   goBack(): void {
     this.location.back();
   }
-  
-
 }
