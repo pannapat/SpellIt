@@ -12,15 +12,13 @@ export class ParadigmAddComponent implements OnInit {
   language_id: string;
   paradigmName: string;
   slotRawList: string;
-  constructor(private data: DataService, private router: Router, private location: Location) {}
-
-  slots = [{ slot_id: 0 }];
+  constructor(
+    private data: DataService, 
+    private router: Router, 
+    private location: Location
+    ) {}
 
   ngOnInit() {
-  }
-
-  addNewSlot() {
-    this.slots.push({ slot_id: this.slots.length });
   }
 
   addNewParadigm() {
