@@ -1,0 +1,24 @@
+{
+  "paradigm_name" : "NewVerb", 
+  "slots" : [
+  "root",
+  "Present"],
+  "words" : [
+  {
+   "root" : "walk",
+   "Present" : "walks"
+  },
+  {
+   "root" : "jump",
+   "Present" : "jumps"
+  },
+  {
+   "root" : "arbazz",
+   "Present" : "arbazzs"   
+  },
+  {
+   "root" : "asbazz",
+   "Present" : "asbazzes"
+  }
+  ]
+}
