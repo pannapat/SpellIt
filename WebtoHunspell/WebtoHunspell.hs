@@ -1,5 +1,5 @@
 {-=Spellit=-}
-{-=WebtoAff: A .aff File Creator.=-}
+{-=WebtoHunspell: A .aff File Creator.=-}
 {-=Author: Matthew Mosior=-}
 {-=Version: Pre-Alpha=-}
 {-=Synopsis:  This Haskell Script will create a affix file=-}
@@ -961,7 +961,7 @@ main = do
     --Get Command line arguments.
     cmdargs <- En.getArgs
     case cmdargs of
-        [] -> error "No directory supplied."
+        [] -> error "No directory provided."
         [allargs] ->  do --Load in all files in allargs.
                          alljson <- D.listDirectory allargs
                          
@@ -1047,7 +1047,7 @@ main = do
                                                                      (linefeed fulltempread))))))))))))))))))))))))))
                                                       -----------------------
                                                       
-                         --Print the result of secondfinalruler.
+                         --Print the result of finalaffixlist.
                          IO.writeFile "out.aff" $
                              (PB.render $
                              (PB.hsep 2 PB.left . L.map (PB.vcat PB.left) . L.map (L.map (PB.text)))
