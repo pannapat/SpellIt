@@ -17,5 +17,18 @@
    "Present" : "jumps",
    "Past" : "jumped",
    "Participle" : "jumping"
-  }]
+  },
+  {
+   "root" : "buzz",
+   "Present" : "unbuzz",
+   "Past" : "buzzed",
+   "Participle" : "buzzing"   
+  },
+  {
+   "root" : "fly",
+   "Present" : "flies",
+   "Past" : "flown",
+   "Participle" : "flew"
+  }
+  ]
 }
