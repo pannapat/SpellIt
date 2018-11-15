@@ -42,8 +42,10 @@ export class ParadigmListComponent implements OnInit {
     var x = document.getElementById("loading-icon");
     x.style.display = "inline-block";
     this.data.getAffix(this.language_name).subscribe(data => {
-      var fileContents= data;
-      this.saveTextAsFile(fileContents, this.language_name + ".aff");
+      var affixFileContents= data["affix_file"];
+      var dicFileContents= data["dic_file"];
+      this.saveTextAsFile(affixFileContents, this.language_name + ".aff");
+      this.saveTextAsFile(dicFileContents, this.language_name + ".dic");
       x.style.display = "none";
       });  
   }
