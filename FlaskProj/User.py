@@ -1,8 +1,8 @@
 from CouchAPI import CouchAPI
 import json
 
-class User():
 
+class User():
     def __init__(self):
         self.username = ''
         self.paradigm_name = ''
@@ -14,7 +14,6 @@ class User():
         self.skeleton = 'Skeleton'
         self.couch = CouchAPI('Administrator', 'password', 'localhost')
         pass
-
 
     #      admin:{English:
     #                   {Noun:
@@ -44,7 +43,6 @@ class User():
                 self.set_user(username)
         else:
             return {'Error': 'User not found'}
-    
     ################################################################    GETTERS     ############################################################
 
 
@@ -68,7 +66,7 @@ class User():
     def get_user_paradigm_words_data(self, word_name):
         word_forms = self.paradigm_data[self.word][word_name]
         paradigm_skeleton = self.paradigm_data[self.skeleton]
-        word_data = self.mapper(word_name,word_forms,paradigm_skeleton)
+        word_data = self.mapper(word_name, word_forms, paradigm_skeleton)
         return word_data
 
 
@@ -117,7 +115,7 @@ class User():
             paradigm_data['slots'] = self.get_user_paradigm_slots_aff_helper(paradigm)
             # response_obj.append(paradigm_data)
 
-            with open('affix-files/'+paradigm+'.json', 'w') as outfile:
+            with open('/root/WebtoHunspell/affix-files/'+paradigm+'.json', 'w') as outfile:
                 json.dump(paradigm_data, outfile)
 
     def mapper(self, root, forms, skeleton):
@@ -144,8 +142,7 @@ class User():
         self.save_data()
         return True
 
-
-    #Input Params   paradigm_name -> string:Noun       ,   paradigm_skeleton -> list:[root, singular, plural]  |    DB Structure -> admin:{English: {Noun: {Word: {}, Skeleton: [root, singular, plural]}}}
+    # Input Params   paradigm_name -> string:Noun       ,   paradigm_skeleton -> list:[root, singular, plural]  |    DB Structure -> admin:{English: {Noun: {Word: {}, Skeleton: [root, singular, plural]}}}
     def set_user_paradigm(self, paradigm_name, paradigm_skeleton):
 
         if paradigm_name in self.lang_data:
