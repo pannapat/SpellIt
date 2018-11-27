@@ -8,6 +8,10 @@ body {
   height: 100vh;
 }
 
+input, textarea, select, button {
+    font-family: 'Ubuntu', sans-serif !important;
+}
+
 #container {
  display: grid;
  grid-template-columns: 70px auto;
