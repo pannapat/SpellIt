@@ -20,14 +20,18 @@ import {
   MatOptionModule,
   MatSelectModule,
   MatFormFieldControl,
-  MatInputModule
+  MatInputModule,
+  MatIconModule,
+  MatMenuTrigger,
+  MatMenuModule,
+  MatCardModule
 } from "@angular/material";
 
-import { TranslateModule, TranslateLoader } from "@ngx-translate/core";
-import { TranslatePoHttpLoader } from "@biesbjerg/ngx-translate-po-http-loader";
+import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
+import { TranslatePoHttpLoader } from '@biesbjerg/ngx-translate-po-http-loader';
 
 export function createTranslateLoader(http: HttpClient) {
-  return new TranslatePoHttpLoader(http, "assets/i18n", ".po");
+	return new TranslatePoHttpLoader(http, 'assets/i18n', '.po');
 }
 
 @NgModule({
@@ -51,7 +55,10 @@ export function createTranslateLoader(http: HttpClient) {
     MatOptionModule,
     MatSelectModule,
     MatInputModule,
+    MatIconModule,
     FormsModule,
+    MatMenuModule,
+    MatCardModule,
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,
@@ -60,7 +67,7 @@ export function createTranslateLoader(http: HttpClient) {
       }
     })
   ],
-  exports: [MatButtonModule, MatCheckboxModule],
+  exports: [MatButtonModule, MatCheckboxModule, TranslateModule],
   providers: [],
   bootstrap: [AppComponent]
 })

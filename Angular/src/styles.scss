@@ -12,6 +12,10 @@ input, textarea, select, button {
     font-family: 'Ubuntu', sans-serif !important;
 }
 
+a {
+    cursor: pointer;
+}
+
 #container {
  display: grid;
  grid-template-columns: 70px auto;
