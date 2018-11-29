@@ -120,15 +120,17 @@ class GetParadigmSlots(Resource):
 class GetAffixFile(Resource):
 
     def post(self):
+    affix_dir = "/root/WebtoHunspell/affix-files"
+    [os.remove(os.path.join(affix_dir,jfile)) for jfile in os.listdir(affix_dir) if jfile.endswith(".json")]
         user.get_user_data_by_language()
 
-        call_list = ["runghc", "/root/WebtoHunspell/WebtoHunspell.hs", "/root/WebtoHunspell/affix-files"]
+        call_list = ["runghc", "/root/WebtoHunspell/WebtoHunspell.hs", "/root/WebtoHunspell/affix-files/"]
         call(call_list)
 
-        with open('/root/WebtoHunspell/out.aff', 'r') as affix_file:
+        with open('/root/FlaskProj/out.aff', 'r') as affix_file:
             af = affix_file.read()
 
-        with open('/root/WebtoHunspell/out.dic', 'r') as dic_file:
+        with open('/root/FlaskProj/out.dic', 'r') as dic_file:
             dic = dic_file.read()
 
         return {'affix_file': af, 'dic_file': dic}

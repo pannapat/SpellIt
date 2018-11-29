@@ -1,9 +1,0 @@
-SET UTF-8                
-SFX  NounS  Y  3         
-SFX  NounS  0  es  [x]   
-SFX  NounS  0  s  [ge]   
-SFX  NounS  y  ies  [y]  
-SFX  Verb2S  Y  3        
-SFX  Verb2S  0  ning  [n]
-SFX  Verb2S  0  s  [n]   
-SFX  Verb2S  un  an  [n] 
