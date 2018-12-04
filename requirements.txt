@@ -1,1 +1,7 @@
 requests
+Flask==1.0.2
+Flask-Cors==3.0.6
+Flask-RESTful==0.3.6
+couchbase==2.4.2
+gunicorn==19.8.1
+codecov==2.0.15
