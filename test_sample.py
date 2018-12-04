@@ -19,10 +19,11 @@ def getLanguages():
   	return language_list
 	
 def getAffixes(language_list):
-	paradigmURL = "http://104.248.116.233:5000/paradigm-list"
-	affixURL = "http://104.248.116.233:5000/get-affix"
-	rootURL = "http://104.248.116.233:5000/root-word-list"
-	wordURL = "http://104.248.116.233:5000/word-form-list"
+	baseURL = "http://104.248.116.233:5000/"
+	paradigmURL = baseURL + "paradigm-list"
+	affixURL = baseURL + "get-affix"
+	rootURL = baseURL + "root-word-list"
+	wordURL = baseURL + "word-form-list"
 	number_of_languages = 0
 	for index, lang in enumerate(language_list):
 		LANG_PARAMS = {"language_name": lang}
@@ -44,7 +45,7 @@ def getAffixes(language_list):
 				word_list_json = raw_words.json()
 				word_list = word_list_json["word_data"]
 				for key, value in word_list.items():
-					print key, value
+					print key + ": " + value
 					words_file.write(value)
 
 		words_file.close()
