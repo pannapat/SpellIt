@@ -44,8 +44,7 @@ def getAffixes(language_list):
 				word_list_json = raw_words.json()
 				word_list = word_list_json["word_data"]
 				for key, value in word_list.items():
-					print key
-					print value
+					print key, value
 					words_file.write(value)
 
 		words_file.close()
