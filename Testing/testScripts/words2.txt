@@ -1,7 +1,3 @@
-fox
-foxes
-bag
-bags
-see
-sees
-
+tocar
+tocas
+tocan

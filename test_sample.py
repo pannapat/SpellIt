@@ -3,14 +3,6 @@ import subprocess as subprocess
 import os
 import requests
 
-
-def func(x):
-    return x + 1
-
-def output():
-	subprocess.call(["cd", "Testing/testScripts"])
-	subprocess.call(["./hello.sh"])
-
 def getLanguages():
   	URL = "http://104.248.116.233:5000/language-list"
   	language_raw = requests.post(url = URL)
@@ -45,8 +37,7 @@ def getAffixes(language_list):
 				word_list_json = raw_words.json()
 				word_list = word_list_json["word_data"]
 				for key, value in word_list.items():
-					print key + ": " + value
-					words_file.write(value)
+					words_file.write(value+"\n")
 
 		words_file.close()
  
@@ -66,40 +57,39 @@ def getAffixes(language_list):
 	return number_of_languages
 
 
-def call_hunspell(number_of_languages):
+def call_hunspell(number_of_languages, language_list):
 	
 	passed = 0
 	failed = 0
-	fileNum = 1
+	fileNum = 0
 	
 	os.chdir("Testing/testScripts")
 
-	while fileNum <= number_of_languages:
+	while fileNum < number_of_languages:
 		inputFile = "words"+str(fileNum)+".txt"
 		#outputFile = "output"+str(fileNum)+".txt"
 		hunspell_cmd = subprocess.Popen(["cat", inputFile], stdout=subprocess.PIPE)
-		affix_name = "out" + str(fileNum)
+		affix_name = "./out" + str(fileNum)
 		hunspell_output = subprocess.Popen(['hunspell', '-d',affix_name,"-l"], 
 			stdin=hunspell_cmd.stdout, stdout=subprocess.PIPE)
 		#expected_output= subprocess.Popen(["cat", outputFile], stdout=subprocess.PIPE)
 		expected_output = " "
+		output = hunspell_output.stdout.read().strip()
 		
-		if hunspell_output.stdout.read().strip() == expected_output.strip():
+		if output == expected_output.strip():
 			passed=passed+1
 		else:
+			print "Language '" + language_list[fileNum] + "' failed the test with output: \n" + output
 			failed=failed+1
 
 		fileNum=fileNum+1
-	# print "tests passed: ",passed
-	# print "tests failed: ",failed
 
 	return(passed,failed)
 
 def test_answer():
-    assert func(3) == 4
     language_list =  getLanguages()
-    print(language_list)
     number_of_languages = getAffixes(language_list)
-    passed,failed = call_hunspell(number_of_languages)
+    passed,failed = call_hunspell(number_of_languages, language_list)
+    assert failed==0
 
 test_answer()
