@@ -78,13 +78,13 @@ def call_hunspell(number_of_languages):
 		inputFile = "words"+str(fileNum)+".txt"
 		#outputFile = "output"+str(fileNum)+".txt"
 		hunspell_cmd = subprocess.Popen(["cat", inputFile], stdout=subprocess.PIPE)
-		affix_name = "./out" + str(fileNum)
+		affix_name = "out" + str(fileNum)
 		hunspell_output = subprocess.Popen(['hunspell', '-d',affix_name,"-l"], 
 			stdin=hunspell_cmd.stdout, stdout=subprocess.PIPE)
 		#expected_output= subprocess.Popen(["cat", outputFile], stdout=subprocess.PIPE)
 		expected_output = " "
 		
-		if hunspell_output.stdout.read().strip() == expected_output.stdout.read().strip():
+		if hunspell_output.stdout.read().strip() == expected_output.strip():
 			passed=passed+1
 		else:
 			failed=failed+1
