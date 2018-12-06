@@ -20,4 +20,5 @@
 /out/
 
 # Testing Files
-/Testing/testScripts/
+/Testing/testScripts/*
+!/Testing/testScripts/.gitkeep
