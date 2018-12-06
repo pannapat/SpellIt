@@ -1,4 +1,4 @@
-# content of test_sample.py
+# content of affixTests.py
 import subprocess as subprocess
 import os
 import requests
@@ -62,7 +62,7 @@ def call_hunspell(number_of_languages, language_list):
 	failed = 0
 	fileNum = 0
 	
-	os.chdir("Testing/testScripts")
+	os.chdir(os.path.join(os.path.dirname(__file__),'Testing','testScripts'))
 
 	while fileNum < number_of_languages:
 		inputFile = "words"+str(fileNum)+".txt"

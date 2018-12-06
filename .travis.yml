@@ -4,4 +4,4 @@ python:
 before_install:
   - sudo apt-get install hunspell
 script:
-  - pytest test_sample.py
+  - pytest affixTests.py
