@@ -1,0 +1,37 @@
+# Translation File
+msgid ""
+msgstr ""
+
+
+msgid "Language List"
+msgstr "Language List"
+
+msgid "Add a New Language"
+msgstr "Add a New Language"
+
+msgid "Language Name"
+msgstr "Language Name"
+
+msgid "Paradigm List"
+msgstr "Paradigm List"
+
+msgid "Add a New Paradigm"
+msgstr "Add a New Paradigm"
+
+msgid "Paradigm Name"
+msgstr "Paradigm Name"
+
+msgid "Slot list separated by commas e.g. slot1,slot2,slot3"
+msgstr "Slot list separated by commas e.g. slot1,slot2,slot3"
+
+msgid "Root Words"
+msgstr "Root Words"
+
+msgid "Word Forms"
+msgstr "Word Forms"
+
+msgid "Paradigm Forms"
+msgstr "Paradigm Forms"
+
+msgid "Add a New Root"
+msgstr "Add a New Root"
