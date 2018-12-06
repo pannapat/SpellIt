@@ -3,7 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { environment } from '../environments/environment'
 
 //list of all available routes:
-//api a`dress: ${this.baseUrl}:5000
+//api address: ${this.baseUrl}:5000
 
 @Injectable({
   providedIn: 'root'
