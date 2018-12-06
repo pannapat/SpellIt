@@ -2,7 +2,7 @@
 {-=WebtoHunspell: A .aff File Creator.=-}
 {-=Author: Matthew Mosior=-}
 {-=Version: Release=-}
-{-=Synopsis: This Haskell script will create an affix file=-}
+{-=Synopsis:  This Haskell Script will create an affix file=-}
 {-=and dictionary file from the JSON inputs.=-}
 
 {-Syntax Extensions.-}
@@ -735,7 +735,7 @@ subruleregex (x:xs) = [nestednestednestednestedregexadder x] ++ (subruleregex xs
         --regexcreator
         regexcreator :: [String] -> String
         regexcreator ([]:_) = []
-        regexcreator xs     = ("[" ++ (L.map (L.head) xs) ++ "]") ++ (regexcreator (L.map (L.drop 1) xs)) 
+        regexcreator xs     = ("[" ++ (L.nub (L.sort (L.map (L.head) xs))) ++ "]") ++ (regexcreator (L.map (L.drop 1) xs)) 
         -------------------------------
 
 --subrulecoupler -> This function will take the result
