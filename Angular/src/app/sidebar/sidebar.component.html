@@ -29,6 +29,10 @@
           <mat-icon>{{ isCurrentLanguage('en') ? 'check' : '' }}</mat-icon>
           <span>English (en)</span>
         </button>
+        <button mat-menu-item (click)="changeLanguageTo('it')">
+          <mat-icon>{{ isCurrentLanguage('it') ? 'check' : '' }}</mat-icon>
+          <span>Italiano (it)</span>
+        </button>
       </mat-menu>
     </li>
   </ul>

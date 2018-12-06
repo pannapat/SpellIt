@@ -1,0 +1,37 @@
+# Translation File
+msgid ""
+msgstr ""
+
+
+msgid "Language List"
+msgstr "Elenco delle lingue"
+
+msgid "Add a New Language"
+msgstr "Inserisci una nuova lingua"
+
+msgid "Language Name"
+msgstr "Nome della lingua"
+
+msgid "Paradigm List"
+msgstr "Elenco dei paradigmi"
+
+msgid "Add a New Paradigm"
+msgstr "Inserisci un nuovo paradigma"
+
+msgid "Paradigm Name"
+msgstr "Nome del paradigma"
+
+msgid "Slot list separated by commas e.g. slot1,slot2,slot3"
+msgstr "Tipi del paradigma separati da una virgola, es. tipo1, tipo2, tipo3"
+
+msgid "Root Words"
+msgstr "Primitive della parola"
+
+msgid "Word Forms"
+msgstr "Derivate della parola"
+
+msgid "Paradigm Forms"
+msgstr "Tipi del paradigma"
+
+msgid "Add a New Root"
+msgstr "Inserisci una nuova parola primitiva"
