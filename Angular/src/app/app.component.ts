@@ -9,7 +9,7 @@ export class AppComponent {
   title = 'Angular';
 
   constructor(public translate: TranslateService) {
-    translate.addLangs(['en', 'ga', 'th']);
+    translate.addLangs(['en', 'ga', 'th','it']);
 
     // this language will be used as a fallback when a translation isn't found in the current language
     translate.setDefaultLang('en');
