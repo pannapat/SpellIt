@@ -25,7 +25,7 @@ msgid "Slot list separated by commas e.g. slot1,slot2,slot3"
 msgstr "Tipi del paradigma separati da una virgola, es. tipo1, tipo2, tipo3"
 
 msgid "Root Words"
-msgstr "Primitiva della parola"
+msgstr "Primitive della parola"
 
 msgid "Word Forms"
 msgstr "Derivate della parola"
