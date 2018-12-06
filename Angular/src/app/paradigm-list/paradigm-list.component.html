@@ -30,7 +30,7 @@
 	</div>
 </div>
 
-<h1> {{language_name}}: Paradigm List </h1>
+<h1> {{language_name}}: {{ 'Paradigm List' | translate }} </h1>
 
 <ul>
 	<li *ngFor="let paradigm of paradigms$">
@@ -39,7 +39,7 @@
 	<li>
 		<a routerLink="./paradigm-add">
 			<i class="material-icons">add_circle_outline</i>
-			Add a New Paradigm
+			{{ 'Add a New Paradigm' | translate }}
 		</a>
 	</li>
 </ul>

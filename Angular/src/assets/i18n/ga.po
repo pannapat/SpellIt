@@ -1,0 +1,47 @@
+# Translation File
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 2.2\n"
+"Last-Translator: \n"
+"Plural-Forms: nplurals=5; plural=(n==1 ? 0 : n==2 ? 1 : n>=3 && n<=6 ? 2 : n>=7 && n<=10 ? 3 : 4);\n"
+"Language: ga\n"
+
+msgid "Language List"
+msgstr "Liosta Teangacha"
+
+msgid "Add a New Language"
+msgstr "Teanga Nua"
+
+msgid "Language Name"
+msgstr "Ainm na Teanga"
+
+msgid "Paradigm List"
+msgstr "Liosta Paraidímí"
+
+msgid "Add a New Paradigm"
+msgstr "Paraidím Nua"
+
+msgid "Paradigm Name"
+msgstr "Ainm na Paraidíme"
+
+msgid "Slot list separated by commas e.g. slot1,slot2,slot3"
+msgstr "Liosta lipéad, scartha ag camóga, m.sh. lipéad1,lipéad2,lipéad3"
+
+msgid "Root Words"
+msgstr "Fréamhfhocail"
+
+msgid "Word Forms"
+msgstr "Foirmeacha"
+
+msgid "Paradigm Forms"
+msgstr "Lipéid"
+
+msgid "Add a New Root"
+msgstr "Fréamhfhocal Nua"

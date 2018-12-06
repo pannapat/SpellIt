@@ -7,6 +7,11 @@ nav {
         padding: 0;
         margin: 0;
 
+        &.change-ui-lang-button {
+            position: absolute;
+            bottom: 40px;
+        }
+
         li {
 
             a {
@@ -20,5 +25,8 @@ nav {
             }
         }
     }
-    
+    mat-icon {
+        color: white;
+        
+    }
 }

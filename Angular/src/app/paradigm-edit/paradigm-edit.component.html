@@ -17,7 +17,7 @@
 
 <div class="column-container">
 	<div class="root-column"> 
-		<h2> Root Words </h2> 
+		<h2> {{ 'Root Words' | translate }} </h2> 
 		<ul>
 		  <li *ngFor="let root of roots$; let index = index" class="root-item-container">
 		    <div (click)="onSelect(index)" class="root-item clickable-cursor">
@@ -32,16 +32,16 @@
 		  <li>
 		  	<a (click)="onSelectNew()" class="clickable-cursor">
 		  		<i class="material-icons">add_circle_outline</i> 
-		  		Add a New Root 
+		  		{{ 'Add a New Root' | translate }}
 		  	</a>
 		  </li>
 		</ul>
 	</div>
 	<div class="forms-column"> 
 		<div class="column-container">
-				<div class="word-column"><h2> Word Forms </h2></div> 
+				<div class="word-column"><h2> {{ 'Word Forms' | translate }} </h2></div> 
 				<div class="paradigm-column column-container">
-					<h2 class = "two-column"> Paradigm Forms </h2>
+					<h2 class = "two-column"> {{ 'Paradigm Forms' | translate }} </h2>
 					<div class="right-align">
 						<button (click)="onSave()" class="button" title="Save Word">
 							<i class="material-icons">save</i>

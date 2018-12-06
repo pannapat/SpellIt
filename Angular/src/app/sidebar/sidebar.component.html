@@ -6,9 +6,30 @@
       </a>
     </li>
     <li>
-        <a routerLink="language-add">
-          <i class="material-icons" title="Add New Language">add_circle</i>
-        </a>
-      </li>
+      <a routerLink="language-add">
+        <i class="material-icons" title="Add New Language">add_circle</i>
+      </a>
+    </li>
+  </ul>
+  <ul class="change-ui-lang-button">
+    <li>
+      <a mat-icon-button [matMenuTriggerFor]="menu">
+        <mat-icon title="Change User Interface's Language">language</mat-icon>
+      </a>
+      <mat-menu #menu="matMenu">
+        <button mat-menu-item (click)="changeLanguageTo('ga')">
+          <mat-icon>{{ isCurrentLanguage('ga') ? 'check' : '' }}</mat-icon>
+          <span>Gaeilge (ga)</span>
+        </button>
+        <button mat-menu-item (click)="changeLanguageTo('th')">
+          <mat-icon>{{ isCurrentLanguage('th') ? 'check' : '' }}</mat-icon>
+          <span>ไทย (th)</span>
+        </button>
+        <button mat-menu-item (click)="changeLanguageTo('en')">
+          <mat-icon>{{ isCurrentLanguage('en') ? 'check' : '' }}</mat-icon>
+          <span>English (en)</span>
+        </button>
+      </mat-menu>
+    </li>
   </ul>
 </nav>
