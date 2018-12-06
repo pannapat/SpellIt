@@ -19,7 +19,6 @@ def getAffixes(language_list):
 	number_of_languages = 0
 	for index, lang in enumerate(language_list):
 		LANG_PARAMS = {"language_name": lang}
-		print LANG_PARAMS
 
 		raw_paradigms = requests.post(url = paradigmURL, json= LANG_PARAMS)
 		paradigms_list_json = raw_paradigms.json()
