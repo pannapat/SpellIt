@@ -138,7 +138,31 @@ class GetAffixFile(Resource):
 
         return {'affix_file': af, 'dic_file': dic}
 
+class DeleteWord(Resource):
 
+    def post(self):
+        request_data = json.loads(request.data.decode())
+        root_word = request_data['root_word']
+        user.delete_word(root_word)
+
+class DeleteParadigm(Resource):
+
+    def post(self):
+        request_data = json.loads(request.data.decode())
+        paradigm = request_data['paradigm_name']
+        user.delete_paradigm(paradigm)
+
+class DeleteLanguage(Resource):
+
+    def post(self):
+        request_data = json.loads(request.data.decode())
+        lang_name = request_data['language_name']
+        user.delete_language(lang_name)
+
+
+api.add_resource(DeleteLanguage, '/delete-language')
+api.add_resource(DeleteWord, '/delete-paradigm-word')
+api.add_resource(DeleteParadigm, '/delete-paradigm')
 
 api.add_resource(GetAffixFile, '/get-affix')
 api.add_resource(GetParadigmSlots, '/paradigm-slots')

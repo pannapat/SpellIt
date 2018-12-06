@@ -166,6 +166,22 @@ class User():
     def save_data(self):
         self.couch.store_data(self.username, self.user_data)
 
+###################################################     DELETE FUNCTIONS    ##############################
+
+    def delete_word(self, root_word):
+        del self.user_data[self.lang_name][self.paradigm_name][self.word][root_word]
+        self.save_data()
+        return True
+
+    def delete_paradigm(self, paradigm_name):
+        del self.user_data[self.lang_name][paradigm_name]
+        self.save_data()
+        return True
+
+    def delete_language(self, lang):
+        del self.user_data[lang]
+        self.save_data()
+        return True
 
 # user = User()
 # user.validate_user('admin', 'admin')
