@@ -22,6 +22,7 @@ import {
   MatFormFieldControl,
   MatInputModule
 } from "@angular/material";
+import { UnmunchingComponent } from './unmunching/unmunching.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import {
     ParadigmListComponent,
     LanguageAddComponent,
     ParadigmEditComponent,
-    ParadigmAddComponent
+    ParadigmAddComponent,
+    UnmunchingComponent
   ],
   imports: [
     BrowserModule,

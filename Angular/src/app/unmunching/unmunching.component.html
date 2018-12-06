@@ -1,0 +1,55 @@
+<div class="flex-container">
+  <div class="top-item">
+    <button (click)="goBack()" class="button" title="Go Back">
+      <i class="material-icons">arrow_back</i>
+    </button>
+  </div>
+</div>
+
+<h1> Unmunching </h1>
+
+<div class="flex-container">
+  <div class="top-item">
+    <button (click)="uploadWordList()" class="button" id="upload" title="Upload Word List">
+      <i class="material-icons">cloud_upload</i>
+    </button>
+  </div>
+</div>
+
+<div *ngIf="showList">
+  <ul>
+    <li>
+      <div class="flex-container">
+        <a>Root Word</a>
+        <a>Score</a>
+        <a>Add</a>
+        <a>Forms</a>
+      </div>
+    </li>
+    <li *ngFor="let unmunchedData of unmunchedData$; let index = index">
+      <div class="flex-container">
+        <a>{{ unmunchedData.root }}</a>
+        <a>{{ unmunchedData.score }}</a>
+        <mat-checkbox [(ngModel)]="check$[index]"></mat-checkbox>
+        <button (click)="showForms([index])" class="button" id="show$[index]" title="Show Forms">
+          <i *ngIf="!show$[index]" class="material-icons">arrow_drop_down</i>
+          <i *ngIf="show$[index]" class="material-icons">arrow_drop_up</i>
+        </button>
+      </div>
+      <div *ngIf="show$[index]">
+        <div class="flex-container" *ngFor="let form of unmunchedData.slots">
+          <a>{{ form }}</a>
+        </div>
+      </div>
+
+    </li>
+  </ul>
+
+  <div class="flex-container">
+    <div class="top-item">
+      <button (click)="addWords()" class="button" id="add" title="Add Words">
+        <i class="material-icons">arrow_forward</i>
+      </button>
+    </div>
+  </div>
+</div>
