@@ -19,6 +19,8 @@
 # IntelliJ
 /out/
 
-*.aff
-*.dic
+# Testing Files
+/Testing/testScripts/*
+!/Testing/testScripts/.gitkeep
 .vscode
+

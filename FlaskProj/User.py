@@ -115,7 +115,7 @@ class User():
             paradigm_data['slots'] = self.get_user_paradigm_slots_aff_helper(paradigm)
             # response_obj.append(paradigm_data)
 
-            with open('/root/WebtoHunspell/affix-files/'+paradigm+'.json', 'w') as outfile:
+            with open('/root/WebtoHunspell/affix-files/'+paradigm+'.json', 'w+') as outfile:
                 json.dump(paradigm_data, outfile)
 
     def mapper(self, root, forms, skeleton):

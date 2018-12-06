@@ -1,5 +1,7 @@
 language: python
 python: 
   - "2.7"
+before_install:
+  - sudo apt-get install hunspell
 script:
-  - pytest test_sample.py
+  - pytest affixTests.py
