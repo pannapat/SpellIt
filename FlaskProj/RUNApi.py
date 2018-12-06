@@ -133,6 +133,7 @@ class GetAffixFile(Resource):
             af = affix_file.read()
 
         with open(API_PATH + '/out.dic', 'r') as dic_file:
+
             dic = dic_file.read()
 
         return {'affix_file': af, 'dic_file': dic}

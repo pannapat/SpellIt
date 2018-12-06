@@ -3,7 +3,7 @@
 </button>
 
 <h1>
-  Add New Paradigm
+  {{ 'Add a New Paradigm' | translate }}
 </h1>
 
 
@@ -11,12 +11,12 @@
 
   <div class="mat-card-title">
     <mat-form-field>
-      <input matInput placeholder="Paradigm Name" [(ngModel)]="paradigmName">
+      <input matInput placeholder="{{ 'Paradigm Name' | translate }}" [(ngModel)]="paradigmName">
     </mat-form-field>
   </div>
   <div class="mat-card-content">
       <mat-form-field>
-        <input matInput placeholder="Slot list separated by commas e.g. slot1,slot2,slot3" [(ngModel)]="slotRawList">
+        <input matInput placeholder="{{ 'Slot list separated by commas e.g. slot1,slot2,slot3' | translate }}" [(ngModel)]="slotRawList">
       </mat-form-field>
   </div>
 

@@ -9,7 +9,7 @@ import { ParadigmListComponent } from "./paradigm-list/paradigm-list.component";
 import { LanguageAddComponent } from "./language-add/language-add.component";
 import { ParadigmEditComponent } from "./paradigm-edit/paradigm-edit.component";
 import { ParadigmAddComponent } from "./paradigm-add/paradigm-add.component";
-import { HttpClientModule } from "@angular/common/http";
+import { HttpClient, HttpClientModule } from "@angular/common/http";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 
 import { FormControl, FormsModule } from "@angular/forms";
@@ -20,8 +20,20 @@ import {
   MatOptionModule,
   MatSelectModule,
   MatFormFieldControl,
-  MatInputModule
+  MatInputModule,
+  MatIconModule,
+  MatMenuTrigger,
+  MatMenuModule,
+  MatCardModule
 } from "@angular/material";
+import { UnmunchingComponent } from './unmunching/unmunching.component';
+
+import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
+import { TranslatePoHttpLoader } from '@biesbjerg/ngx-translate-po-http-loader';
+
+export function createTranslateLoader(http: HttpClient) {
+	return new TranslatePoHttpLoader(http, 'assets/i18n', '.po');
+}
 
 @NgModule({
   declarations: [
@@ -31,7 +43,8 @@ import {
     ParadigmListComponent,
     LanguageAddComponent,
     ParadigmEditComponent,
-    ParadigmAddComponent
+    ParadigmAddComponent,
+    UnmunchingComponent
   ],
   imports: [
     BrowserModule,
@@ -44,9 +57,19 @@ import {
     MatOptionModule,
     MatSelectModule,
     MatInputModule,
-    FormsModule
+    MatIconModule,
+    FormsModule,
+    MatMenuModule,
+    MatCardModule,
+    TranslateModule.forRoot({
+      loader: {
+        provide: TranslateLoader,
+        useFactory: createTranslateLoader,
+        deps: [HttpClient]
+      }
+    })
   ],
-  exports: [MatButtonModule, MatCheckboxModule],
+  exports: [MatButtonModule, MatCheckboxModule, TranslateModule],
   providers: [],
   bootstrap: [AppComponent]
 })

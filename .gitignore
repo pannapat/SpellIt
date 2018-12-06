@@ -22,3 +22,5 @@
 # Testing Files
 /Testing/testScripts/*
 !/Testing/testScripts/.gitkeep
+.vscode
+

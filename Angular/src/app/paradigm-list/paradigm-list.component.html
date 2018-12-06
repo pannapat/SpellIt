@@ -15,20 +15,31 @@
 		</button>
 	</div>
 	<div class="top-item">
-		<div id= "loading-icon" class="lds-ring"><div></div><div></div><div></div><div></div></div>
+		<a routerLink="/language/{{ language_name }}/unmunching" class="clickable-cursor">
+			<i class="material-icons">insert_drive_file</i>
+			Unmunch
+		</a>
+	</div>
+	<div class="top-item">
+		<div id="loading-icon" class="lds-ring">
+			<div></div>
+			<div></div>
+			<div></div>
+			<div></div>
+		</div>
 	</div>
 </div>
 
-<h1> {{language_name}}: Paradigm List </h1>
+<h1> {{language_name}}: {{ 'Paradigm List' | translate }} </h1>
 
 <ul>
-  <li *ngFor="let paradigm of paradigms$">
-    <a routerLink="./paradigm-edit/{{paradigm}}">{{ paradigm }}</a>
-  </li>
-  <li>
-    <a routerLink="./paradigm-add">
-    	<i class="material-icons">add_circle_outline</i>
-    	Add a New Paradigm
-    </a>
-  </li>
+	<li *ngFor="let paradigm of paradigms$">
+		<a routerLink="./paradigm-edit/{{paradigm}}">{{ paradigm }}</a>
+	</li>
+	<li>
+		<a routerLink="./paradigm-add">
+			<i class="material-icons">add_circle_outline</i>
+			{{ 'Add a New Paradigm' | translate }}
+		</a>
+	</li>
 </ul>
