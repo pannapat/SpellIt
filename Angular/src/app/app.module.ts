@@ -26,6 +26,7 @@ import {
   MatMenuModule,
   MatCardModule
 } from "@angular/material";
+import { UnmunchingComponent } from './unmunching/unmunching.component';
 
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { TranslatePoHttpLoader } from '@biesbjerg/ngx-translate-po-http-loader';
@@ -42,7 +43,8 @@ export function createTranslateLoader(http: HttpClient) {
     ParadigmListComponent,
     LanguageAddComponent,
     ParadigmEditComponent,
-    ParadigmAddComponent
+    ParadigmAddComponent,
+    UnmunchingComponent
   ],
   imports: [
     BrowserModule,

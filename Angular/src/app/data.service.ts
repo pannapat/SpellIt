@@ -44,6 +44,24 @@ export class DataService {
     });
   }
 
+  getUnmunch(){
+
+    var ret = [
+      { root: "happy",
+        slots : ["happier", "happiest"],
+        score : 80
+      },
+      {
+        root: "happie",
+        slots : ["happier", "happiest"],
+        score : 50
+      }
+    ]
+
+    return ret
+    
+  }
+
   addLanguage(language_name: string) {
     return this.http.post('http://104.248.116.233:5000/add-language', {
       language_name: language_name

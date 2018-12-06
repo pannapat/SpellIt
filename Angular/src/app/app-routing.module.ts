@@ -5,6 +5,7 @@ import { ParadigmListComponent } from './paradigm-list/paradigm-list.component';
 import { LanguageAddComponent } from './language-add/language-add.component';
 import { ParadigmEditComponent } from './paradigm-edit/paradigm-edit.component';
 import { ParadigmAddComponent } from './paradigm-add/paradigm-add.component';
+import { UnmunchingComponent } from './unmunching/unmunching.component';
 
 const routes: Routes = [
   {
@@ -30,6 +31,10 @@ const routes: Routes = [
   {
     path: 'language/:language_name/paradigm-add',
     component: ParadigmAddComponent
+  },
+  {
+    path: 'language/:language_name/unmunching',
+    component: UnmunchingComponent
   },
 ];
 
