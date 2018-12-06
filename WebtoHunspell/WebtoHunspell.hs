@@ -1,9 +1,9 @@
 {-=Spellit=-}
 {-=WebtoHunspell: A .aff File Creator.=-}
 {-=Author: Matthew Mosior=-}
-{-=Version: Pre-Alpha=-}
-{-=Synopsis:  This Haskell Script will create a affix file=-}
-{-=from the JSON input files.=-}
+{-=Version: Release=-}
+{-=Synopsis: This Haskell script will create an affix file=-}
+{-=and dictionary file from the JSON inputs.=-}
 
 {-Syntax Extensions.-}
 
@@ -327,29 +327,32 @@ pfxsfx ((a,xs):ys) = [(a,nestedadder xs)] ++ (pfxsfx ys)
 
 --toprerule -> This function will pull data from presufcheck
 --into a list based on PreRuleHeader and PreRule.
-toprerule :: [(String,[(String,[(Maybe String,Maybe (String,String,String))])])] -> [(String,[(String,[(PreRuleHeader,PreRule)])])]
-toprerule []          = []
-toprerule ((a,xs):ys) = [(a,prenestedruler a xs)] ++ (toprerule ys)
+toprerule :: [(String,[(String,[(Maybe String,Maybe (String,String,String))])])] -> [String] -> [(String,[(String,[(PreRuleHeader,PreRule)])])]
+toprerule []          []        = []
+toprerule []          (_:_)     = []
+toprerule ((a,xs):ys) (z:zs)    = [(a,prenestedruler z xs)] ++ (toprerule ys zs)
     where
         --Nested Function Definitions.--
         --prenestedruler
         prenestedruler :: String -> [(String,[(Maybe String,Maybe (String,String,String))])] -> [(String,[(PreRuleHeader,PreRule)])]
         prenestedruler [] []    = []
         prenestedruler (_:_) [] = []
-        prenestedruler a (x:xs) = [preruler a x] ++ (prenestedruler a xs) 
+        prenestedruler z (x:xs) = [preruler z x] ++ (prenestedruler z xs) 
         --preruler
         preruler :: String -> (String,[(Maybe String,Maybe (String,String,String))]) -> (String,[(PreRuleHeader,PreRule)])
-        preruler [] ([],[])     = ([],[])
-        preruler [] ((_:_), []) = ([],[])
-        preruler (_:_) (_, [])  = ([],[])
-        preruler a (x,(y:ys))   = 
+        preruler [] ([],[])           = ([],[])
+        preruler [] ((_:_), [])       = ([],[])
+        preruler (_:_) (_, [])        = ([],[])
+        preruler []    ([], (_:_))    = ([],[])
+        preruler []    ((_:_), (_:_)) = ([],[])
+        preruler z (x,(y:ys))    = 
             if fst y == Just "PFX" 
-                then (x,[((PrePfxHead "PFX" (a ++ "P") 'Y') , (PrePfx "PFX" (a ++ "P") (mtripletthrd $ (snd y)) (mtripletfst $ (snd y))))] ++ (snd (preruler a (x,ys))))
+                then (x,[((PrePfxHead "PFX" (z ++ "P") 'Y') , (PrePfx "PFX" (z ++ "P") (mtripletthrd $ (snd y)) (mtripletfst $ (snd y))))] ++ (snd (preruler z (x,ys))))
                 else if fst y == Just "SFX"
-                    then (x,[((PreSfxHead "SFX" (a ++ "S") 'Y') , (PreSfx "SFX" (a ++ "S") (mtripletthrd $ (snd y)) (mtripletsnd $ (snd y))))] ++ (snd (preruler a (x,ys)))) 
-                    else if fst y == Just "PFX/SFX"
-                        then (x,[((PrePfxHead "PFX" (a ++ "P") 'Y') , (PrePfx "PFX" (a ++ "P") (mtripletthrd $ (snd y)) (mtripletfst $ (snd y))))] ++ [((PreSfxHead "SFX" (a ++ "S") 'Y') , (PreSfx "SFX" (a ++ "S") (mtripletthrd $ (snd y)) (mtripletsnd $ (snd y))))] ++ (snd (preruler a (x,ys)))) 
-                        else preruler a (x,ys)
+                    then (x,[((PreSfxHead "SFX" (z ++ "S") 'Y') , (PreSfx "SFX" (z ++ "S") (mtripletthrd $ (snd y)) (mtripletsnd $ (snd y))))] ++ (snd (preruler z (x,ys)))) 
+                    else if fst y == Just "PFX/SFX" 
+                        then (x,[((PrePfxHead "PFX" (z ++ "P") 'Y') , (PrePfx "PFX" (z ++ "P") (mtripletthrd $ (snd y)) (mtripletfst $ (snd y))))] ++ [((PreSfxHead "SFX" (z ++ "S") 'Y') , (PreSfx "SFX" (z ++ "S") (mtripletthrd $ (snd y)) (mtripletsnd $ (snd y))))] ++ (snd (preruler z (x,ys))))
+                            else preruler z (x,ys) 
         --------------------------------
 
 --simplifytoprerule -> This function will simplify 
@@ -553,7 +556,7 @@ allgroup (x:xs) = [largeinitialgroup x] ++ (allgroup xs)
 --preresolver -> This function will take the results
 --of firstalldifferences and prepare it to be
 --loaded into the RuleHeader and Rule datatypes.
-preresolver ::  [[[([[(String,PreRuleHeader,PreRule)]],[(String,String,String)])]]] -> [[[[([(String,PreRuleHeader,PreRule)],[(String,String)])]]]]
+preresolver :: [[[([[(String,PreRuleHeader,PreRule)]],[(String,String,String)])]]] -> [[[[([(String,PreRuleHeader,PreRule)],[(String,String)])]]]]
 preresolver []     = []
 preresolver (x:xs) = [nestednestedalldiffadder x] ++ (preresolver xs)
     where
@@ -1123,17 +1126,23 @@ main = do
                                                                      (wordandprerule
                                                                      (finalsimplifytoprerule
                                                                      (simplifytoprerule
-                                                                     (toprerule
-                                                                     (pfxsfx
-                                                                     (simplifypresufcheck
-                                                                     (presufcheck
-                                                                     (truefinalreader
-                                                                     (prefinalreader
-                                                                     (midfinalreader
-                                                                     (midreader
-                                                                     (beginreader
-                                                                     (readchunker
-                                                                     (linefeed fulltempread))))))))))))))))))))))))))
+                                                                     (toprerule pfxsfxgenerator rulenamegenerator))))))))))))))))
+                                                                         where
+                                                                             --Nested Definitions.--
+                                                                             pfxsfxgenerator = pfxsfx
+                                                                                               (simplifypresufcheck
+                                                                                               (presufcheck
+                                                                                               (truefinalreader
+                                                                                               (prefinalreader
+                                                                                               (midfinalreader
+                                                                                               (midreader
+                                                                                               (beginreader
+                                                                                               (readchunker
+                                                                                               (linefeed fulltempread)))))))))
+                                                                             rulenamegenerator = (sequence $ L.replicate 1 ['A'..'Z']) 
+                                                                                              ++ (sequence $ L.replicate 2 ['A'..'Z']) 
+                                                                                              ++ (sequence $ L.replicate 3 ['A'..'Z'])
+                                                                             ----------------------- 
                                                       lengthmapper = simpruleloaderlengthmapper
                                                                      (simplifyruleloader
                                                                      (ruleloader
@@ -1150,17 +1159,23 @@ main = do
                                                                      (wordandprerule
                                                                      (finalsimplifytoprerule
                                                                      (simplifytoprerule
-                                                                     (toprerule
-                                                                     (pfxsfx
-                                                                     (simplifypresufcheck
-                                                                     (presufcheck
-                                                                     (truefinalreader
-                                                                     (prefinalreader
-                                                                     (midfinalreader
-                                                                     (midreader
-                                                                     (beginreader
-                                                                     (readchunker
-                                                                     (linefeed fulltempread))))))))))))))))))))))))))
+                                                                     (toprerule pfxsfxgenerator rulenamegenerator))))))))))))))))
+                                                                         where
+                                                                             --Nested Definitions.--
+                                                                             pfxsfxgenerator = pfxsfx
+                                                                                               (simplifypresufcheck
+                                                                                               (presufcheck
+                                                                                               (truefinalreader
+                                                                                               (prefinalreader
+                                                                                               (midfinalreader
+                                                                                               (midreader
+                                                                                               (beginreader
+                                                                                               (readchunker
+                                                                                               (linefeed fulltempread)))))))))
+                                                                             rulenamegenerator = (sequence $ L.replicate 1 ['A'..'Z']) 
+                                                                                              ++ (sequence $ L.replicate 2 ['A'..'Z']) 
+                                                                                              ++ (sequence $ L.replicate 3 ['A'..'Z'])
+                                                                             -----------------------
                                                       -----------------------
                                                       
                          --Print the result of finalaffixlist.
@@ -1193,17 +1208,23 @@ main = do
                                                    (wordandprerule
                                                    (finalsimplifytoprerule
                                                    (simplifytoprerule
-                                                   (toprerule
-                                                   (pfxsfx
-                                                   (simplifypresufcheck
-                                                   (presufcheck
-                                                   (truefinalreader
-                                                   (prefinalreader
-                                                   (midfinalreader
-                                                   (midreader
-                                                   (beginreader
-                                                   (readchunker
-                                                   (linefeed fulltempread)))))))))))))))))))))))))))))))))
+                                                   (toprerule pfxsfxgenerator rulenamegenerator)))))))))))))))))))))))
+                                                       where
+                                                           --Nested Definitions.--
+                                                           pfxsfxgenerator = pfxsfx
+                                                                             (simplifypresufcheck
+                                                                             (presufcheck
+                                                                             (truefinalreader
+                                                                             (prefinalreader
+                                                                             (midfinalreader
+                                                                             (midreader
+                                                                             (beginreader
+                                                                             (readchunker
+                                                                             (linefeed fulltempread)))))))))
+                                                           rulenamegenerator = (sequence $ L.replicate 1 ['A'..'Z']) 
+                                                                            ++ (sequence $ L.replicate 2 ['A'..'Z']) 
+                                                                            ++ (sequence $ L.replicate 3 ['A'..'Z'])
+                                                           ----------------------
                          
                          --Print the result of finaldictionarylist.
                          IO.writeFile "out.dic" $
