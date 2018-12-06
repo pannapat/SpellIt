@@ -24,7 +24,7 @@ def getAffixes(language_list):
 		paradigms_list_json = raw_paradigms.json()
 		paradigms_list = paradigms_list_json["paradigms"]
 
-		words_file = open("./Testing/testScripts/words"+str(index)+".txt","w+")
+		words_file = open(os.path.join(os.path.dirname(__file__),'Testing','testScripts','words'+str(index)+".txt"),"w+")
 		for paradigm in paradigms_list:
 			ROOT_PARAMS = {"paradigm_name": paradigm}
 			raw_roots = requests.post(url = rootURL, json = ROOT_PARAMS)
@@ -43,11 +43,11 @@ def getAffixes(language_list):
 		raw_affix = requests.post(url = affixURL, json = LANG_PARAMS)
 		affix_data = raw_affix.json()
 		
-		affix_file = open("./Testing/testScripts/out"+str(index)+".aff","w+")
+		affix_file = open(os.path.join(os.path.dirname(__file__),'Testing','testScripts',"out"+str(index)+".aff"),"w+")
 		affix_file.write(affix_data["affix_file"])
 		affix_file.close()
 		
-		dic_file = open("./Testing/testScripts/out"+str(index)+".dic","w+")
+		dic_file = open(os.path.join(os.path.dirname(__file__),'Testing','testScripts',"out"+str(index)+".dic"),"w+")
 		dic_file.write(affix_data["dic_file"])
 		dic_file.close()
 
