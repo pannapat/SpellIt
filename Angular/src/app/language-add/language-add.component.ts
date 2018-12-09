@@ -23,9 +23,16 @@ export class LanguageAddComponent implements OnInit {
   	this.data.addLanguage(this.languageName).subscribe(
       data => this.status = data
     );
+    this.goBack();
   }
 
   goBack(): void {
     this.location.back();
+  }
+
+  onKeydown(event) {
+    if (event.key === 'Enter') {
+      this.addLanguage();
+    }
   }
 }
