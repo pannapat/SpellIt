@@ -21,8 +21,8 @@ msgstr "Inserisci un nuovo paradigma"
 msgid "Paradigm Name"
 msgstr "Nome del paradigma"
 
-msgid "Slot list separated by commas e.g. slot1,slot2,slot3"
-msgstr "Tipi del paradigma separati da una virgola, es. tipo1, tipo2, tipo3"
+msgid "Slot"
+msgstr "Tipo"
 
 msgid "Root Words"
 msgstr "Primitive della parola"

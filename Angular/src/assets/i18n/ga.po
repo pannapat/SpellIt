@@ -31,8 +31,8 @@ msgstr "Paraidím Nua"
 msgid "Paradigm Name"
 msgstr "Ainm na Paraidíme"
 
-msgid "Slot list separated by commas e.g. slot1,slot2,slot3"
-msgstr "Liosta lipéad, scartha ag camóga, m.sh. lipéad1,lipéad2,lipéad3"
+msgid "Slot"
+msgstr "Lipéad"
 
 msgid "Root Words"
 msgstr "Fréamhfhocail"

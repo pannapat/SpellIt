@@ -21,8 +21,8 @@ msgstr "เพิ่มกระบวนทัศน์ใหม่"
 msgid "Paradigm Name"
 msgstr "ชื่อกระบวนทัศน์"
 
-msgid "Slot list separated by commas e.g. slot1,slot2,slot3"
-msgstr "รูปแบบต่างๆในกระบวนทัศน์ เขียนขั้นด้วยเครื่องหมายลูกน้ำ เช่น เอกพจน์,พหูพจน์"
+msgid "Slot"
+msgstr "รูปแบบ"
 
 msgid "Root Words"
 msgstr "รากศัพท์"

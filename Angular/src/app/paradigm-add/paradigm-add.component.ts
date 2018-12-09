@@ -11,7 +11,8 @@ import { Location } from '@angular/common';
 export class ParadigmAddComponent implements OnInit {
   language_id: string;
   paradigmName: string;
-  slotRawList: string;
+  slots: string[] = ['root'];
+  newSlot: string;
   constructor(
     private data: DataService, 
     private router: Router, 
@@ -22,12 +23,26 @@ export class ParadigmAddComponent implements OnInit {
   }
 
   addNewParadigm() {
+    if (this.newSlot !== '') {
+      this.addNewSlot(this.newSlot);
+    }
     this.data
-      .addParadigm(this.paradigmName, this.slotRawList.split(","))
+      .addParadigm(this.paradigmName, this.slots)
       .subscribe();
   }
 
   goBack(): void {
     this.location.back();
+  }
+
+  onKeydown(event, newSlot) {
+    if (event.key === 'Enter') {
+      this.addNewSlot(newSlot);
+    }
+  }
+
+  addNewSlot(newSlot: string) {
+    this.slots.push(newSlot);
+    this.newSlot = '';
   }
 }

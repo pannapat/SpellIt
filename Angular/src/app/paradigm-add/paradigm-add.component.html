@@ -14,11 +14,23 @@
       <input matInput placeholder="{{ 'Paradigm Name' | translate }}" [(ngModel)]="paradigmName">
     </mat-form-field>
   </div>
-  <div class="mat-card-content">
+  <ul>
+    <li *ngFor="let slot of slots; let index = index" class="root-item-container">
+      <div class="root-item clickable-cursor">
+        <a>{{ slot }}</a> 
+      </div> 
+      <!-- <div (click)="deleteWord(index)" class="root-delete">
+        <a>
+          <i class="material-icons">delete</i>
+        </a>
+      </div> -->
+    </li>
+    <li class="root-item-container">
       <mat-form-field>
-        <input matInput placeholder="{{ 'Slot list separated by commas e.g. slot1,slot2,slot3' | translate }}" [(ngModel)]="slotRawList">
+        <input matInput placeholder="{{ 'Slot' | translate }}" [(ngModel)]="newSlot" (keydown)="onKeydown($event, newSlot)">
       </mat-form-field>
-  </div>
+    </li>
+  </ul>
 
   <div class="mat-card-actions">
     <button mat-button routerLink=".." (click)="addNewParadigm()">

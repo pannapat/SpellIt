@@ -21,7 +21,7 @@ msgstr ""
 msgid "Paradigm Name"
 msgstr ""
 
-msgid "Slot list separated by commas e.g. slot1,slot2,slot3"
+msgid "Slot"
 msgstr ""
 
 msgid "Root Words"
