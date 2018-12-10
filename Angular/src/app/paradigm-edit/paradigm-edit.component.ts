@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
 import { DataService } from '../data.service';
@@ -10,14 +10,14 @@ import { DataService } from '../data.service';
   styleUrls: ['./paradigm-edit.component.scss']
 })
 export class ParadigmEditComponent implements OnInit {
+  @ViewChild('addRootWordLink') addNewRootWordEl:ElementRef;
   objectKeys = Object.keys;
   paradigm_name: string;
   selectedWord: number;
   slots$: Array<string>;
-  roots$: Object;
+  roots$: Array<any>;
   forms$: Object;
   words: Array<string>;
-
   constructor(
   	private data: DataService,
   	private route: ActivatedRoute,
@@ -62,7 +62,7 @@ export class ParadigmEditComponent implements OnInit {
   onSelectNew(): void {
 	  var x;
 	  for (x in this.slots$){
-	  	this.forms$[this.slots$[x]]=this.slots$[x];
+	  	this.forms$[this.slots$[x]]= "";
 	  }
   }
 
@@ -76,13 +76,18 @@ export class ParadigmEditComponent implements OnInit {
   	}
   	this.data.addParadigmWords(this.forms$["root"], words).subscribe();
   	this.data.getParadigmRoots(this.paradigm_name).subscribe(
-      	data => this.roots$ = data["paradigm_roots"]);
+      data => this.roots$ = data["paradigm_roots"]);
+    
+      this.addNewRootWordEl.nativeElement.focus()
   }
 
   //function to delete a given word
-  deleteWord(word: number): void{
-    if (confirm("Are you sure you want to delete the word: " + this.roots$[word]+ "?")){
-      this.data.deleteWord(this.roots$[word]).subscribe();
+  deleteWord(wordIndex: number): void{
+    if (confirm("Are you sure you want to delete the word: " + this.roots$[wordIndex]+ "?")){
+      this.data.deleteWord(this.roots$[wordIndex]).subscribe(() => {
+        this.roots$.splice(wordIndex, 1);
+      }
+      );
     }
   }
 

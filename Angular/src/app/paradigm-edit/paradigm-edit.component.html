@@ -20,6 +20,12 @@
 		<div class="scroll-container">
 			<h2> {{ 'Root Words' | translate }} </h2> 
 			<ul>
+			<li>
+				<a (click)="onSelectNew()" class="clickable-cursor" id="add-root-word-link">
+					<i class="material-icons">add_circle_outline</i> 
+					{{ 'Add a New Root' | translate }}
+				</a>
+			</li>
 			<li *ngFor="let root of roots$; let index = index" class="root-item-container">
 				<div (click)="onSelect(index)" class="root-item clickable-cursor">
 					<a>{{ root }}</a> 
@@ -30,12 +36,6 @@
 					</a>
 				</div>
 			</li>
-			<li>
-				<a (click)="onSelectNew()" class="clickable-cursor">
-					<i class="material-icons">add_circle_outline</i> 
-					{{ 'Add a New Root' | translate }}
-				</a>
-			</li>
 			</ul>
 		</div>
 	</div>
@@ -44,20 +44,20 @@
 				<div class="word-column"><h2> {{ 'Word Forms' | translate }} </h2></div> 
 				<div class="paradigm-column column-container">
 					<h2 class = "two-column"> {{ 'Paradigm Forms' | translate }} </h2>
-					<div class="right-align">
-						<button (click)="onSave()" class="button" title="Save Word">
-							<i class="material-icons">save</i>
-						</button>
-					</div>
 				</div>
 		</div>
 		<div class="scroll-container">
 			<ul>
 		  		<li *ngFor="let slot of slots$; let index = index" class="column-container">
-		    		<input class ="input-text word-column" [(ngModel)]="forms$[slot]" placeholder="{{forms$[slot]}}"> 
+		    		<input class ="input-text word-column" [(ngModel)]="forms$[slot]" placeholder="{{forms$[slot]}}" #addRootWordLink> 
 		    		<a class="paradigm-column">{{ slot }}</a>
 				</li>
 			</ul>
+		</div>
+		<div style="text-align: right">
+			<button (click)="onSave()" class="button" title="Save Word">
+				<i class="material-icons">save</i>
+			</button>
 		</div>
 	</div>
 </div>
